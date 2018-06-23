@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="安装步骤1.安装dockerdocker安装地址：https://www.docker.com/get-docker注册的时候可能会需要翻墙 2.启动dockermac右上角点docker图标启动 3.用docker安装tensorflow首次运行会安装tensorflow image服务，速度可能会比较慢;最后打开http://localhost:8888就可以使用jupyter noteboo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-23T08:00:08.853Z">
+<meta property="og:updated_time" content="2018-06-23T08:03:43.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tensorflowInstallation">
 <meta name="twitter:description" content="安装步骤1.安装dockerdocker安装地址：https://www.docker.com/get-docker注册的时候可能会需要翻墙 2.启动dockermac右上角点docker图标启动 3.用docker安装tensorflow首次运行会安装tensorflow image服务，速度可能会比较慢;最后打开http://localhost:8888就可以使用jupyter noteboo">
@@ -126,7 +126,8 @@
 <h2 id="2-启动docker"><a href="#2-启动docker" class="headerlink" title="2.启动docker"></a>2.启动docker</h2><p>mac右上角点docker图标启动</p>
 <h2 id="3-用docker安装tensorflow"><a href="#3-用docker安装tensorflow" class="headerlink" title="3.用docker安装tensorflow"></a>3.用docker安装tensorflow</h2><p>首次运行会安装tensorflow image服务，速度可能会比较慢;最后打开<a href="http://localhost:8888就可以使用jupyter" target="_blank" rel="noopener">http://localhost:8888就可以使用jupyter</a> notebook<br>python2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 tensorflow/tensorflow</span><br></pre></td></tr></table></figure></p>
 <p>python3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 tensorflow/tensorflow:latest-py3</span><br></pre></td></tr></table></figure></p>
-<h2 id="4-停止-启动容器"><a href="#4-停止-启动容器" class="headerlink" title="4.停止/启动容器"></a>4.停止/启动容器</h2><p>停止：control+c 停止容器<br>启动：<br>    docker ps -a  查看容器ID;<br>    docker start -i (跟上面查到的容器ID)</p>
+<h2 id="4-停止-启动容器"><a href="#4-停止-启动容器" class="headerlink" title="4.停止/启动容器"></a>4.停止/启动容器</h2><p>停止：control+c 停止容器<br>启动：<br>查看容器ID<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></p>
+<p>运行容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start -i (跟上面查到的容器ID)</span><br></pre></td></tr></table></figure></p>
 <h2 id="5-jupyter读取（挂载）本地文件"><a href="#5-jupyter读取（挂载）本地文件" class="headerlink" title="5.jupyter读取（挂载）本地文件"></a>5.jupyter读取（挂载）本地文件</h2><p>python2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 -v 本地文件夹的绝对路径:jupyter路径 tensorflow/tensorflow</span><br></pre></td></tr></table></figure></p>
 <p>python3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 -v ~/tensorflow:/notebooks tensorflow/tensorflow:latest-py3</span><br></pre></td></tr></table></figure></p>
 <h2 id="6-异常处理"><a href="#6-异常处理" class="headerlink" title="6.异常处理"></a>6.异常处理</h2><p>可能会提示端口被占用，是因为挂载需要在CONTAINER创建时挂载；<br>这时候需要先执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></p>
@@ -137,7 +138,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2018/06/09/tensorflowInstallation-md/" data-id="cjir45eyl00014lc90s05fti5" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2018/06/09/tensorflowInstallation-md/" data-id="cjir4bilx00016gc9ej4sg6ma" class="article-share-link">Share</a>
       
 
       

@@ -99,6 +99,59 @@
   
 
     
+    <article id="post-tensorflowInstallation-md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/09/tensorflowInstallation-md/" class="article-date">
+  <time datetime="2018-06-09T00:04:12.000Z" itemprop="datePublished">2018-06-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/09/tensorflowInstallation-md/">tensorflowInstallation</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h2 id="1-安装docker"><a href="#1-安装docker" class="headerlink" title="1.安装docker"></a>1.安装docker</h2><p>docker安装地址：<a href="https://www.docker.com/get-docker" target="_blank" rel="noopener">https://www.docker.com/get-docker</a><br>注册的时候可能会需要翻墙</p>
+<h2 id="2-启动docker"><a href="#2-启动docker" class="headerlink" title="2.启动docker"></a>2.启动docker</h2><p>mac右上角点docker图标启动</p>
+<h2 id="3-用docker安装tensorflow"><a href="#3-用docker安装tensorflow" class="headerlink" title="3.用docker安装tensorflow"></a>3.用docker安装tensorflow</h2><p>首次运行会安装tensorflow image服务，速度可能会比较慢;最后打开<a href="http://localhost:8888就可以使用jupyter" target="_blank" rel="noopener">http://localhost:8888就可以使用jupyter</a> notebook<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 tensorflow/tensorflow</span><br></pre></td></tr></table></figure></p>
+<p>用python3安装tensorflow<br>docker run -it -p 8888:8888 tensorflow/tensorflow:latest-py3</p>
+<h2 id="4-停止-启动容器"><a href="#4-停止-启动容器" class="headerlink" title="4.停止/启动容器"></a>4.停止/启动容器</h2><p>停止：control+c 停止容器<br>启动：<br>    docker ps -a  查看容器ID;<br>    docker start -i (跟上面查到的容器ID)</p>
+<h2 id="5-jupyter读取（挂载）本地文件"><a href="#5-jupyter读取（挂载）本地文件" class="headerlink" title="5.jupyter读取（挂载）本地文件"></a>5.jupyter读取（挂载）本地文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 -v 本地文件夹的绝对路径:jupyter路径 tensorflow/tensorflow</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 -v ~/tensorflow:/notebooks tensorflow/tensorflow:latest-py3</span><br></pre></td></tr></table></figure>
+<h2 id="6-异常处理"><a href="#6-异常处理" class="headerlink" title="6.异常处理"></a>6.异常处理</h2><p>可能会提示端口被占用，是因为挂载需要在CONTAINER创建时挂载；<br>这时候需要先执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></p>
+<p>查看所有CONTAINER，然后删除所有CONTAINER<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm (跟上面查到的容器ID）</span><br></pre></td></tr></table></figure></p>
+<h2 id="7-jupyter执行终端命令"><a href="#7-jupyter执行终端命令" class="headerlink" title="7.jupyter执行终端命令"></a>7.jupyter执行终端命令</h2><p>在命令前加!即可，如!ls</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2018/06/09/tensorflowInstallation-md/" data-id="cjir3vj3i000022c9dyasvbnr" class="article-share-link">Share</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/installation/">installation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tensorflow/">tensorflow</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+    
+  
+
+    
     <article id="post-tensorflowInstallation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/09/tensorflowInstallation/" class="article-date">
@@ -123,9 +176,11 @@
       
         <h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h2 id="1-安装docker"><a href="#1-安装docker" class="headerlink" title="1.安装docker"></a>1.安装docker</h2><p>docker安装地址：<a href="https://www.docker.com/get-docker" target="_blank" rel="noopener">https://www.docker.com/get-docker</a><br>注册的时候可能会需要翻墙</p>
 <h2 id="2-启动docker"><a href="#2-启动docker" class="headerlink" title="2.启动docker"></a>2.启动docker</h2><p>mac右上角点docker图标启动</p>
-<h2 id="3-用docker安装jpyter-notebook"><a href="#3-用docker安装jpyter-notebook" class="headerlink" title="3.用docker安装jpyter notebook"></a>3.用docker安装jpyter notebook</h2><p>首次运行会安装tensorflow image服务，速度可能会比较慢;最后打开<a href="http://localhost:8888就可以使用jupyter" target="_blank" rel="noopener">http://localhost:8888就可以使用jupyter</a> notebook<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 tensorflow/tensorflow</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-用docker安装tensorflow"><a href="#3-用docker安装tensorflow" class="headerlink" title="3.用docker安装tensorflow"></a>3.用docker安装tensorflow</h2><p>首次运行会安装tensorflow image服务，速度可能会比较慢;最后打开<a href="http://localhost:8888就可以使用jupyter" target="_blank" rel="noopener">http://localhost:8888就可以使用jupyter</a> notebook<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 tensorflow/tensorflow</span><br></pre></td></tr></table></figure></p>
+<p>用python3安装tensorflow<br>docker run -it -p 8888:8888 tensorflow/tensorflow:latest-py3</p>
 <h2 id="4-停止-启动容器"><a href="#4-停止-启动容器" class="headerlink" title="4.停止/启动容器"></a>4.停止/启动容器</h2><p>停止：control+c 停止容器<br>启动：<br>    docker ps -a  查看容器ID;<br>    docker start -i (跟上面查到的容器ID)</p>
 <h2 id="5-jupyter读取（挂载）本地文件"><a href="#5-jupyter读取（挂载）本地文件" class="headerlink" title="5.jupyter读取（挂载）本地文件"></a>5.jupyter读取（挂载）本地文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 -v 本地文件夹的绝对路径:jupyter路径 tensorflow/tensorflow</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 -v ~/tensorflow:/notebooks tensorflow/tensorflow:latest-py3</span><br></pre></td></tr></table></figure>
 <h2 id="6-异常处理"><a href="#6-异常处理" class="headerlink" title="6.异常处理"></a>6.异常处理</h2><p>可能会提示端口被占用，是因为挂载需要在CONTAINER创建时挂载；<br>这时候需要先执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></p>
 <p>查看所有CONTAINER，然后删除所有CONTAINER<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm (跟上面查到的容器ID）</span><br></pre></td></tr></table></figure></p>
 <h2 id="7-jupyter执行终端命令"><a href="#7-jupyter执行终端命令" class="headerlink" title="7.jupyter执行终端命令"></a>7.jupyter执行终端命令</h2><p>在命令前加!即可，如!ls</p>
@@ -134,7 +189,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2018/06/09/tensorflowInstallation/" data-id="cji8e4x6700016v6f0lt359p5" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2018/06/09/tensorflowInstallation/" data-id="cjir3vj3r000322c9dtl3nnh1" class="article-share-link">Share</a>
       
 
       
@@ -186,7 +241,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2018/03/22/hello-world/" data-id="cji8e4x6300006v6fde808l2u" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2018/03/22/hello-world/" data-id="cjir3vj3n000122c9it4gja0e" class="article-share-link">Share</a>
       
 
       

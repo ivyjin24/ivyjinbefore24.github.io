@@ -5,16 +5,20 @@
   
 
   
-  <title>数据分析归纳总结</title>
+  <title>tableau画桑基图 | 数据分析归纳总结</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="数据分析归纳总结">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="1.效果图2.数据准备文件1：包含数据层级关系，以及点位置 文件2：包含等级，T1,T2其中T1为-6到6之间，以0.25为间隔的等差数列，level=1时T2=T1，level=2时T2=T1+12，level=3时T2=T1+24等，依次类推。 文件一需要做的处理： position1_label：上一节点名称 position2_label：本节点名称 category：position1_">
+<meta name="keywords" content="桑基图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tableau画桑基图">
+<meta property="og:url" content="http://yoursite.com/2018/06/25/tableau画桑基图/index.html">
 <meta property="og:site_name" content="数据分析归纳总结">
+<meta property="og:description" content="1.效果图2.数据准备文件1：包含数据层级关系，以及点位置 文件2：包含等级，T1,T2其中T1为-6到6之间，以0.25为间隔的等差数列，level=1时T2=T1，level=2时T2=T1+12，level=3时T2=T1+24等，依次类推。 文件一需要做的处理： position1_label：上一节点名称 position2_label：本节点名称 category：position1_">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-24T11:57:06.147Z">
+<meta property="og:updated_time" content="2018-06-25T14:31:15.773Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据分析归纳总结">
+<meta name="twitter:title" content="tableau画桑基图">
+<meta name="twitter:description" content="1.效果图2.数据准备文件1：包含数据层级关系，以及点位置 文件2：包含等级，T1,T2其中T1为-6到6之间，以0.25为间隔的等差数列，level=1时T2=T1，level=2时T2=T1+12，level=3时T2=T1+24等，依次类推。 文件一需要做的处理： position1_label：上一节点名称 position2_label：本节点名称 category：position1_">
   
     <link rel="alternate" href="/atom.xml" title="数据分析归纳总结" type="application/atom+xml">
   
@@ -61,29 +65,77 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="categories-" class="article article-type-categories" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-tableau画桑基图" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/categories/index.html" class="article-date">
-  <time datetime="2018-06-24T11:57:06.147Z" itemprop="datePublished">2018-06-24</time>
+    <a href="/2018/06/25/tableau画桑基图/" class="article-date">
+  <time datetime="2018-06-25T12:34:22.000Z" itemprop="datePublished">2018-06-25</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tableau/">tableau</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      tableau画桑基图
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="1-效果图"><a href="#1-效果图" class="headerlink" title="1.效果图"></a>1.<a href="/images/demo.jpg">效果图</a></h1><h1 id="2-数据准备"><a href="#2-数据准备" class="headerlink" title="2.数据准备"></a>2.数据准备</h1><p>文件1：包含数据层级关系，以及点位置</p>
+<p>文件2：包含等级，T1,T2其中T1为-6到6之间，以0.25为间隔的等差数列，level=1时T2=T1，level=2时T2=T1+12，level=3时T2=T1+24等，依次类推。</p>
+<p>文件一需要做的处理：</p>
+<p>position1_label：上一节点名称</p>
+<p>position2_label：本节点名称</p>
+<p>category：position1_label-position2_label</p>
+<p>position2：<br>    对<strong>concat(level1,coalesce(level2,level1),coalesce(level3,level2,level1))</strong>进行排序（其中coalesce函数表示，取第一个不为空的值），level3为对应顺序，level2为在根据level1,level2计算的排序的均值（可能有小数，通过floor函数取整数），level1则为根据level1计算的均值。</p>
+<p>position1:<br>    在tableau中计算，公式为<strong>floor({fixed position1_label:avg(position2)})</strong>如果position1_label有重复值可能会出现对应不上的情况，可以通过同时取上其他值构建一个唯一的position1_label，比如level1，level2等。</p>
+<h1 id="3-数据处理"><a href="#3-数据处理" class="headerlink" title="3.数据处理"></a>3.数据处理</h1><p><strong>sigmoid</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1/(1+EXP(1)^-[T1])</span><br></pre></td></tr></table></figure></p>
+<p><strong>curve</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[position1] + (([position2]-[position1])*[sigmoid])</span><br></pre></td></tr></table></figure></p>
+<p><strong>points</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if  last()=0 then sum([T2]) end</span><br></pre></td></tr></table></figure></p>
+<p><strong>color</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if sum([T2])= -6 then &apos;gray&apos; </span><br><span class="line">elseif sum([T2])= 6 then &apos;orange&apos; </span><br><span class="line">elseif sum([T2])= 18 then &apos;blue&apos; </span><br><span class="line">elseif sum([T2])= 30 then &apos;green&apos; </span><br><span class="line">elseif sum([T2])= 42 then &apos;pink&apos; </span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<h1 id="4-看板操作"><a href="#4-看板操作" class="headerlink" title="4.看板操作"></a>4.看板操作</h1><p>将T1（设置为维度）,points（表计算如下）,level,category,position1_label,position2_label添加到标记中</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/categories/index.html" data-id="cjiu9p6lm000xv8c91qlikjb8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/tableau画桑基图/" data-id="cjiu9p6kv0006v8c9yaelbkha" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/桑基图/">桑基图</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2018/06/25/SQL时间处理/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          SQL时间函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/24/tableau/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">tableau小技巧</div>
+    </a>
+  
+</nav>
+
   
 </article>
 

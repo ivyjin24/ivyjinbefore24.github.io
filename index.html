@@ -88,13 +88,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-判断是否为素数、拆解质因数"><a href="#1-判断是否为素数、拆解质因数" class="headerlink" title="1.判断是否为素数、拆解质因数"></a>1.判断是否为素数、拆解质因数</h2><h3 id="1-1-判断是否为素数的函数"><a href="#1-1-判断是否为素数的函数" class="headerlink" title="1.1 判断是否为素数的函数"></a>1.1 判断是否为素数的函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def isPrime(n):</span><br><span class="line">    if n&lt;=1:</span><br><span class="line">        return False</span><br><span class="line">    for i in range(2,int(n/2)+1):</span><br><span class="line">        if n%i == 0:</span><br><span class="line">            return False</span><br><span class="line">        i += 1</span><br><span class="line">    return True</span><br></pre></td></tr></table></figure>
-<h3 id="1-2-输出1-100之间的素数"><a href="#1-2-输出1-100之间的素数" class="headerlink" title="1.2 输出1-100之间的素数"></a>1.2 输出1-100之间的素数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lst = []</span><br><span class="line">for i in range(1,100):</span><br><span class="line">    if isPrime(i)==True:</span><br><span class="line">        print(i,&apos;是素数&apos;)</span><br><span class="line">        lst.append(i)</span><br><span class="line">    else: </span><br><span class="line">        print(i,&quot;不是素数&quot;) </span><br><span class="line">print(lst)</span><br></pre></td></tr></table></figure>
-<h3 id="1-3-分解质因数"><a href="#1-3-分解质因数" class="headerlink" title="1.3 分解质因数"></a>1.3 分解质因数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">n = int(90)</span><br><span class="line">lst_1 = []</span><br><span class="line">def getChildren(n):</span><br><span class="line">    isZhishu = True</span><br><span class="line">    for i in range(2,int(math.sqrt(n+1)+1)):</span><br><span class="line">        if n%i == 0  and i != n:</span><br><span class="line">            lst_1.append(i)</span><br><span class="line">            isZhishu = False</span><br><span class="line">            getChildren(n/i)</span><br><span class="line">            break</span><br><span class="line">    if isZhishu:</span><br><span class="line">        lst_1.append(n)</span><br><span class="line">getChildren(n)</span><br><span class="line">print(lst_1)</span><br></pre></td></tr></table></figure>
+        <h2 id="1-判断是否为素数、拆解质因数"><a href="#1-判断是否为素数、拆解质因数" class="headerlink" title="1.判断是否为素数、拆解质因数"></a>1.判断是否为素数、拆解质因数</h2><h3 id="1-1-判断是否为素数的函数"><a href="#1-1-判断是否为素数的函数" class="headerlink" title="1.1 判断是否为素数的函数"></a>1.1 判断是否为素数的函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n&lt;=<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,int(n/<span class="number">2</span>)+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> n%i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-输出1-100之间的素数"><a href="#1-2-输出1-100之间的素数" class="headerlink" title="1.2 输出1-100之间的素数"></a>1.2 输出1-100之间的素数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lst = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">100</span>):</span><br><span class="line">    <span class="keyword">if</span> isPrime(i)==<span class="keyword">True</span>:</span><br><span class="line">        print(i,<span class="string">'是素数'</span>)</span><br><span class="line">        lst.append(i)</span><br><span class="line">    <span class="keyword">else</span>: </span><br><span class="line">        print(i,<span class="string">"不是素数"</span>) </span><br><span class="line">print(lst)</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-分解质因数"><a href="#1-3-分解质因数" class="headerlink" title="1.3 分解质因数"></a>1.3 分解质因数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">n = int(<span class="number">90</span>)</span><br><span class="line">lst_1 = []</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getChildren</span><span class="params">(n)</span>:</span></span><br><span class="line">    isZhishu = <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,int(math.sqrt(n+<span class="number">1</span>)+<span class="number">1</span>)):</span><br><span class="line">        <span class="keyword">if</span> n%i == <span class="number">0</span>  <span class="keyword">and</span> i != n:</span><br><span class="line">            lst_1.append(i)</span><br><span class="line">            isZhishu = <span class="keyword">False</span></span><br><span class="line">            getChildren(n/i)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> isZhishu:</span><br><span class="line">        lst_1.append(n)</span><br><span class="line">getChildren(n)</span><br><span class="line">print(lst_1)</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/01/用python实现常见算法/" data-id="cjj2yac1000092h6f95nkait1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/01/用python实现常见算法/" data-id="cjj2zbf7300098e6fxzzhjwii" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/判断素数/">-判断素数</a></li></ul>
@@ -144,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/25/SQL时间处理/" data-id="cjj2yac0n00002h6f80orgp7n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/SQL时间处理/" data-id="cjj2zbf6u00018e6fgqti4voi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hive/">hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间函数/">时间函数</a></li></ul>
@@ -199,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/25/tableau画桑基图/" data-id="cjj2yac0y00062h6fcibtw0ed" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/tableau画桑基图/" data-id="cjj2zbf7100068e6fxw7tq1d9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/桑基图/">桑基图</a></li></ul>
@@ -247,7 +247,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/24/tableau/" data-id="cjj2yac0x00052h6fv02udxcu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/24/tableau/" data-id="cjj2zbf6z00058e6fqcbkuwy1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tableau/">tableau</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/展示维度过多/">展示维度过多</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/筛选条件排序/">筛选条件排序</a></li></ul>
@@ -300,7 +300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/09/Tensorflow安装/" data-id="cjj2yac0r00012h6fv2kk49dg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/09/Tensorflow安装/" data-id="cjj2zbf6q00008e6f5d9eym48" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/installation/">installation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tensorflow/">tensorflow</a></li></ul>
@@ -347,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/22/hello-world/" data-id="cjj2yac0v00042h6fz9wbza7y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/22/hello-world/" data-id="cjj2zbf6y00048e6fe76ijp04" class="article-share-link">Share</a>
       
       
     </footer>

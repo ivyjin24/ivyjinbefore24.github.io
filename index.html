@@ -90,13 +90,15 @@
       
         <h1 id="1-导入包"><a href="#1-导入包" class="headerlink" title="1.导入包"></a>1.导入包</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
 <h1 id="2-数据准备"><a href="#2-数据准备" class="headerlink" title="2.数据准备"></a>2.数据准备</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X = np.random.randint(<span class="number">0</span>,<span class="number">100</span>,size=(<span class="number">50</span>,<span class="number">2</span>))</span><br><span class="line">X = np.array(X,dtype=float)</span><br><span class="line">plt.scatter(X[:,<span class="number">0</span>] ,X[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<h1 id="3-最值归一化"><a href="#3-最值归一化" class="headerlink" title="3.最值归一化"></a>3.最值归一化</h1><p>适用场景：有明显数据边界<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X[:,<span class="number">0</span>] = ((X[:,<span class="number">0</span>]) - np.min(X[:,<span class="number">0</span>])) / (np.max(X[:,<span class="number">0</span>]) - np.min(X[:,<span class="number">0</span>]))</span><br><span class="line">X[:,<span class="number">1</span>] = ((X[:,<span class="number">1</span>]) - np.min(X[:,<span class="number">1</span>])) / (np.max(X[:,<span class="number">1</span>]) - np.min(X[:,<span class="number">1</span>]))</span><br><span class="line">plt.scatter(X[:,<span class="number">0</span>] ,X[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
-<h1 id="4-均值方差归一化"><a href="#4-均值方差归一化" class="headerlink" title="4.均值方差归一化"></a>4.均值方差归一化</h1><p>适用场景：无明显数据边界<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X[:,<span class="number">0</span>] = ((X[:,<span class="number">0</span>]) - np.mean(X[:,<span class="number">0</span>])) / np.std(X[:,<span class="number">0</span>])</span><br><span class="line">X[:,<span class="number">1</span>] = ((X[:,<span class="number">1</span>]) - np.mean(X[:,<span class="number">1</span>])) / np.std(X[:,<span class="number">1</span>])</span><br><span class="line">plt.scatter(X[:,<span class="number">0</span>] ,X[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
+<h1 id="3-归一化处理"><a href="#3-归一化处理" class="headerlink" title="3.归一化处理"></a>3.归一化处理</h1><h2 id="3-1-最值归一化"><a href="#3-1-最值归一化" class="headerlink" title="3.1.最值归一化"></a>3.1.最值归一化</h2><p>适用场景：有明显数据边界<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X[:,<span class="number">0</span>] = ((X[:,<span class="number">0</span>]) - np.min(X[:,<span class="number">0</span>])) / (np.max(X[:,<span class="number">0</span>]) - np.min(X[:,<span class="number">0</span>]))</span><br><span class="line">X[:,<span class="number">1</span>] = ((X[:,<span class="number">1</span>]) - np.min(X[:,<span class="number">1</span>])) / (np.max(X[:,<span class="number">1</span>]) - np.min(X[:,<span class="number">1</span>]))</span><br><span class="line">plt.scatter(X[:,<span class="number">0</span>] ,X[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-2-均值方差归一化"><a href="#3-2-均值方差归一化" class="headerlink" title="3.2.均值方差归一化"></a>3.2.均值方差归一化</h2><p>适用场景：无明显数据边界<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X[:,<span class="number">0</span>] = ((X[:,<span class="number">0</span>]) - np.mean(X[:,<span class="number">0</span>])) / np.std(X[:,<span class="number">0</span>])</span><br><span class="line">X[:,<span class="number">1</span>] = ((X[:,<span class="number">1</span>]) - np.mean(X[:,<span class="number">1</span>])) / np.std(X[:,<span class="number">1</span>])</span><br><span class="line">plt.scatter(X[:,<span class="number">0</span>] ,X[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
+<h1 id="4-sklearn中的scaler"><a href="#4-sklearn中的scaler" class="headerlink" title="4.sklearn中的scaler"></a>4.sklearn中的scaler</h1><h2 id="4-1-数据准备"><a href="#4-1-数据准备" class="headerlink" title="4.1.数据准备"></a>4.1.数据准备</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sklearn</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据导入</span></span><br><span class="line">iris = datasets.load_iris()</span><br><span class="line">X = iris.data</span><br><span class="line">y = iris.target</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拆分训练数据集和测试数据集 </span></span><br><span class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> train_test_split</span><br><span class="line">X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=<span class="number">0.2</span>,random_state=<span class="number">666</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-利用scikit-learn中的StandardScaler"><a href="#4-2-利用scikit-learn中的StandardScaler" class="headerlink" title="4.2.利用scikit-learn中的StandardScaler"></a>4.2.利用scikit-learn中的StandardScaler</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line">StandardScaler = StandardScaler()</span><br><span class="line">StandardScaler.fit(X_train)</span><br><span class="line">StandardScaler.mean_</span><br><span class="line">StandardScaler.scale_</span><br><span class="line">X_train = StandardScaler.transform(X_train)</span><br><span class="line">X_test_standard = StandardScaler.transform(X_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用KNN模型运行数据</span></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line">knn_clf = KNeighborsClassifier(n_neighbors=<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line">knn_clf.fit(X_train,y_train)</span><br><span class="line"><span class="comment"># 模型评价</span></span><br><span class="line">knn_clf.score(X_test_standard,y_test)</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/08/数据归一化/" data-id="cjkl5y9kf000gtp6fj0mmhrcz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/08/数据归一化/" data-id="cjkl6of4g000bur6fbyq0g2vq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklearn/">sklearn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据归一化/">数据归一化</a></li></ul>
@@ -134,7 +136,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/08/numpy数组操作/" data-id="cjkl5y9k70007tp6fuqi8vaev" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/08/numpy数组操作/" data-id="cjkl6of4b0006ur6ftmattcxz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -174,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/07/sklearn中KNN算法封装/" data-id="cjkl5y9ke000ctp6fn9vt7i5z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/07/sklearn中KNN算法封装/" data-id="cjkl6of4j000gur6fk462g7mr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklean-KNN-算法/">sklean - KNN - 算法</a></li></ul>
@@ -218,7 +220,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/01/用python实现常见算法/" data-id="cjkl5y9ki000htp6ffcyde8s5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/01/用python实现常见算法/" data-id="cjkl6of4k000hur6f8tiq5ej9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/判断素数/">-判断素数</a></li></ul>
@@ -268,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/25/SQL时间处理/" data-id="cjkl5y9jy0001tp6fqbkqxsh2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/SQL时间处理/" data-id="cjkl6of460002ur6fs6mlauwq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hive/">hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间函数/">时间函数</a></li></ul>
@@ -323,7 +325,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/25/tableau画桑基图/" data-id="cjkl5y9kc000btp6f0dch6boz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/tableau画桑基图/" data-id="cjkl6of4h000cur6fv7k7b2hn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/桑基图/">桑基图</a></li></ul>
@@ -373,7 +375,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/24/tableau/" data-id="cjkl5y9k90008tp6fthqbsqnv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/24/tableau/" data-id="cjkl6of4d0007ur6f1tv6faxe" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tableau/">tableau</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/展示维度过多/">展示维度过多</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/筛选条件排序/">筛选条件排序</a></li></ul>
@@ -426,7 +428,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/09/Tensorflow安装/" data-id="cjkl5y9k20003tp6fygl1hs9n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/09/Tensorflow安装/" data-id="cjkl6of420000ur6f9ztak95m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/installation/">installation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tensorflow/">tensorflow</a></li></ul>
@@ -473,7 +475,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/22/hello-world/" data-id="cjkl5y9k60006tp6fwsd7b10w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/22/hello-world/" data-id="cjkl6of4f0008ur6fk0qxn1dq" class="article-share-link">Share</a>
       
       
     </footer>

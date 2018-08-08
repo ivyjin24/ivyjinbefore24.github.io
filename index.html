@@ -62,6 +62,82 @@
       <div class="outer">
         <section id="main">
   
+    <article id="jupter-数据归一化" class="article article-type-jupter" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/08/数据归一化/" class="article-date">
+  <time datetime="2018-08-07T16:09:35.000Z" itemprop="datePublished">2018-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/08/数据归一化/">数据归一化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-导入包"><a href="#1-导入包" class="headerlink" title="1.导入包"></a>1.导入包</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+<h1 id="2-数据准备"><a href="#2-数据准备" class="headerlink" title="2.数据准备"></a>2.数据准备</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X = np.random.randint(<span class="number">0</span>,<span class="number">100</span>,size=(<span class="number">50</span>,<span class="number">2</span>))</span><br><span class="line">X = np.array(X,dtype=float)</span><br><span class="line">plt.scatter(X[:,<span class="number">0</span>] ,X[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<h1 id="3-最值归一化"><a href="#3-最值归一化" class="headerlink" title="3.最值归一化"></a>3.最值归一化</h1><p>适用场景：有明显数据边界<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X[:,<span class="number">0</span>] = ((X[:,<span class="number">0</span>]) - np.min(X[:,<span class="number">0</span>])) / (np.max(X[:,<span class="number">0</span>]) - np.min(X[:,<span class="number">0</span>]))</span><br><span class="line">X[:,<span class="number">1</span>] = ((X[:,<span class="number">1</span>]) - np.min(X[:,<span class="number">1</span>])) / (np.max(X[:,<span class="number">1</span>]) - np.min(X[:,<span class="number">1</span>]))</span><br><span class="line">plt.scatter(X[:,<span class="number">0</span>] ,X[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
+<h1 id="4-均值方差归一化"><a href="#4-均值方差归一化" class="headerlink" title="4.均值方差归一化"></a>4.均值方差归一化</h1><p>适用场景：无明显数据边界<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X[:,<span class="number">0</span>] = ((X[:,<span class="number">0</span>]) - np.mean(X[:,<span class="number">0</span>])) / np.std(X[:,<span class="number">0</span>])</span><br><span class="line">X[:,<span class="number">1</span>] = ((X[:,<span class="number">1</span>]) - np.mean(X[:,<span class="number">1</span>])) / np.std(X[:,<span class="number">1</span>])</span><br><span class="line">plt.scatter(X[:,<span class="number">0</span>] ,X[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/08/数据归一化/" data-id="cjkl5s7uh000es46f6pdz9hp8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-numpy数组操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/08/numpy数组操作/" class="article-date">
+  <time datetime="2018-08-07T16:09:17.000Z" itemprop="datePublished">2018-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/08/numpy数组操作/">numpy数组操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/08/numpy数组操作/" data-id="cjkl5s7ub0005s46fwcjpfy6q" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-python实现KNN" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/07/python实现KNN/" class="article-date">
@@ -92,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/07/python实现KNN/" data-id="cjkjwf7l20004y46f6qauhitr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/07/python实现KNN/" data-id="cjkl5s7uc0006s46fe2e6x1yp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-KNN-算法/">python - KNN - 算法</a></li></ul>
@@ -136,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/01/用python实现常见算法/" data-id="cjkjwf7m50011y46f4z9kjnrs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/01/用python实现常见算法/" data-id="cjkl5s7uk000fs46fu2kb69gs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/判断素数/">-判断素数</a></li></ul>
@@ -186,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/25/SQL时间处理/" data-id="cjkjwf7l50006y46f4rdzom47" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/SQL时间处理/" data-id="cjkl5s7u00000s46fn3vd383t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hive/">hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间函数/">时间函数</a></li></ul>
@@ -241,7 +317,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/25/tableau画桑基图/" data-id="cjkjwf7m3000zy46fafyebnu5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/tableau画桑基图/" data-id="cjkl5s7uf000as46fjvo07tem" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/桑基图/">桑基图</a></li></ul>
@@ -291,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/24/tableau/" data-id="cjkjwf7ky0001y46fu614b262" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/24/tableau/" data-id="cjkl5s7ue0009s46f4t8bqb8i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tableau/">tableau</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/展示维度过多/">展示维度过多</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/筛选条件排序/">筛选条件排序</a></li></ul>
@@ -344,7 +420,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/09/Tensorflow安装/" data-id="cjkjwf7kv0000y46fsxx40b0u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/09/Tensorflow安装/" data-id="cjkl5s7u50001s46f92o2skxw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/installation/">installation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tensorflow/">tensorflow</a></li></ul>
@@ -391,7 +467,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/22/hello-world/" data-id="cjkjwf7l30005y46f18hk13nb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/22/hello-world/" data-id="cjkl5s7u90004s46fil88u06q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -453,6 +529,14 @@
       <ul>
         
           <li>
+            <a href="/2018/08/08/数据归一化/">数据归一化</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/08/numpy数组操作/">numpy数组操作</a>
+          </li>
+        
+          <li>
             <a href="/2018/08/07/python实现KNN/">python实现KNN</a>
           </li>
         
@@ -462,14 +546,6 @@
         
           <li>
             <a href="/2018/06/25/SQL时间处理/">SQL时间函数</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/25/tableau画桑基图/">tableau画桑基图</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/24/tableau/">tableau小技巧</a>
           </li>
         
       </ul>

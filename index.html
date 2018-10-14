@@ -62,6 +62,145 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-利用python进行数据分析学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/14/利用python进行数据分析学习笔记/" class="article-date">
+  <time datetime="2018-10-14T06:24:39.000Z" itemprop="datePublished">2018-10-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/14/利用python进行数据分析学习笔记/">利用python进行数据分析学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-全书概览"><a href="#1-全书概览" class="headerlink" title="1.全书概览"></a>1.全书概览</h2><p>《利用python进行数据分析》是用python做数据分析的一本入门读物，主要内容包括：环境搭建，数据加载，数据处理（numpy,pandas、数据聚合和分组运算），数据存储，数据可视化（matplotlib、pandas），和时间序列。</p>
+<h2 id="2-环境搭建"><a href="#2-环境搭建" class="headerlink" title="2.环境搭建"></a>2.环境搭建</h2><p>python可以在IDE、用电脑终端运行Ipython和jupyter Notebook…… jupyter Notebook对新手操作最友好<br>最方便的安装anaconda，在Environments中创建一个环境，然后就可以在Home里面launch一个jupyter Notebook了</p>
+<h2 id="3-数据加载"><a href="#3-数据加载" class="headerlink" title="3.数据加载"></a>3.数据加载</h2><h3 id="3-1-文本文件读取"><a href="#3-1-文本文件读取" class="headerlink" title="3.1. 文本文件读取"></a>3.1. 文本文件读取</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv() <span class="comment">#加载带分隔符的数据，默认分隔符为","</span></span><br><span class="line">pd.read_table() <span class="comment">#加载带分隔符的数据，默认分隔符为制表符("/t")</span></span><br><span class="line">pd.read_fwf <span class="comment">#加载固定列宽模式数据</span></span><br><span class="line">pd.read_clipboard <span class="comment">#可看做pd.read_table的剪贴板版</span></span><br></pre></td></tr></table></figure>
+<p>其中read_csv和read_table函数的参数主要有<br>header：用作列名的行号<br>index_col：用作索引的列标号或列名<br>names：用于结果的列名<br>skiprows：需要忽略的行数<br>na_values：一组用于替换NA的值<br>parser_date：将数据解析为日期<br>encoding：用于unicode的文字编码格式</p>
+<h3 id="3-2-Excel文件读取"><a href="#3-2-Excel文件读取" class="headerlink" title="3.2.Excel文件读取"></a>3.2.Excel文件读取</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xls_file = pd.ExcelFile(<span class="string">''</span>) <span class="comment">#输入文件名</span></span><br><span class="line">xls_file.sheet_names <span class="comment">#查询工作表名称</span></span><br><span class="line">table = xls_file.parse(<span class="string">''</span>) <span class="comment">#输入sheet名，读取某个sheet的数据</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-3-爬虫"><a href="#3-3-爬虫" class="headerlink" title="3.3.爬虫"></a>3.3.爬虫</h3><p>使用requests包，待整理</p>
+<h3 id="3-4-数据库"><a href="#3-4-数据库" class="headerlink" title="3.4.数据库"></a>3.4.数据库</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line"><span class="comment"># 建表</span></span><br><span class="line">query = <span class="string">"""</span></span><br><span class="line"><span class="string">create table test</span></span><br><span class="line"><span class="string">(a VARCHAR(20),b VARCHAR(20),</span></span><br><span class="line"><span class="string">c INTEGAR,d INTEGAR);"""</span></span><br><span class="line"><span class="comment"># 创建连接</span></span><br><span class="line">con =sqlite3.connect(<span class="string">':memory:'</span>)</span><br><span class="line"><span class="comment"># 执行</span></span><br><span class="line">con.execute(query)</span><br><span class="line">con.commit()</span><br><span class="line"><span class="comment"># 数据输入</span></span><br><span class="line">data = [(<span class="string">'a'</span>,<span class="string">'a'</span>,<span class="number">1</span>,<span class="number">1</span>),</span><br><span class="line">       (<span class="string">'b'</span>,<span class="string">'b'</span>,<span class="number">2</span>,<span class="number">2</span>)]</span><br><span class="line">stmt = <span class="string">"Insert into test values(?,?,?,?)"</span></span><br><span class="line">con.executemany(stmt,data)</span><br><span class="line"><span class="comment"># 数据查询</span></span><br><span class="line">cursor = con.execute(<span class="string">'select * from test'</span>)</span><br><span class="line">rows = cursor.fetchall()</span><br><span class="line"><span class="comment"># 将数据库取数结果传给DataFrame</span></span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> DataFrame,Series</span><br><span class="line">DataFrame(rows,columns = zip(*cursor.description)[<span class="number">0</span>]) <span class="comment">#运行会报错</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-数据处理"><a href="#4-数据处理" class="headerlink" title="4.数据处理"></a>4.数据处理</h2><h3 id="4-1-Numpy"><a href="#4-1-Numpy" class="headerlink" title="4.1.Numpy"></a>4.1.Numpy</h3><p>4.1.1 数组创建函数<br>array：将输入数据转化为ndarray<br>asarray：将输入转化为dnarray，如果本身是一个ndarray就不进行复制<br>np.arrange：接reshape限制形状<br>ones、one_like：根据指定形状创建一个全是1的数据<br>zeros、zeros_like：根据指定形状创建一个全是零的数据<br>empty、empty_like：创建指定形状的空数组<br>eye、identity：创建一个正方形的N*N单位矩阵（对角线为1，其余为零）<br>4.1.2 ufunc<br>一元<br>ceil：大于等于该值的最小整数<br>floor：小于等于该值得最大整数<br>modf：将数组的整数和小数部分以两个独立的数组的形式返回<br>二元<br>subtract：从第一个数组中，减去第二个数组中的元素<br>power：将第一个数组中的元素A，根据第二个数组中的相应元素B，计算指数<br>copysign：将第二个数组中值的符号复制给第一个数组中的值<br>mod：元素级求模（除法的余数）<br>4.1.3 统计方法<br>sum\mean\std\var\min\max\argmin\argmax<br>cumsum(所有元素的累积和)\cumprod(所有元素的累计积)<br>numpy.linalg函数<br>dot：矩阵乘法<br>trace：对角线元素的和<br>inv：矩阵的逆<br>Pinv：矩阵的违逆<br>4.1.4 随机数生成：np.random<br>seed：确定随机数生成器的随机种子<br>randint\randn(正态分布，平均值为0，标准差为1)\binomial(二项式分布)\normal(正态（高斯）分布)<br><code>`</code></p>
+<h3 id="4-2-pandas"><a href="#4-2-pandas" class="headerlink" title="4.2 pandas"></a>4.2 pandas</h3><p>Series：定长的有序字典，在算术运算中会自动对齐不同索引的数据<br>DataFrame：<br>index方法<br>append\diff\intersection(交集)\union(并集)\insert\drop<br>约简方法的选项<br>axis：轴，0为行，1为列<br>skipna：排除缺失值<br>level：层次化索引的聚合维度</p>
+<h3 id="4-3-数据处理"><a href="#4-3-数据处理" class="headerlink" title="4.3 数据处理"></a>4.3 数据处理</h3><h3 id="4-4-数据存储"><a href="#4-4-数据存储" class="headerlink" title="4.4 数据存储"></a>4.4 数据存储</h3><p>pd.savetxt<br>pd.to_csv</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/14/利用python进行数据分析学习笔记/" data-id="cjn8iwnrz000a4pwbbi5pnf0m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据分析/">数据分析</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-逻辑回归模型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/09/逻辑回归模型/" class="article-date">
+  <time datetime="2018-09-09T07:31:40.000Z" itemprop="datePublished">2018-09-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/sklearn/">sklearn</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/09/逻辑回归模型/">逻辑回归模型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-实现逻辑回归算法"><a href="#1-实现逻辑回归算法" class="headerlink" title="1.实现逻辑回归算法"></a>1.实现逻辑回归算法</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/09/逻辑回归模型/" data-id="cjn8iwnsa000q4pwb7q5pyaqe" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LR/">LR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-逻辑回归" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/26/逻辑回归/" class="article-date">
+  <time datetime="2018-08-26T09:08:03.000Z" itemprop="datePublished">2018-08-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/sklearn/">sklearn</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/26/逻辑回归/">逻辑回归</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-逻辑回归的原理"><a href="#1-逻辑回归的原理" class="headerlink" title="1. 逻辑回归的原理"></a>1. 逻辑回归的原理</h1><p>1 / (1+e^(-x))</p>
+<h1 id="2-损失函数"><a href="#2-损失函数" class="headerlink" title="2. 损失函数"></a>2. 损失函数</h1><p>if y=0 then cost = -log(1-p_hat)<br>if y=1 then cost = -log(p_hat)</p>
+<p>即cost = - y<em>log(p_hat) - (1-y)</em>log(1-p_hat)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/26/逻辑回归/" data-id="cjn8iwns6000j4pwbmve9zxna" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sigmoid/">sigmoid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/逻辑回归/">逻辑回归</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="jupter-数据归一化" class="article article-type-jupter" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/08/数据归一化/" class="article-date">
@@ -98,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/08/数据归一化/" data-id="cjkl6q2s9000hv46flbayposr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/08/数据归一化/" data-id="cjn8iwns1000e4pwb9qma2mov" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklearn/">sklearn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据归一化/">数据归一化</a></li></ul>
@@ -136,7 +275,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/08/numpy数组操作/" data-id="cjkl6q2ru0002v46f301bmaye" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/08/numpy数组操作/" data-id="cjn8iwnrs00044pwbfb32s9h1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -176,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/07/sklearn中KNN算法封装/" data-id="cjkl6q2s00007v46fwu83rsuk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/07/sklearn中KNN算法封装/" data-id="cjn8iwnru00054pwbiql052le" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklean-KNN-算法/">sklean - KNN - 算法</a></li></ul>
@@ -220,7 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/01/用python实现常见算法/" data-id="cjkl6q2s6000gv46fhverteoj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/01/用python实现常见算法/" data-id="cjn8iwns4000f4pwbidj5y8v8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/判断素数/">-判断素数</a></li></ul>
@@ -270,7 +409,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/25/SQL时间处理/" data-id="cjkl6q2s10008v46ffhk1u7p6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/SQL时间处理/" data-id="cjn8iwnrj00004pwbpjc0xrs6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hive/">hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间函数/">时间函数</a></li></ul>
@@ -325,7 +464,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/25/tableau画桑基图/" data-id="cjkl6q2s3000bv46fw4ow21hs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/tableau画桑基图/" data-id="cjn8iwnrx00094pwbmo9wrbn3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/桑基图/">桑基图</a></li></ul>
@@ -375,7 +514,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/24/tableau/" data-id="cjkl6q2ry0006v46frq12qz2p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/24/tableau/" data-id="cjn8iwnrv00064pwbqb4l4rhz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tableau/">tableau</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/展示维度过多/">展示维度过多</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/筛选条件排序/">筛选条件排序</a></li></ul>
@@ -387,105 +526,12 @@
 
 
   
-    <article id="post-Tensorflow安装" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/09/Tensorflow安装/" class="article-date">
-  <time datetime="2018-06-09T00:04:12.000Z" itemprop="datePublished">2018-06-09</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tensorflow/">tensorflow</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/09/Tensorflow安装/">tensorflow安装</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-安装docker"><a href="#1-安装docker" class="headerlink" title="1.安装docker"></a>1.安装docker</h2><p>docker安装地址：<a href="https://www.docker.com/get-docker" target="_blank" rel="noopener">https://www.docker.com/get-docker</a><br>注册的时候可能会需要翻墙</p>
-<h2 id="2-启动docker"><a href="#2-启动docker" class="headerlink" title="2.启动docker"></a>2.启动docker</h2><p>mac右上角点docker图标启动</p>
-<h2 id="3-用docker安装tensorflow"><a href="#3-用docker安装tensorflow" class="headerlink" title="3.用docker安装tensorflow"></a>3.用docker安装tensorflow</h2><p>首次运行会安装tensorflow image服务，速度可能会比较慢;最后打开<a href="http://localhost:8888就可以使用jupyter" target="_blank" rel="noopener">http://localhost:8888就可以使用jupyter</a> notebook<br>python2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 tensorflow/tensorflow</span><br></pre></td></tr></table></figure></p>
-<p>python3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 tensorflow/tensorflow:latest-py3</span><br></pre></td></tr></table></figure></p>
-<h2 id="4-停止-启动容器"><a href="#4-停止-启动容器" class="headerlink" title="4.停止/启动容器"></a>4.停止/启动容器</h2><p>停止：control+c 停止容器<br>启动：<br>查看容器ID<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></p>
-<p>运行容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start -i (跟上面查到的容器ID)</span><br></pre></td></tr></table></figure></p>
-<h2 id="5-jupyter读取（挂载）本地文件"><a href="#5-jupyter读取（挂载）本地文件" class="headerlink" title="5.jupyter读取（挂载）本地文件"></a>5.jupyter读取（挂载）本地文件</h2><p>python2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 -v 本地文件夹的绝对路径:jupyter路径 tensorflow/tensorflow</span><br></pre></td></tr></table></figure></p>
-<p>python3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 -v ~/tensorflow:/notebooks tensorflow/tensorflow:latest-py3</span><br></pre></td></tr></table></figure></p>
-<h2 id="6-异常处理"><a href="#6-异常处理" class="headerlink" title="6.异常处理"></a>6.异常处理</h2><p>可能会提示端口被占用，是因为挂载需要在CONTAINER创建时挂载；<br>这时候需要先执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></p>
-<p>查看所有CONTAINER，然后删除所有CONTAINER<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm (跟上面查到的容器ID）</span><br></pre></td></tr></table></figure></p>
-<h2 id="7-jupyter执行终端命令"><a href="#7-jupyter执行终端命令" class="headerlink" title="7.jupyter执行终端命令"></a>7.jupyter执行终端命令</h2><p>在命令前加!即可，如!ls</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/09/Tensorflow安装/" data-id="cjkl6q2rq0000v46fdxp0ehwo" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/installation/">installation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tensorflow/">tensorflow</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/22/hello-world/" class="article-date">
-  <time datetime="2018-03-22T13:58:43.716Z" itemprop="datePublished">2018-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/22/hello-world/" data-id="cjkl6q2s4000cv46fhva4up7f" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -505,7 +551,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/判断素数/">-判断素数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/installation/">installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sklean-KNN-算法/">sklean - KNN - 算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sklearn/">sklearn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tableau/">tableau</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorflow/">tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/展示维度过多/">展示维度过多</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据归一化/">数据归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时间函数/">时间函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/桑基图/">桑基图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/筛选条件排序/">筛选条件排序</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/判断素数/">-判断素数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LR/">LR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/installation/">installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sigmoid/">sigmoid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sklean-KNN-算法/">sklean - KNN - 算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sklearn/">sklearn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tableau/">tableau</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorflow/">tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/展示维度过多/">展示维度过多</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据分析/">数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据归一化/">数据归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时间函数/">时间函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/桑基图/">桑基图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/筛选条件排序/">筛选条件排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/逻辑回归/">逻辑回归</a></li></ul>
     </div>
   </div>
 
@@ -515,7 +561,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/判断素数/" style="font-size: 10px;">-判断素数</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hive/" style="font-size: 10px;">hive</a> <a href="/tags/installation/" style="font-size: 10px;">installation</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/sklean-KNN-算法/" style="font-size: 10px;">sklean - KNN - 算法</a> <a href="/tags/sklearn/" style="font-size: 10px;">sklearn</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/tableau/" style="font-size: 10px;">tableau</a> <a href="/tags/tensorflow/" style="font-size: 10px;">tensorflow</a> <a href="/tags/展示维度过多/" style="font-size: 10px;">展示维度过多</a> <a href="/tags/数据归一化/" style="font-size: 10px;">数据归一化</a> <a href="/tags/时间函数/" style="font-size: 10px;">时间函数</a> <a href="/tags/桑基图/" style="font-size: 10px;">桑基图</a> <a href="/tags/筛选条件排序/" style="font-size: 10px;">筛选条件排序</a>
+      <a href="/tags/判断素数/" style="font-size: 10px;">-判断素数</a> <a href="/tags/LR/" style="font-size: 10px;">LR</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hive/" style="font-size: 10px;">hive</a> <a href="/tags/installation/" style="font-size: 10px;">installation</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/sigmoid/" style="font-size: 10px;">sigmoid</a> <a href="/tags/sklean-KNN-算法/" style="font-size: 10px;">sklean - KNN - 算法</a> <a href="/tags/sklearn/" style="font-size: 10px;">sklearn</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/tableau/" style="font-size: 10px;">tableau</a> <a href="/tags/tensorflow/" style="font-size: 10px;">tensorflow</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/展示维度过多/" style="font-size: 10px;">展示维度过多</a> <a href="/tags/数据分析/" style="font-size: 10px;">数据分析</a> <a href="/tags/数据归一化/" style="font-size: 10px;">数据归一化</a> <a href="/tags/时间函数/" style="font-size: 10px;">时间函数</a> <a href="/tags/桑基图/" style="font-size: 10px;">桑基图</a> <a href="/tags/筛选条件排序/" style="font-size: 10px;">筛选条件排序</a> <a href="/tags/逻辑回归/" style="font-size: 10px;">逻辑回归</a>
     </div>
   </div>
 
@@ -524,7 +570,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
     </div>
   </div>
 
@@ -537,23 +583,23 @@
       <ul>
         
           <li>
+            <a href="/2018/10/14/利用python进行数据分析学习笔记/">利用python进行数据分析学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/09/逻辑回归模型/">逻辑回归模型</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/26/逻辑回归/">逻辑回归</a>
+          </li>
+        
+          <li>
             <a href="/2018/08/08/数据归一化/">数据归一化</a>
           </li>
         
           <li>
             <a href="/2018/08/08/numpy数组操作/">numpy数组操作</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/07/sklearn中KNN算法封装/">sklearn中KNN算法封装</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/01/用python实现常见算法/">用python实现常见算法</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/25/SQL时间处理/">SQL时间函数</a>
           </li>
         
       </ul>

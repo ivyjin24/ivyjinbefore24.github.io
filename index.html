@@ -95,14 +95,14 @@
 <h3 id="3-2-Excel文件读取"><a href="#3-2-Excel文件读取" class="headerlink" title="3.2.Excel文件读取"></a>3.2.Excel文件读取</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xls_file = pd.ExcelFile(<span class="string">''</span>) <span class="comment">#输入文件名</span></span><br><span class="line">xls_file.sheet_names <span class="comment">#查询工作表名称</span></span><br><span class="line">table = xls_file.parse(<span class="string">''</span>) <span class="comment">#输入sheet名，读取某个sheet的数据</span></span><br></pre></td></tr></table></figure>
 <h3 id="3-3-爬虫"><a href="#3-3-爬虫" class="headerlink" title="3.3.爬虫"></a>3.3.爬虫</h3><p>使用requests包，待整理</p>
 <h3 id="3-4-数据库"><a href="#3-4-数据库" class="headerlink" title="3.4.数据库"></a>3.4.数据库</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line"><span class="comment"># 建表</span></span><br><span class="line">query = <span class="string">"""</span></span><br><span class="line"><span class="string">create table test</span></span><br><span class="line"><span class="string">(a VARCHAR(20),b VARCHAR(20),</span></span><br><span class="line"><span class="string">c INTEGAR,d INTEGAR);"""</span></span><br><span class="line"><span class="comment"># 创建连接</span></span><br><span class="line">con =sqlite3.connect(<span class="string">':memory:'</span>)</span><br><span class="line"><span class="comment"># 执行</span></span><br><span class="line">con.execute(query)</span><br><span class="line">con.commit()</span><br><span class="line"><span class="comment"># 数据输入</span></span><br><span class="line">data = [(<span class="string">'a'</span>,<span class="string">'a'</span>,<span class="number">1</span>,<span class="number">1</span>),</span><br><span class="line">       (<span class="string">'b'</span>,<span class="string">'b'</span>,<span class="number">2</span>,<span class="number">2</span>)]</span><br><span class="line">stmt = <span class="string">"Insert into test values(?,?,?,?)"</span></span><br><span class="line">con.executemany(stmt,data)</span><br><span class="line"><span class="comment"># 数据查询</span></span><br><span class="line">cursor = con.execute(<span class="string">'select * from test'</span>)</span><br><span class="line">rows = cursor.fetchall()</span><br><span class="line"><span class="comment"># 将数据库取数结果传给DataFrame</span></span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> DataFrame,Series</span><br><span class="line">DataFrame(rows,columns = zip(*cursor.description)[<span class="number">0</span>]) <span class="comment">#运行会报错</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-数据处理"><a href="#4-数据处理" class="headerlink" title="4.数据处理"></a>4.数据处理</h2><h3 id="4-1-Numpy"><a href="#4-1-Numpy" class="headerlink" title="4.1.Numpy"></a>4.1.Numpy</h3><p>4.1.1 数组创建函数<br>array：将输入数据转化为ndarray<br>asarray：将输入转化为dnarray，如果本身是一个ndarray就不进行复制<br>np.arrange：接reshape限制形状<br>ones、one_like：根据指定形状创建一个全是1的数据<br>zeros、zeros_like：根据指定形状创建一个全是零的数据<br>empty、empty_like：创建指定形状的空数组<br>eye、identity：创建一个正方形的N*N单位矩阵（对角线为1，其余为零）<br>4.1.2 ufunc<br>一元<br>ceil：大于等于该值的最小整数<br>floor：小于等于该值得最大整数<br>modf：将数组的整数和小数部分以两个独立的数组的形式返回<br>二元<br>subtract：从第一个数组中，减去第二个数组中的元素<br>power：将第一个数组中的元素A，根据第二个数组中的相应元素B，计算指数<br>copysign：将第二个数组中值的符号复制给第一个数组中的值<br>mod：元素级求模（除法的余数）<br>4.1.3 统计方法<br>sum\mean\std\var\min\max\argmin\argmax<br>cumsum(所有元素的累积和)\cumprod(所有元素的累计积)<br>numpy.linalg函数<br>dot：矩阵乘法<br>trace：对角线元素的和<br>inv：矩阵的逆<br>Pinv：矩阵的违逆<br>4.1.4 随机数生成：np.random<br>seed：确定随机数生成器的随机种子<br>randint\randn(正态分布，平均值为0，标准差为1)\binomial(二项式分布)\normal(正态（高斯）分布)<br><code>`</code></p>
+<h2 id="4-数据处理"><a href="#4-数据处理" class="headerlink" title="4.数据处理"></a>4.数据处理</h2><h3 id="4-1-Numpy"><a href="#4-1-Numpy" class="headerlink" title="4.1.Numpy"></a>4.1.Numpy</h3><p>4.1.1 数组创建函数<br>array：将输入数据转化为ndarray<br>asarray：将输入转化为dnarray，如果本身是一个ndarray就不进行复制<br>np.arrange：接reshape限制形状<br>ones、one_like：根据指定形状创建一个全是1的数据<br>zeros、zeros_like：根据指定形状创建一个全是零的数据<br>empty、empty_like：创建指定形状的空数组<br>eye、identity：创建一个正方形的N*N单位矩阵（对角线为1，其余为零）<br>4.1.2 ufunc<br>一元<br>ceil：大于等于该值的最小整数<br>floor：小于等于该值得最大整数<br>modf：将数组的整数和小数部分以两个独立的数组的形式返回<br>二元<br>subtract：从第一个数组中，减去第二个数组中的元素<br>power：将第一个数组中的元素A，根据第二个数组中的相应元素B，计算指数<br>copysign：将第二个数组中值的符号复制给第一个数组中的值<br>mod：元素级求模（除法的余数）<br>4.1.3 统计方法<br>sum\mean\std\var\min\max\argmin\argmax<br>cumsum(所有元素的累积和)\cumprod(所有元素的累计积)<br>numpy.linalg函数<br>dot：矩阵乘法<br>trace：对角线元素的和<br>inv：矩阵的逆<br>Pinv：矩阵的违逆<br>4.1.4 随机数生成：np.random<br>seed：确定随机数生成器的随机种子<br>randint\randn(正态分布，平均值为0，标准差为1)\binomial(二项式分布)\normal(正态（高斯）分布)</p>
 <h3 id="4-2-pandas"><a href="#4-2-pandas" class="headerlink" title="4.2 pandas"></a>4.2 pandas</h3><p>Series：定长的有序字典，在算术运算中会自动对齐不同索引的数据<br>DataFrame：<br>index方法<br>append\diff\intersection(交集)\union(并集)\insert\drop<br>约简方法的选项<br>axis：轴，0为行，1为列<br>skipna：排除缺失值<br>level：层次化索引的聚合维度</p>
 <h3 id="4-3-数据处理"><a href="#4-3-数据处理" class="headerlink" title="4.3 数据处理"></a>4.3 数据处理</h3><h3 id="4-4-数据存储"><a href="#4-4-数据存储" class="headerlink" title="4.4 数据存储"></a>4.4 数据存储</h3><p>pd.savetxt<br>pd.to_csv</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/14/利用python进行数据分析学习笔记/" data-id="cjn8iwnrz000a4pwbbi5pnf0m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/14/利用python进行数据分析学习笔记/" data-id="cjn8wcym5000gj5qhawdy869a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据分析/">数据分析</a></li></ul>
@@ -144,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/09/逻辑回归模型/" data-id="cjn8iwnsa000q4pwb7q5pyaqe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/09/逻辑回归模型/" data-id="cjn8wcymf000qj5qh5txb2c2j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LR/">LR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
@@ -189,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/26/逻辑回归/" data-id="cjn8iwns6000j4pwbmve9zxna" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/26/逻辑回归/" data-id="cjn8wcymd000mj5qhoihnr0ui" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sigmoid/">sigmoid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/逻辑回归/">逻辑回归</a></li></ul>
@@ -237,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/08/数据归一化/" data-id="cjn8iwns1000e4pwb9qma2mov" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/08/数据归一化/" data-id="cjn8wcym9000hj5qhjua2pnxl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklearn/">sklearn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据归一化/">数据归一化</a></li></ul>
@@ -275,7 +275,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/08/numpy数组操作/" data-id="cjn8iwnrs00044pwbfb32s9h1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/08/numpy数组操作/" data-id="cjn8wcylz0007j5qhiykyzu7v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -315,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/07/sklearn中KNN算法封装/" data-id="cjn8iwnru00054pwbiql052le" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/07/sklearn中KNN算法封装/" data-id="cjn8wcym10008j5qhfsm13wtn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklean-KNN-算法/">sklean - KNN - 算法</a></li></ul>
@@ -359,7 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/01/用python实现常见算法/" data-id="cjn8iwns4000f4pwbidj5y8v8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/01/用python实现常见算法/" data-id="cjn8wcymb000lj5qhpbxlrw13" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/判断素数/">-判断素数</a></li></ul>
@@ -409,7 +409,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/25/SQL时间处理/" data-id="cjn8iwnrj00004pwbpjc0xrs6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/SQL时间处理/" data-id="cjn8wcylt0003j5qhs4qfwi8u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hive/">hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间函数/">时间函数</a></li></ul>
@@ -464,7 +464,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/25/tableau画桑基图/" data-id="cjn8iwnrx00094pwbmo9wrbn3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/tableau画桑基图/" data-id="cjn8wcym4000cj5qhqs4lsviy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/桑基图/">桑基图</a></li></ul>
@@ -514,7 +514,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/24/tableau/" data-id="cjn8iwnrv00064pwbqb4l4rhz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/24/tableau/" data-id="cjn8wcym2000bj5qhsaq3q56h" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tableau/">tableau</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/展示维度过多/">展示维度过多</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/筛选条件排序/">筛选条件排序</a></li></ul>

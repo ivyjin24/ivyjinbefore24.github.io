@@ -62,6 +62,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-用python连接spark" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/16/用python连接spark/" class="article-date">
+  <time datetime="2018-10-15T16:20:38.000Z" itemprop="datePublished">2018-10-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/16/用python连接spark/">用python连接spark</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>倒腾了好久，终于实现用python连接spark了，为避免重复采坑，特别记录下</p>
+<h2 id="1-启动thriftserver"><a href="#1-启动thriftserver" class="headerlink" title="1.启动thriftserver"></a>1.启动thriftserver</h2><h3 id="1-1-在启动之前，需要安装spark-这次安装的是spark-2-3-2-bin-hadoop2-7-tgz-yarn-nodejs-JDK"><a href="#1-1-在启动之前，需要安装spark-这次安装的是spark-2-3-2-bin-hadoop2-7-tgz-yarn-nodejs-JDK" class="headerlink" title="1.1 在启动之前，需要安装spark(这次安装的是spark-2.3.2-bin-hadoop2.7.tgz),yarn,nodejs,JDK"></a>1.1 在启动之前，需要安装spark(这次安装的是spark-2.3.2-bin-hadoop2.7.tgz),yarn,nodejs,JDK</h3><p><a href="https://www.apache.org/dyn/closer.lua/spark/spark-2.3.2/spark-2.3.2-bin-hadoop2.7.tgz" target="_blank" rel="noopener">spark下载地址</a><br><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html" target="_blank" rel="noopener">JDK下载地址</a><br>由于之前安装了nodejs，所以安装yarn的时候只执行了sudo npm install yarn -g</p>
+<h3 id="1-2-操作步骤"><a href="#1-2-操作步骤" class="headerlink" title="1.2 操作步骤"></a>1.2 操作步骤</h3><p>切换到下载目录 -&gt; 执行【 tar -zxvf spark-2.3.2-bin-hadoop2.7.tgz 】 -&gt; 切换到$SPARK_HOME/sbin/ -&gt; 执行命令启动thriftserver<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./start-thriftserver.sh --master yarn --conf spark.driver.memory=3G --executor-memory 1G --num-executors 10</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-安装impyla"><a href="#2-安装impyla" class="headerlink" title="2.安装impyla"></a>2.安装impyla</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pip install six</span><br><span class="line">pip install bit_array</span><br><span class="line">pip install thriftpy   </span><br><span class="line"><span class="comment">## thrift (on Python 2.x) or thriftpy (on Python 3.x)</span></span><br><span class="line">pip install thrift_sasl</span><br><span class="line">pip install sasl</span><br><span class="line">pip install impyla</span><br><span class="line"> </span><br><span class="line"><span class="comment">## 注意：还需要安装另外一个模块，官网上并没有给出（for python3）：</span></span><br><span class="line">pip install git+https://github.com/laserson/python-sasl.git@cython</span><br></pre></td></tr></table></figure>
+<h2 id="3-连接"><a href="#3-连接" class="headerlink" title="3.连接"></a>3.连接</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> impala.dbapi <span class="keyword">import</span> connect</span><br><span class="line">conn = connect(host=<span class="string">''</span>, port=<span class="number">10001</span>, user=<span class="string">''</span>, password=<span class="string">''</span>, database=<span class="string">''</span>, auth_mechanism=<span class="string">'PLAIN'</span>)</span><br><span class="line">cursor = conn.cursor()</span><br><span class="line">cursor.execute(<span class="string">'SELECT * FROM t LIMIT 100'</span>)</span><br><span class="line">print(cursor.description)  <span class="comment"># prints the result set's schema</span></span><br><span class="line">results = cursor.fetchall()</span><br><span class="line">print(results)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/16/用python连接spark/" data-id="cjnaiux3o000foiwbn6ilk933" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-利用python进行数据分析学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/14/利用python进行数据分析学习笔记/" class="article-date">
@@ -97,12 +143,13 @@
 <h3 id="3-4-数据库"><a href="#3-4-数据库" class="headerlink" title="3.4.数据库"></a>3.4.数据库</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line"><span class="comment"># 建表</span></span><br><span class="line">query = <span class="string">"""</span></span><br><span class="line"><span class="string">create table test</span></span><br><span class="line"><span class="string">(a VARCHAR(20),b VARCHAR(20),</span></span><br><span class="line"><span class="string">c INTEGAR,d INTEGAR);"""</span></span><br><span class="line"><span class="comment"># 创建连接</span></span><br><span class="line">con =sqlite3.connect(<span class="string">':memory:'</span>)</span><br><span class="line"><span class="comment"># 执行</span></span><br><span class="line">con.execute(query)</span><br><span class="line">con.commit()</span><br><span class="line"><span class="comment"># 数据输入</span></span><br><span class="line">data = [(<span class="string">'a'</span>,<span class="string">'a'</span>,<span class="number">1</span>,<span class="number">1</span>),</span><br><span class="line">       (<span class="string">'b'</span>,<span class="string">'b'</span>,<span class="number">2</span>,<span class="number">2</span>)]</span><br><span class="line">stmt = <span class="string">"Insert into test values(?,?,?,?)"</span></span><br><span class="line">con.executemany(stmt,data)</span><br><span class="line"><span class="comment"># 数据查询</span></span><br><span class="line">cursor = con.execute(<span class="string">'select * from test'</span>)</span><br><span class="line">rows = cursor.fetchall()</span><br><span class="line"><span class="comment"># 将数据库取数结果传给DataFrame</span></span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> DataFrame,Series</span><br><span class="line">DataFrame(rows,columns = zip(*cursor.description)[<span class="number">0</span>]) <span class="comment">#运行会报错</span></span><br></pre></td></tr></table></figure>
 <h2 id="4-数据处理"><a href="#4-数据处理" class="headerlink" title="4.数据处理"></a>4.数据处理</h2><h3 id="4-1-Numpy"><a href="#4-1-Numpy" class="headerlink" title="4.1.Numpy"></a>4.1.Numpy</h3><p>4.1.1 数组创建函数<br>array：将输入数据转化为ndarray<br>asarray：将输入转化为dnarray，如果本身是一个ndarray就不进行复制<br>np.arrange：接reshape限制形状<br>ones、one_like：根据指定形状创建一个全是1的数据<br>zeros、zeros_like：根据指定形状创建一个全是零的数据<br>empty、empty_like：创建指定形状的空数组<br>eye、identity：创建一个正方形的N*N单位矩阵（对角线为1，其余为零）<br>4.1.2 ufunc<br>一元<br>ceil：大于等于该值的最小整数<br>floor：小于等于该值得最大整数<br>modf：将数组的整数和小数部分以两个独立的数组的形式返回<br>二元<br>subtract：从第一个数组中，减去第二个数组中的元素<br>power：将第一个数组中的元素A，根据第二个数组中的相应元素B，计算指数<br>copysign：将第二个数组中值的符号复制给第一个数组中的值<br>mod：元素级求模（除法的余数）<br>4.1.3 统计方法<br>sum\mean\std\var\min\max\argmin\argmax<br>cumsum(所有元素的累积和)\cumprod(所有元素的累计积)<br>numpy.linalg函数<br>dot：矩阵乘法<br>trace：对角线元素的和<br>inv：矩阵的逆<br>Pinv：矩阵的违逆<br>4.1.4 随机数生成：np.random<br>seed：确定随机数生成器的随机种子<br>randint\randn(正态分布，平均值为0，标准差为1)\binomial(二项式分布)\normal(正态（高斯）分布)</p>
 <h3 id="4-2-pandas"><a href="#4-2-pandas" class="headerlink" title="4.2 pandas"></a>4.2 pandas</h3><p>Series：定长的有序字典，在算术运算中会自动对齐不同索引的数据<br>DataFrame：<br>index方法<br>append\diff\intersection(交集)\union(并集)\insert\drop<br>约简方法的选项<br>axis：轴，0为行，1为列<br>skipna：排除缺失值<br>level：层次化索引的聚合维度</p>
-<h3 id="4-3-数据处理"><a href="#4-3-数据处理" class="headerlink" title="4.3 数据处理"></a>4.3 数据处理</h3><h3 id="4-4-数据存储"><a href="#4-4-数据存储" class="headerlink" title="4.4 数据存储"></a>4.4 数据存储</h3><p>pd.savetxt<br>pd.to_csv</p>
+<h3 id="4-3-数据处理"><a href="#4-3-数据处理" class="headerlink" title="4.3 数据处理"></a>4.3 数据处理</h3><p>python的数据处理，主要涉及</p>
+<h3 id="4-4-数据存储"><a href="#4-4-数据存储" class="headerlink" title="4.4 数据存储"></a>4.4 数据存储</h3><p>pd.savetxt<br>pd.to_csv</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/14/利用python进行数据分析学习笔记/" data-id="cjn8wcym5000gj5qhawdy869a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/14/利用python进行数据分析学习笔记/" data-id="cjnaiux3l000aoiwbnvke2we3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据分析/">数据分析</a></li></ul>
@@ -144,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/09/逻辑回归模型/" data-id="cjn8wcymf000qj5qh5txb2c2j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/09/逻辑回归模型/" data-id="cjnaiux3u000qoiwbudtwfuue" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LR/">LR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
@@ -189,7 +236,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/26/逻辑回归/" data-id="cjn8wcymd000mj5qhoihnr0ui" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/26/逻辑回归/" data-id="cjnaiux3v000toiwb09l07p8t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sigmoid/">sigmoid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/逻辑回归/">逻辑回归</a></li></ul>
@@ -237,7 +284,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/08/数据归一化/" data-id="cjn8wcym9000hj5qhjua2pnxl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/08/数据归一化/" data-id="cjnaiux3p000joiwba1uclgil" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklearn/">sklearn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据归一化/">数据归一化</a></li></ul>
@@ -275,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/08/numpy数组操作/" data-id="cjn8wcylz0007j5qhiykyzu7v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/08/numpy数组操作/" data-id="cjnaiux3f0005oiwb7trzgoge" class="article-share-link">Share</a>
       
       
     </footer>
@@ -315,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/07/sklearn中KNN算法封装/" data-id="cjn8wcym10008j5qhfsm13wtn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/07/sklearn中KNN算法封装/" data-id="cjnaiux3k0009oiwb6yswohw9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklean-KNN-算法/">sklean - KNN - 算法</a></li></ul>
@@ -359,7 +406,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/01/用python实现常见算法/" data-id="cjn8wcymb000lj5qhpbxlrw13" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/01/用python实现常见算法/" data-id="cjnaiux3s000loiwb7s9jy2nr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/判断素数/">-判断素数</a></li></ul>
@@ -409,7 +456,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/25/SQL时间处理/" data-id="cjn8wcylt0003j5qhs4qfwi8u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/SQL时间处理/" data-id="cjnaiux350000oiwb7lz1s014" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hive/">hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间函数/">时间函数</a></li></ul>
@@ -464,60 +511,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/25/tableau画桑基图/" data-id="cjn8wcym4000cj5qhqs4lsviy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/tableau画桑基图/" data-id="cjnaiux3i0006oiwbg0dzncdm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/桑基图/">桑基图</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tableau" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/24/tableau/" class="article-date">
-  <time datetime="2018-06-24T15:34:20.000Z" itemprop="datePublished">2018-06-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tableau/">tableau</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/24/tableau/">tableau小技巧</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-展示维度过多的问题"><a href="#1-展示维度过多的问题" class="headerlink" title="1.展示维度过多的问题"></a>1.展示维度过多的问题</h2><p>tableau做报表时，经常会遇到需要展示很多维度的列表，但是tableau默认只能展示六列，下面是解决维度过多导致排列拥挤的操作：</p>
-<div style="text-align: left;"><br>    <video controls="controls" src="/videos/overdim.mp4" style="width: 800px; height: 300px;"><br>    </video><br></div>
-
-<h2 id="2-维度值-筛选条件排序的问题-以上例，因为比较关注aa8-所以筛选条件中需要将aa8放在第一位"><a href="#2-维度值-筛选条件排序的问题-以上例，因为比较关注aa8-所以筛选条件中需要将aa8放在第一位" class="headerlink" title="2.维度值/筛选条件排序的问题,以上例，因为比较关注aa8,所以筛选条件中需要将aa8放在第一位"></a>2.维度值/筛选条件排序的问题,以上例，因为比较关注aa8,所以筛选条件中需要将aa8放在第一位</h2><div style="text-align: left;"><br>    <video controls="controls" src="/videos/filter_rank.mp4" style="width: 800px; height: 300px;"><br>    </video><br></div>
-
-
-<h2 id="3-实现筛选条件的联动"><a href="#3-实现筛选条件的联动" class="headerlink" title="3.实现筛选条件的联动"></a>3.实现筛选条件的联动</h2><p>应用场景：如需要有省市这种层级关系时，可以控制“市”为只展示相关值，即可实现先选特定省，然后在省份下面选择特定的市/地区<br>操作方法：将下级筛选条件选择仅显示相关值</p>
-<div style="text-align: left;"><br>    <video controls="controls" src="/videos/filter_control.mp4" style="width: 800px; height: 300px;"><br>    </video><br></div>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/24/tableau/" data-id="cjn8wcym2000bj5qhsaq3q56h" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tableau/">tableau</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/展示维度过多/">展示维度过多</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/筛选条件排序/">筛选条件排序</a></li></ul>
 
     </footer>
   </div>
@@ -551,7 +548,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/判断素数/">-判断素数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LR/">LR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/installation/">installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sigmoid/">sigmoid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sklean-KNN-算法/">sklean - KNN - 算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sklearn/">sklearn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tableau/">tableau</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorflow/">tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/展示维度过多/">展示维度过多</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据分析/">数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据归一化/">数据归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时间函数/">时间函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/桑基图/">桑基图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/筛选条件排序/">筛选条件排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/逻辑回归/">逻辑回归</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/判断素数/">-判断素数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LR/">LR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/installation/">installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sigmoid/">sigmoid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sklean-KNN-算法/">sklean - KNN - 算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sklearn/">sklearn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spark/">spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tableau/">tableau</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorflow/">tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/展示维度过多/">展示维度过多</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据分析/">数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据归一化/">数据归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时间函数/">时间函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/桑基图/">桑基图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/筛选条件排序/">筛选条件排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/逻辑回归/">逻辑回归</a></li></ul>
     </div>
   </div>
 
@@ -561,7 +558,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/判断素数/" style="font-size: 10px;">-判断素数</a> <a href="/tags/LR/" style="font-size: 10px;">LR</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hive/" style="font-size: 10px;">hive</a> <a href="/tags/installation/" style="font-size: 10px;">installation</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/sigmoid/" style="font-size: 10px;">sigmoid</a> <a href="/tags/sklean-KNN-算法/" style="font-size: 10px;">sklean - KNN - 算法</a> <a href="/tags/sklearn/" style="font-size: 10px;">sklearn</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/tableau/" style="font-size: 10px;">tableau</a> <a href="/tags/tensorflow/" style="font-size: 10px;">tensorflow</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/展示维度过多/" style="font-size: 10px;">展示维度过多</a> <a href="/tags/数据分析/" style="font-size: 10px;">数据分析</a> <a href="/tags/数据归一化/" style="font-size: 10px;">数据归一化</a> <a href="/tags/时间函数/" style="font-size: 10px;">时间函数</a> <a href="/tags/桑基图/" style="font-size: 10px;">桑基图</a> <a href="/tags/筛选条件排序/" style="font-size: 10px;">筛选条件排序</a> <a href="/tags/逻辑回归/" style="font-size: 10px;">逻辑回归</a>
+      <a href="/tags/判断素数/" style="font-size: 10px;">-判断素数</a> <a href="/tags/LR/" style="font-size: 10px;">LR</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hive/" style="font-size: 10px;">hive</a> <a href="/tags/installation/" style="font-size: 10px;">installation</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/sigmoid/" style="font-size: 10px;">sigmoid</a> <a href="/tags/sklean-KNN-算法/" style="font-size: 10px;">sklean - KNN - 算法</a> <a href="/tags/sklearn/" style="font-size: 10px;">sklearn</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/tableau/" style="font-size: 10px;">tableau</a> <a href="/tags/tensorflow/" style="font-size: 10px;">tensorflow</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/展示维度过多/" style="font-size: 10px;">展示维度过多</a> <a href="/tags/数据分析/" style="font-size: 10px;">数据分析</a> <a href="/tags/数据归一化/" style="font-size: 10px;">数据归一化</a> <a href="/tags/时间函数/" style="font-size: 10px;">时间函数</a> <a href="/tags/桑基图/" style="font-size: 10px;">桑基图</a> <a href="/tags/筛选条件排序/" style="font-size: 10px;">筛选条件排序</a> <a href="/tags/逻辑回归/" style="font-size: 10px;">逻辑回归</a>
     </div>
   </div>
 
@@ -583,6 +580,10 @@
       <ul>
         
           <li>
+            <a href="/2018/10/16/用python连接spark/">用python连接spark</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/14/利用python进行数据分析学习笔记/">利用python进行数据分析学习笔记</a>
           </li>
         
@@ -596,10 +597,6 @@
         
           <li>
             <a href="/2018/08/08/数据归一化/">数据归一化</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/08/numpy数组操作/">numpy数组操作</a>
           </li>
         
       </ul>

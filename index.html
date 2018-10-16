@@ -92,11 +92,11 @@
 <h2 id="1-启动thriftserver"><a href="#1-启动thriftserver" class="headerlink" title="1.启动thriftserver"></a>1.启动thriftserver</h2><h3 id="1-1-在启动之前，需要安装spark-这次安装的是spark-2-3-2-bin-hadoop2-7-tgz-yarn-nodejs-JDK"><a href="#1-1-在启动之前，需要安装spark-这次安装的是spark-2-3-2-bin-hadoop2-7-tgz-yarn-nodejs-JDK" class="headerlink" title="1.1 在启动之前，需要安装spark(这次安装的是spark-2.3.2-bin-hadoop2.7.tgz),yarn,nodejs,JDK"></a>1.1 在启动之前，需要安装spark(这次安装的是spark-2.3.2-bin-hadoop2.7.tgz),yarn,nodejs,JDK</h3><p><a href="https://www.apache.org/dyn/closer.lua/spark/spark-2.3.2/spark-2.3.2-bin-hadoop2.7.tgz" target="_blank" rel="noopener">spark下载地址</a><br><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html" target="_blank" rel="noopener">JDK下载地址</a><br>由于之前安装了nodejs，所以安装yarn的时候只执行了sudo npm install yarn -g</p>
 <h3 id="1-2-操作步骤"><a href="#1-2-操作步骤" class="headerlink" title="1.2 操作步骤"></a>1.2 操作步骤</h3><p>切换到下载目录 -&gt; 执行【 tar -zxvf spark-2.3.2-bin-hadoop2.7.tgz 】 -&gt; 切换到$SPARK_HOME/sbin/ -&gt; 执行命令启动thriftserver<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./start-thriftserver.sh --master yarn --conf spark.driver.memory=3G --executor-memory 1G --num-executors 10</span><br></pre></td></tr></table></figure></p>
 <h2 id="2-安装impyla"><a href="#2-安装impyla" class="headerlink" title="2.安装impyla"></a>2.安装impyla</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pip install six</span><br><span class="line">pip install bit_array</span><br><span class="line">pip install thriftpy   </span><br><span class="line"><span class="comment">## thrift (on Python 2.x) or thriftpy (on Python 3.x)</span></span><br><span class="line">pip install thrift_sasl</span><br><span class="line">pip install sasl</span><br><span class="line">pip install impyla</span><br><span class="line"> </span><br><span class="line"><span class="comment">## 注意：还需要安装另外一个模块，官网上并没有给出（for python3）：</span></span><br><span class="line">pip install git+https://github.com/laserson/python-sasl.git@cython</span><br></pre></td></tr></table></figure>
-<h2 id="3-连接"><a href="#3-连接" class="headerlink" title="3.连接"></a>3.连接</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> impala.dbapi <span class="keyword">import</span> connect</span><br><span class="line">conn = connect(host=<span class="string">''</span>, port=<span class="number">10001</span>, user=<span class="string">''</span>, password=<span class="string">''</span>, database=<span class="string">''</span>, auth_mechanism=<span class="string">'PLAIN'</span>)</span><br><span class="line">cursor = conn.cursor()</span><br><span class="line">cursor.execute(<span class="string">'SELECT * FROM t LIMIT 100'</span>)</span><br><span class="line">print(cursor.description)  <span class="comment"># prints the result set's schema</span></span><br><span class="line">results = cursor.fetchall()</span><br><span class="line">print(results)</span><br></pre></td></tr></table></figure>
+<h2 id="3-连接"><a href="#3-连接" class="headerlink" title="3.连接"></a>3.连接</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> impala.dbapi <span class="keyword">import</span> connect</span><br><span class="line">conn = connect(host=<span class="string">''</span>, port=, user=<span class="string">''</span>, password=<span class="string">''</span>, database=<span class="string">''</span>, auth_mechanism=<span class="string">'PLAIN'</span>)</span><br><span class="line">cursor = conn.cursor()</span><br><span class="line">cursor.execute(<span class="string">'SELECT * FROM t LIMIT 100'</span>)</span><br><span class="line">print(cursor.description)  <span class="comment"># prints the result set's schema</span></span><br><span class="line">results = cursor.fetchall()</span><br><span class="line">print(results)</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/16/用python连接spark/" data-id="cjnaiux3o000foiwbn6ilk933" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/16/用python连接spark/" data-id="cjnb23k8r000lx1wb6tcgsryv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li></ul>
@@ -149,7 +149,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/14/利用python进行数据分析学习笔记/" data-id="cjnaiux3l000aoiwbnvke2we3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/14/利用python进行数据分析学习笔记/" data-id="cjnb23k8l000gx1wb67vqpmez" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据分析/">数据分析</a></li></ul>
@@ -191,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/09/逻辑回归模型/" data-id="cjnaiux3u000qoiwbudtwfuue" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/09/逻辑回归模型/" data-id="cjnb23k8t000nx1wbk7jhhvdf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LR/">LR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
@@ -236,7 +236,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/26/逻辑回归/" data-id="cjnaiux3v000toiwb09l07p8t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/26/逻辑回归/" data-id="cjnb23k8z000vx1wbtxpmgs57" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sigmoid/">sigmoid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/逻辑回归/">逻辑回归</a></li></ul>
@@ -284,7 +284,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/08/数据归一化/" data-id="cjnaiux3p000joiwba1uclgil" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/08/数据归一化/" data-id="cjnb23k8p000hx1wbbth7ufnd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklearn/">sklearn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据归一化/">数据归一化</a></li></ul>
@@ -322,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/08/numpy数组操作/" data-id="cjnaiux3f0005oiwb7trzgoge" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/08/numpy数组操作/" data-id="cjnb23k8a0006x1wbipuzpdvn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -362,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/07/sklearn中KNN算法封装/" data-id="cjnaiux3k0009oiwb6yswohw9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/07/sklearn中KNN算法封装/" data-id="cjnb23k8d0008x1wbqbqgm1iv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sklean-KNN-算法/">sklean - KNN - 算法</a></li></ul>
@@ -406,7 +406,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/01/用python实现常见算法/" data-id="cjnaiux3s000loiwb7s9jy2nr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/01/用python实现常见算法/" data-id="cjnb23k8w000sx1wbe4omxz08" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/判断素数/">-判断素数</a></li></ul>
@@ -456,7 +456,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/25/SQL时间处理/" data-id="cjnaiux350000oiwb7lz1s014" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/SQL时间处理/" data-id="cjnb23k800000x1wbsxjgul9f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hive/">hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间函数/">时间函数</a></li></ul>
@@ -511,7 +511,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/25/tableau画桑基图/" data-id="cjnaiux3i0006oiwbg0dzncdm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/tableau画桑基图/" data-id="cjnb23k8k000cx1wbdo5x69zw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/桑基图/">桑基图</a></li></ul>

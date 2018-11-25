@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="1.导入库123import statsmodels.api as smimport pandasfrom patsy import dmatrices 2.调用函数123456y, X = dmatrices(&apos;Lottery ~ Literacy + Wealth + Region&apos;, data=df, return_type=&apos;dataframe&apos;)mod = sm.OLS(y, X)res">
+<meta name="description" content="1.导入库123import statsmodels.api as smimport pandasfrom patsy import dmatrices 2.调用函数2.1.R模式12345import numpy as npimport statsmodels.api as smimport statsmodels.formula.api as smfdat = sm.datasets.get_">
 <meta property="og:type" content="article">
 <meta property="og:title" content="statsmodels建模">
 <meta property="og:url" content="http://yoursite.com/2018/10/17/statsmodels建模/index.html">
 <meta property="og:site_name" content="数据分析笔记">
-<meta property="og:description" content="1.导入库123import statsmodels.api as smimport pandasfrom patsy import dmatrices 2.调用函数123456y, X = dmatrices(&apos;Lottery ~ Literacy + Wealth + Region&apos;, data=df, return_type=&apos;dataframe&apos;)mod = sm.OLS(y, X)res">
+<meta property="og:description" content="1.导入库123import statsmodels.api as smimport pandasfrom patsy import dmatrices 2.调用函数2.1.R模式12345import numpy as npimport statsmodels.api as smimport statsmodels.formula.api as smfdat = sm.datasets.get_">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-22T13:42:28.546Z">
+<meta property="og:updated_time" content="2018-11-25T15:51:00.031Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="statsmodels建模">
-<meta name="twitter:description" content="1.导入库123import statsmodels.api as smimport pandasfrom patsy import dmatrices 2.调用函数123456y, X = dmatrices(&apos;Lottery ~ Literacy + Wealth + Region&apos;, data=df, return_type=&apos;dataframe&apos;)mod = sm.OLS(y, X)res">
+<meta name="twitter:description" content="1.导入库123import statsmodels.api as smimport pandasfrom patsy import dmatrices 2.调用函数2.1.R模式12345import numpy as npimport statsmodels.api as smimport statsmodels.formula.api as smfdat = sm.datasets.get_">
 
 
 
@@ -300,7 +300,8 @@
 
       
         <h2 id="1-导入库"><a href="#1-导入库" class="headerlink" title="1.导入库"></a>1.导入库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm</span><br><span class="line"><span class="keyword">import</span> pandas</span><br><span class="line"><span class="keyword">from</span> patsy <span class="keyword">import</span> dmatrices</span><br></pre></td></tr></table></figure>
-<h2 id="2-调用函数"><a href="#2-调用函数" class="headerlink" title="2.调用函数"></a>2.调用函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">y, X = dmatrices(<span class="string">'Lottery ~ Literacy + Wealth + Region'</span>, data=df, return_type=<span class="string">'dataframe'</span>)</span><br><span class="line">mod = sm.OLS(y, X)</span><br><span class="line">res = mod.fit()</span><br><span class="line">print(res.summary())</span><br><span class="line"></span><br><span class="line">sm.stats.linear_rainbow(res)</span><br></pre></td></tr></table></figure>
+<h2 id="2-调用函数"><a href="#2-调用函数" class="headerlink" title="2.调用函数"></a>2.调用函数</h2><h3 id="2-1-R模式"><a href="#2-1-R模式" class="headerlink" title="2.1.R模式"></a>2.1.R模式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm</span><br><span class="line"><span class="keyword">import</span> statsmodels.formula.api <span class="keyword">as</span> smf</span><br><span class="line">dat = sm.datasets.get_rdataset(<span class="string">"Guerry"</span>, <span class="string">"HistData"</span>).data</span><br><span class="line">results = smf.ols(<span class="string">'Lottery ~ Literacy + np.log(Pop1831)'</span>, data=dat).fit()</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-Sklearn模式"><a href="#2-2-Sklearn模式" class="headerlink" title="2.2.Sklearn模式"></a>2.2.Sklearn模式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">nobs = <span class="number">100</span></span><br><span class="line">X = np.random.random((nobs, <span class="number">2</span>))</span><br><span class="line">X = sm.add_constant(X)</span><br><span class="line">beta = [<span class="number">1</span>, <span class="number">.1</span>, <span class="number">.5</span>]</span><br><span class="line">e = np.random.random(nobs)</span><br><span class="line">y = np.dot(X, beta) + e</span><br><span class="line">results = smf.OLS(y, X).fit()</span><br><span class="line">print(results.summary2())</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -413,7 +414,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -468,7 +469,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-导入库"><span class="nav-number">1.</span> <span class="nav-text">1.导入库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-调用函数"><span class="nav-number">2.</span> <span class="nav-text">2.调用函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-导入库"><span class="nav-number">1.</span> <span class="nav-text">1.导入库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-调用函数"><span class="nav-number">2.</span> <span class="nav-text">2.调用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-R模式"><span class="nav-number">2.1.</span> <span class="nav-text">2.1.R模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Sklearn模式"><span class="nav-number">2.2.</span> <span class="nav-text">2.2.Sklearn模式</span></a></li></ol></li></ol></div>
             
 
           </div>

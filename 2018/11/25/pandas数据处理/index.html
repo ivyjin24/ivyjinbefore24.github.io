@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="前言：用过很多次pandas，但每次都只是为了解决特定的问题，特地整理出来，避免每次都”若初见“。 数据读取123456# 读数据data = pd.read_csv(&apos;路径/文件名.csv&apos;,encoding=&apos;utf-8&apos;)# 数据概览data.describe()# 查看前5行data.head(5) 创建序列/表格1234# 序列pd.Series([1,2,3],index=[&apos;a&apos;,&apos;">
+<meta name="description" content="用过很多次pandas，但每次都只是为了解决特定的问题，特地整理出来，避免每次都”若初见“。  数据读取123456# 读数据data = pd.read_csv(&apos;路径/文件名.csv&apos;,encoding=&apos;utf-8&apos;)# 数据概览data.describe()# 查看前5行data.head(5) 创建序列/表格1234# 序列pd.Series([1,2,3],index=[&apos;a&apos;,&apos;b">
 <meta name="keywords" content="-pandas">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pandas数据处理">
 <meta property="og:url" content="http://yoursite.com/2018/11/25/pandas数据处理/index.html">
 <meta property="og:site_name" content="数据分析笔记">
-<meta property="og:description" content="前言：用过很多次pandas，但每次都只是为了解决特定的问题，特地整理出来，避免每次都”若初见“。 数据读取123456# 读数据data = pd.read_csv(&apos;路径/文件名.csv&apos;,encoding=&apos;utf-8&apos;)# 数据概览data.describe()# 查看前5行data.head(5) 创建序列/表格1234# 序列pd.Series([1,2,3],index=[&apos;a&apos;,&apos;">
+<meta property="og:description" content="用过很多次pandas，但每次都只是为了解决特定的问题，特地整理出来，避免每次都”若初见“。  数据读取123456# 读数据data = pd.read_csv(&apos;路径/文件名.csv&apos;,encoding=&apos;utf-8&apos;)# 数据概览data.describe()# 查看前5行data.head(5) 创建序列/表格1234# 序列pd.Series([1,2,3],index=[&apos;a&apos;,&apos;b">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-26T15:42:37.154Z">
+<meta property="og:updated_time" content="2018-11-26T16:27:41.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pandas数据处理">
-<meta name="twitter:description" content="前言：用过很多次pandas，但每次都只是为了解决特定的问题，特地整理出来，避免每次都”若初见“。 数据读取123456# 读数据data = pd.read_csv(&apos;路径/文件名.csv&apos;,encoding=&apos;utf-8&apos;)# 数据概览data.describe()# 查看前5行data.head(5) 创建序列/表格1234# 序列pd.Series([1,2,3],index=[&apos;a&apos;,&apos;">
+<meta name="twitter:description" content="用过很多次pandas，但每次都只是为了解决特定的问题，特地整理出来，避免每次都”若初见“。  数据读取123456# 读数据data = pd.read_csv(&apos;路径/文件名.csv&apos;,encoding=&apos;utf-8&apos;)# 数据概览data.describe()# 查看前5行data.head(5) 创建序列/表格1234# 序列pd.Series([1,2,3],index=[&apos;a&apos;,&apos;b">
 
 
 
@@ -322,7 +322,9 @@
       
 
       
-        <p>前言：用过很多次pandas，但每次都只是为了解决特定的问题，特地整理出来，避免每次都”若初见“。</p>
+        <blockquote>
+<p>用过很多次pandas，但每次都只是为了解决特定的问题，特地整理出来，避免每次都”若初见“。</p>
+</blockquote>
 <h1 id="数据读取"><a href="#数据读取" class="headerlink" title="数据读取"></a>数据读取</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读数据</span></span><br><span class="line">data = pd.read_csv(<span class="string">'路径/文件名.csv'</span>,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="comment"># 数据概览</span></span><br><span class="line">data.describe()</span><br><span class="line"><span class="comment"># 查看前5行</span></span><br><span class="line">data.head(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
 <h1 id="创建序列-表格"><a href="#创建序列-表格" class="headerlink" title="创建序列/表格"></a>创建序列/表格</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 序列</span></span><br><span class="line">pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],index=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>])</span><br><span class="line"><span class="comment"># 表格</span></span><br><span class="line">pd.DataFrame([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]],columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>])</span><br></pre></td></tr></table></figure>
 <h1 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h1><p>假设表结构为</p>
@@ -503,7 +505,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

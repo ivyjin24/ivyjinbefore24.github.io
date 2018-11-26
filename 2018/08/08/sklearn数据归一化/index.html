@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="桑基图," />
+  <meta name="keywords" content="sklearn,数据归一化," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1.效果图2.数据准备文件1：包含数据层级关系，以及点位置 文件2：包含等级，T1,T2其中T1为-6到6之间，以0.25为间隔的等差数列，level=1时T2=T1，level=2时T2=T1+12，level=3时T2=T1+24等，依次类推。 文件一需要做的处理： position1_label：上一节点名称 position2_label：本节点名称 category：position1_">
-<meta name="keywords" content="桑基图">
+<meta name="description" content="导入包123import numpy as npimport matplotlibimport matplotlib.pyplot as plt 数据准备123X = np.random.randint(0,100,size=(50,2))X = np.array(X,dtype=float)plt.scatter(X[:,0] ,X[:,1]) 归一化处理最值归一化适用场景：有明显数据边界123">
+<meta name="keywords" content="sklearn,数据归一化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tableau画桑基图">
-<meta property="og:url" content="http://yoursite.com/2018/06/25/tableau画桑基图/index.html">
+<meta property="og:title" content="sklearn数据归一化">
+<meta property="og:url" content="http://yoursite.com/2018/08/08/sklearn数据归一化/index.html">
 <meta property="og:site_name" content="数据分析笔记">
-<meta property="og:description" content="1.效果图2.数据准备文件1：包含数据层级关系，以及点位置 文件2：包含等级，T1,T2其中T1为-6到6之间，以0.25为间隔的等差数列，level=1时T2=T1，level=2时T2=T1+12，level=3时T2=T1+24等，依次类推。 文件一需要做的处理： position1_label：上一节点名称 position2_label：本节点名称 category：position1_">
+<meta property="og:description" content="导入包123import numpy as npimport matplotlibimport matplotlib.pyplot as plt 数据准备123X = np.random.randint(0,100,size=(50,2))X = np.array(X,dtype=float)plt.scatter(X[:,0] ,X[:,1]) 归一化处理最值归一化适用场景：有明显数据边界123">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-22T13:42:03.488Z">
+<meta property="og:updated_time" content="2018-11-26T17:37:25.584Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tableau画桑基图">
-<meta name="twitter:description" content="1.效果图2.数据准备文件1：包含数据层级关系，以及点位置 文件2：包含等级，T1,T2其中T1为-6到6之间，以0.25为间隔的等差数列，level=1时T2=T1，level=2时T2=T1+12，level=3时T2=T1+24等，依次类推。 文件一需要做的处理： position1_label：上一节点名称 position2_label：本节点名称 category：position1_">
+<meta name="twitter:title" content="sklearn数据归一化">
+<meta name="twitter:description" content="导入包123import numpy as npimport matplotlibimport matplotlib.pyplot as plt 数据准备123X = np.random.randint(0,100,size=(50,2))X = np.array(X,dtype=float)plt.scatter(X[:,0] ,X[:,1]) 归一化处理最值归一化适用场景：有明显数据边界123">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/25/tableau画桑基图/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/08/sklearn数据归一化/"/>
 
 
 
 
 
-  <title>tableau画桑基图 | 数据分析笔记</title>
+  <title>sklearn数据归一化 | 数据分析笔记</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/25/tableau画桑基图/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/08/sklearn数据归一化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IvyJin">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">tableau画桑基图</h1>
+          <h1 class="post-title" itemprop="name headline">sklearn数据归一化</h1>
         
 
         <div class="post-meta">
@@ -262,8 +262,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-25T20:34:22+08:00">
-                2018-06-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-08T00:09:35+08:00">
+                2018-08-08
               </time>
             
 
@@ -285,8 +285,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tableau/" itemprop="url" rel="index">
-                    <span itemprop="name">tableau</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -322,19 +322,12 @@
       
 
       
-        <h2 id="1-效果图"><a href="#1-效果图" class="headerlink" title="1.效果图"></a>1.<a href="/images/demo.jpg">效果图</a></h2><h2 id="2-数据准备"><a href="#2-数据准备" class="headerlink" title="2.数据准备"></a>2.数据准备</h2><p>文件1：包含数据层级关系，以及点位置</p>
-<p>文件2：包含等级，T1,T2其中T1为-6到6之间，以0.25为间隔的等差数列，level=1时T2=T1，level=2时T2=T1+12，level=3时T2=T1+24等，依次类推。</p>
-<p>文件一需要做的处理：</p>
-<p>position1_label：上一节点名称</p>
-<p>position2_label：本节点名称</p>
-<p>category：position1_label-position2_label</p>
-<p>position2：<br>    对<strong>concat(level1,coalesce(level2,level1),coalesce(level3,level2,level1))</strong>进行排序（其中coalesce函数表示，取第一个不为空的值），level3为对应顺序，level2为在根据level1,level2计算的排序的均值（可能有小数，通过floor函数取整数），level1则为根据level1计算的均值。</p>
-<p>position1:<br>    在tableau中计算，公式为<strong>floor({fixed position1_label:avg(position2)})</strong>如果position1_label有重复值可能会出现对应不上的情况，可以通过同时取上其他值构建一个唯一的position1_label，比如level1，level2等。</p>
-<h2 id="3-数据处理"><a href="#3-数据处理" class="headerlink" title="3.数据处理"></a>3.数据处理</h2><p><strong>sigmoid</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1/(1+EXP(1)^-[T1])</span><br></pre></td></tr></table></figure></p>
-<p><strong>curve</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[position1] + (([position2]-[position1])*[sigmoid])</span><br></pre></td></tr></table></figure></p>
-<p><strong>points</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if  last()=0 then sum([T2]) end</span><br></pre></td></tr></table></figure></p>
-<p><strong>color</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if sum([T2])= -6 then &apos;gray&apos; </span><br><span class="line">elseif sum([T2])= 6 then &apos;orange&apos; </span><br><span class="line">elseif sum([T2])= 18 then &apos;blue&apos; </span><br><span class="line">elseif sum([T2])= 30 then &apos;green&apos; </span><br><span class="line">elseif sum([T2])= 42 then &apos;pink&apos; </span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
-<h2 id="4-看板操作"><a href="#4-看板操作" class="headerlink" title="4.看板操作"></a>4.看板操作</h2><p>将T1（设置为维度）,points（表计算如下）,level,category,position1_label,position2_label添加到标记中</p>
+        <h2 id="导入包"><a href="#导入包" class="headerlink" title="导入包"></a>导入包</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+<h2 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X = np.random.randint(<span class="number">0</span>,<span class="number">100</span>,size=(<span class="number">50</span>,<span class="number">2</span>))</span><br><span class="line">X = np.array(X,dtype=float)</span><br><span class="line">plt.scatter(X[:,<span class="number">0</span>] ,X[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<h2 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h2><h3 id="最值归一化"><a href="#最值归一化" class="headerlink" title="最值归一化"></a>最值归一化</h3><p>适用场景：有明显数据边界<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X[:,<span class="number">0</span>] = ((X[:,<span class="number">0</span>]) - np.min(X[:,<span class="number">0</span>])) / (np.max(X[:,<span class="number">0</span>]) - np.min(X[:,<span class="number">0</span>]))</span><br><span class="line">X[:,<span class="number">1</span>] = ((X[:,<span class="number">1</span>]) - np.min(X[:,<span class="number">1</span>])) / (np.max(X[:,<span class="number">1</span>]) - np.min(X[:,<span class="number">1</span>]))</span><br><span class="line">plt.scatter(X[:,<span class="number">0</span>] ,X[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
+<h3 id="均值方差归一化"><a href="#均值方差归一化" class="headerlink" title="均值方差归一化"></a>均值方差归一化</h3><p>适用场景：无明显数据边界<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X[:,<span class="number">0</span>] = ((X[:,<span class="number">0</span>]) - np.mean(X[:,<span class="number">0</span>])) / np.std(X[:,<span class="number">0</span>])</span><br><span class="line">X[:,<span class="number">1</span>] = ((X[:,<span class="number">1</span>]) - np.mean(X[:,<span class="number">1</span>])) / np.std(X[:,<span class="number">1</span>])</span><br><span class="line">plt.scatter(X[:,<span class="number">0</span>] ,X[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
+<h2 id="sklearn中的scaler"><a href="#sklearn中的scaler" class="headerlink" title="sklearn中的scaler"></a>sklearn中的scaler</h2><h3 id="数据准备-1"><a href="#数据准备-1" class="headerlink" title="数据准备"></a>数据准备</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sklearn</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据导入</span></span><br><span class="line">iris = datasets.load_iris()</span><br><span class="line">X = iris.data</span><br><span class="line">y = iris.target</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拆分训练数据集和测试数据集 </span></span><br><span class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> train_test_split</span><br><span class="line">X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=<span class="number">0.2</span>,random_state=<span class="number">666</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="利用scikit-learn中的StandardScaler"><a href="#利用scikit-learn中的StandardScaler" class="headerlink" title="利用scikit-learn中的StandardScaler"></a>利用scikit-learn中的StandardScaler</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line">StandardScaler = StandardScaler()</span><br><span class="line">StandardScaler.fit(X_train)</span><br><span class="line">StandardScaler.mean_</span><br><span class="line">StandardScaler.scale_</span><br><span class="line">X_train = StandardScaler.transform(X_train)</span><br><span class="line">X_test_standard = StandardScaler.transform(X_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用KNN模型运行数据</span></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line">knn_clf = KNeighborsClassifier(n_neighbors=<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line">knn_clf.fit(X_train,y_train)</span><br><span class="line"><span class="comment"># 模型评价</span></span><br><span class="line">knn_clf.score(X_test_standard,y_test)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -352,7 +345,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/桑基图/" rel="tag"># 桑基图</a>
+            <a href="/tags/sklearn/" rel="tag"># sklearn</a>
+          
+            <a href="/tags/数据归一化/" rel="tag"># 数据归一化</a>
           
         </div>
       
@@ -365,8 +360,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/24/tableau简单操作/" rel="next" title="tableau小技巧">
-                <i class="fa fa-chevron-left"></i> tableau小技巧
+              <a href="/2018/08/08/numpy数组操作/" rel="next" title="numpy数组操作">
+                <i class="fa fa-chevron-left"></i> numpy数组操作
               </a>
             
           </div>
@@ -375,8 +370,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/25/SQL时间处理/" rel="prev" title="SQL时间函数">
-                SQL时间函数 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/16/python连接spark/" rel="prev" title="用python连接spark">
+                用python连接spark <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -509,7 +504,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-效果图"><span class="nav-number">1.</span> <span class="nav-text">1.效果图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-数据准备"><span class="nav-number">2.</span> <span class="nav-text">2.数据准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-数据处理"><span class="nav-number">3.</span> <span class="nav-text">3.数据处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-看板操作"><span class="nav-number">4.</span> <span class="nav-text">4.看板操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入包"><span class="nav-number">1.</span> <span class="nav-text">导入包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据准备"><span class="nav-number">2.</span> <span class="nav-text">数据准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归一化处理"><span class="nav-number">3.</span> <span class="nav-text">归一化处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最值归一化"><span class="nav-number">3.1.</span> <span class="nav-text">最值归一化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#均值方差归一化"><span class="nav-number">3.2.</span> <span class="nav-text">均值方差归一化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sklearn中的scaler"><span class="nav-number">4.</span> <span class="nav-text">sklearn中的scaler</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据准备-1"><span class="nav-number">4.1.</span> <span class="nav-text">数据准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用scikit-learn中的StandardScaler"><span class="nav-number">4.2.</span> <span class="nav-text">利用scikit-learn中的StandardScaler</span></a></li></ol></li></ol></div>
             
 
           </div>

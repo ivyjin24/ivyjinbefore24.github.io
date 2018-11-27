@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="数据分析笔记">
 <meta property="og:description" content="作为一个转专业的分析师，入行之前做图表基本都是Excel搞定，所以在学习用python实现可视化的时候，总还是习惯对标到Excel来理解。在Excel里面插入图表，第一步是选择图表类型；然后添加表元素，表元素包含了图表标题、坐标轴标题、坐标轴、数据标签、网格线和图例；同时可以对修改颜色、移动表的位置等等……对于matplotlib来说，基本也是具备这些功能的，目前也计划根据这个逻辑逐步梳理出来，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-26T17:34:26.749Z">
+<meta property="og:updated_time" content="2018-11-27T16:40:03.290Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="matplotlib数据可视化">
 <meta name="twitter:description" content="作为一个转专业的分析师，入行之前做图表基本都是Excel搞定，所以在学习用python实现可视化的时候，总还是习惯对标到Excel来理解。在Excel里面插入图表，第一步是选择图表类型；然后添加表元素，表元素包含了图表标题、坐标轴标题、坐标轴、数据标签、网格线和图例；同时可以对修改颜色、移动表的位置等等……对于matplotlib来说，基本也是具备这些功能的，目前也计划根据这个逻辑逐步梳理出来，">
@@ -382,6 +382,16 @@
 <td>plt.plot(x,y,color=’red’)</td>
 </tr>
 <tr>
+<td>图例名称</td>
+<td>label</td>
+<td>plt.plot(x,y,label=’x’)</td>
+</tr>
+<tr>
+<td>透明度</td>
+<td>alpha</td>
+<td>plt.hist(x,color=’red’,alpha=0.7)</td>
+</tr>
+<tr>
 <td>坐标轴名称</td>
 <td>plt.xlabel/ylabel</td>
 <td>plt.xlabel(‘日期’)</td>
@@ -390,6 +400,15 @@
 <td>坐标轴范围</td>
 <td>plt.xlim/ylim</td>
 <td>plt.xlim(1,4)</td>
+</tr>
+<tr>
+<td>图例</td>
+<td>plt.legend(loc=’best’)</td>
+<td>plt.legend(loc=’best’),其中loc是调整图例位置的</td>
+</tr>
+<tr>
+<td>数据标签</td>
+<td>plt.text(x, y, s, fontdict=None, withdash=False, **kwargs),其中x,y是坐标，s是数据标签</td>
 </tr>
 </tbody>
 </table>
@@ -440,6 +459,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/27/数据分析总结/" rel="prev" title="数据分析总结">
+                数据分析总结 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -516,7 +539,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -527,7 +550,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -538,7 +561,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

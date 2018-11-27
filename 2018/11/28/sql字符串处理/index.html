@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="-字符串," />
 
 
 
@@ -79,14 +79,18 @@
 
 
 
+<meta name="description" content="用途 函数/方法 demo     判断字符包含关系 instr instr(‘abc’,’a,b’)   判断字符包含关系 find_in_set find_in_set(‘abc’,’a’) != 0   把字段拆为三部分，最后取中间 regexp_extract regexp_extract(‘“banner”]’,’(\[?\“)(.*?)(\“\]?)’,2)   替换多个 reg">
+<meta name="keywords" content="-字符串">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql字符串处理">
 <meta property="og:url" content="http://yoursite.com/2018/11/28/sql字符串处理/index.html">
 <meta property="og:site_name" content="数据分析笔记">
+<meta property="og:description" content="用途 函数/方法 demo     判断字符包含关系 instr instr(‘abc’,’a,b’)   判断字符包含关系 find_in_set find_in_set(‘abc’,’a’) != 0   把字段拆为三部分，最后取中间 regexp_extract regexp_extract(‘“banner”]’,’(\[?\“)(.*?)(\“\]?)’,2)   替换多个 reg">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-27T16:40:09.731Z">
+<meta property="og:updated_time" content="2018-11-27T17:20:12.993Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sql字符串处理">
+<meta name="twitter:description" content="用途 函数/方法 demo     判断字符包含关系 instr instr(‘abc’,’a,b’)   判断字符包含关系 find_in_set find_in_set(‘abc’,’a’) != 0   把字段拆为三部分，最后取中间 regexp_extract regexp_extract(‘“banner”]’,’(\[?\“)(.*?)(\“\]?)’,2)   替换多个 reg">
 
 
 
@@ -269,6 +273,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/sql/" itemprop="url" rel="index">
+                    <span itemprop="name">sql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -296,7 +322,53 @@
       
 
       
-        
+        <table>
+<thead>
+<tr>
+<th>用途</th>
+<th>函数/方法</th>
+<th>demo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>判断字符包含关系</td>
+<td>instr</td>
+<td>instr(‘abc’,’a,b’)</td>
+</tr>
+<tr>
+<td>判断字符包含关系</td>
+<td>find_in_set</td>
+<td>find_in_set(‘abc’,’a’) != 0</td>
+</tr>
+<tr>
+<td>把字段拆为三部分，最后取中间</td>
+<td>regexp_extract</td>
+<td>regexp_extract(‘“banner”]’,’(\[?\“)(.*?)(\“\]?)’,2)</td>
+</tr>
+<tr>
+<td>替换多个</td>
+<td>regexp_extract</td>
+<td>select regexp_extract(‘[“banner”]’,’(\[?\“)(.*?)(\“\])’,2)</td>
+</tr>
+<tr>
+<td>从url中取部分字段</td>
+<td>parse_url</td>
+<td>parse_url(props[‘page_url’],’QUERY’, ‘id’)</td>
+</tr>
+<tr>
+<td>ip转地址</td>
+<td>ip2code</td>
+<td>substr(ip2code(props[‘x-clientIp’],0),3,4)</td>
+</tr>
+<tr>
+<td>分号转义符</td>
+<td>\073</td>
+<td>split(info,”\073”)[2]</td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
     
@@ -310,6 +382,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/字符串/" rel="tag"># -字符串</a>
+          
+        </div>
       
 
       
@@ -411,7 +489,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -422,7 +500,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

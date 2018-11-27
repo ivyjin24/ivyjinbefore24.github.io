@@ -271,6 +271,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -300,7 +322,12 @@
       
         
           
-            
+            <h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>step1:用numpy.column_stack合并两个DataFrame<br>step2:将得到的array转化为DataFrame<br>step3:用groupby计算均值<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'num'</span>].groupby(data[<span class="string">'dt'</span>]).mean()</span><br></pre></td></tr></table></figure></p>
+<p>报错信息：No numeric types to aggregate</p>
+<h2 id="问题原因：数据格式不对"><a href="#问题原因：数据格式不对" class="headerlink" title="问题原因：数据格式不对"></a>问题原因：数据格式不对</h2><p>计算均值的函数mean()是处理数值的，经过上述处理后，DataFrame的数据格式都变成了subject，所以报错</p>
+<h2 id="解决方案：转换数据格式"><a href="#解决方案：转换数据格式" class="headerlink" title="解决方案：转换数据格式"></a>解决方案：转换数据格式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1个值</span></span><br><span class="line">data[<span class="string">'dt'</span>] = data[<span class="string">'dt'</span>].astype(int)</span><br><span class="line"><span class="comment"># 2个值</span></span><br><span class="line">data[[<span class="string">'dt'</span>,<span class="string">'num'</span>]] = data[[<span class="string">'dt'</span>,<span class="string">'num'</span>]].astype(int)</span><br></pre></td></tr></table></figure>
+<p>这样之后再用groupby就是正常的啦~</p>
+
           
         
       
@@ -390,6 +417,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/sql/" itemprop="url" rel="index">
+                    <span itemprop="name">sql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -419,7 +468,53 @@
       
         
           
-            
+            <table>
+<thead>
+<tr>
+<th>用途</th>
+<th>函数/方法</th>
+<th>demo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>判断字符包含关系</td>
+<td>instr</td>
+<td>instr(‘abc’,’a,b’)</td>
+</tr>
+<tr>
+<td>判断字符包含关系</td>
+<td>find_in_set</td>
+<td>find_in_set(‘abc’,’a’) != 0</td>
+</tr>
+<tr>
+<td>把字段拆为三部分，最后取中间</td>
+<td>regexp_extract</td>
+<td>regexp_extract(‘“banner”]’,’(\[?\“)(.*?)(\“\]?)’,2)</td>
+</tr>
+<tr>
+<td>替换多个</td>
+<td>regexp_extract</td>
+<td>select regexp_extract(‘[“banner”]’,’(\[?\“)(.*?)(\“\])’,2)</td>
+</tr>
+<tr>
+<td>从url中取部分字段</td>
+<td>parse_url</td>
+<td>parse_url(props[‘page_url’],’QUERY’, ‘id’)</td>
+</tr>
+<tr>
+<td>ip转地址</td>
+<td>ip2code</td>
+<td>substr(ip2code(props[‘x-clientIp’],0),3,4)</td>
+</tr>
+<tr>
+<td>分号转义符</td>
+<td>\073</td>
+<td>split(info,”\073”)[2]</td>
+</tr>
+</tbody>
+</table>
+
           
         
       
@@ -522,7 +617,7 @@
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/sql/" itemprop="url" rel="index">
-                    <span itemprop="name">-sql</span>
+                    <span itemprop="name">sql</span>
                   </a>
                 </span>
 
@@ -1960,7 +2055,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1971,7 +2066,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

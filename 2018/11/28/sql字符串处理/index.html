@@ -79,18 +79,15 @@
 
 
 
-<meta name="description" content="用途 函数/方法 demo     判断字符包含关系 instr instr(‘abc’,’a,b’)   判断字符包含关系 find_in_set find_in_set(‘abc’,’a’) != 0   把字段拆为三部分，最后取中间 regexp_extract regexp_extract(‘“banner”]’,’(\[?\“)(.*?)(\“\]?)’,2)   替换多个 reg">
 <meta name="keywords" content="-字符串">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql字符串处理">
 <meta property="og:url" content="http://yoursite.com/2018/11/28/sql字符串处理/index.html">
 <meta property="og:site_name" content="数据分析笔记">
-<meta property="og:description" content="用途 函数/方法 demo     判断字符包含关系 instr instr(‘abc’,’a,b’)   判断字符包含关系 find_in_set find_in_set(‘abc’,’a’) != 0   把字段拆为三部分，最后取中间 regexp_extract regexp_extract(‘“banner”]’,’(\[?\“)(.*?)(\“\]?)’,2)   替换多个 reg">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-27T17:20:12.993Z">
+<meta property="og:updated_time" content="2018-11-28T17:05:53.570Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sql字符串处理">
-<meta name="twitter:description" content="用途 函数/方法 demo     判断字符包含关系 instr instr(‘abc’,’a,b’)   判断字符包含关系 find_in_set find_in_set(‘abc’,’a’) != 0   把字段拆为三部分，最后取中间 regexp_extract regexp_extract(‘“banner”]’,’(\[?\“)(.*?)(\“\]?)’,2)   替换多个 reg">
 
 
 
@@ -322,53 +319,16 @@
       
 
       
-        <table>
-<thead>
-<tr>
-<th>用途</th>
-<th>函数/方法</th>
-<th>demo</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>判断字符包含关系</td>
-<td>instr</td>
-<td>instr(‘abc’,’a,b’)</td>
-</tr>
-<tr>
-<td>判断字符包含关系</td>
-<td>find_in_set</td>
-<td>find_in_set(‘abc’,’a’) != 0</td>
-</tr>
-<tr>
-<td>把字段拆为三部分，最后取中间</td>
-<td>regexp_extract</td>
-<td>regexp_extract(‘“banner”]’,’(\[?\“)(.*?)(\“\]?)’,2)</td>
-</tr>
-<tr>
-<td>替换多个</td>
-<td>regexp_extract</td>
-<td>select regexp_extract(‘[“banner”]’,’(\[?\“)(.*?)(\“\])’,2)</td>
-</tr>
-<tr>
-<td>从url中取部分字段</td>
-<td>parse_url</td>
-<td>parse_url(props[‘page_url’],’QUERY’, ‘id’)</td>
-</tr>
-<tr>
-<td>ip转地址</td>
-<td>ip2code</td>
-<td>substr(ip2code(props[‘x-clientIp’],0),3,4)</td>
-</tr>
-<tr>
-<td>分号转义符</td>
-<td>\073</td>
-<td>split(info,”\073”)[2]</td>
-</tr>
-</tbody>
-</table>
-
+        <!-- 
+| 用途 | 函数/方法 | demo |
+| --- | --- | --- |
+| 判断字符包含关系 | instr | instr('abc','a,b') |
+| 判断字符包含关系 | find_in_set | find_in_set('abc','a') != 0 |
+| 把字段拆为三部分，最后取中间 | regexp_extract | regexp_extract('"banner"]','(\\[?\\")(.*?)(\\"\\]?)',2) |
+| 替换多个 | regexp_extract | select regexp_extract('["banner"]','(\\[?\\")(.*?)(\\"\\])',2) |
+| 从url中取部分字段 | parse_url | parse_url(props['page_url'],'QUERY', 'id') |
+| ip转地址 | ip2code | substr(ip2code(props['x-clientIp'],0),3,4) |
+| 分号转义符 | \073 | split(info,"\073")[2] | -->
       
     </div>
     

@@ -271,6 +271,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -300,7 +322,8 @@
       
         
           
-            
+            <p>参考资料：<br><a href="https://www.analyticsvidhya.com/blog/2016/02/time-series-forecasting-codes-python/" target="_blank" rel="noopener">创建一个时间序列预测模型</a></p>
+
           
         
       
@@ -442,8 +465,9 @@
         
           
             <blockquote>
-<p>用户在某段时间内开始使用应用，经过一段时间后，仍然继续使用该应用的用户，被认作是留存用户。<br>留存率=新增用户中登录用户数/新增用户数 * 100%（一般统计周期为天）<br>假设某APP的用户活跃表为t，结构如下</p>
+<p>用户在某段时间内开始使用应用，经过一段时间后，仍然继续使用该应用的用户，被认作是留存用户。<br>留存率=新增用户中登录用户数/新增用户数 * 100%（一般统计周期为天）</p>
 </blockquote>
+<p>假设某APP的用户活跃表为t，结构如下</p>
 <table>
 <thead>
 <tr>
@@ -610,7 +634,25 @@
       
         
           
-            <p>最近处理数据的时候，需要把源表里面yyyyMMdd格式的日期转化为日期格式<br>例如有有数据data，结构为<br>| dt | value |<br>| — | — |<br>| 20181001 | 10 |<br>| 20181002 | 8 |</p>
+            <p>最近处理数据的时候，需要把源表里面yyyyMMdd格式的日期转化为日期格式<br>例如有有数据data，结构为</p>
+<table>
+<thead>
+<tr>
+<th>dt</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20181001</td>
+<td>10</td>
+</tr>
+<tr>
+<td>20181002</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
 <h2 id="数据转化"><a href="#数据转化" class="headerlink" title="数据转化"></a>数据转化</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line">date = []</span><br><span class="line">date_time = []</span><br><span class="line"><span class="keyword">for</span> dt <span class="keyword">in</span> data[<span class="string">'dt'</span>].unique():</span><br><span class="line">    date.append(dt)</span><br><span class="line">    date_1 = datetime(int(dt[<span class="number">0</span>:<span class="number">4</span>]),int(dt[<span class="number">4</span>:<span class="number">6</span>]),int(dt[<span class="number">6</span>:<span class="number">8</span>]))</span><br><span class="line">    date_time.append(date_1)</span><br></pre></td></tr></table></figure>
 <h2 id="将数组转化为DataFrame"><a href="#将数组转化为DataFrame" class="headerlink" title="将数组转化为DataFrame"></a>将数组转化为DataFrame</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = pd.DataFrame(date,columns=[<span class="string">'date'</span>])</span><br><span class="line">b = DataFrame(date_time,columns=[<span class="string">'date_time'</span>])</span><br><span class="line">date_con = pd.concat([a,b],axis=<span class="number">1</span>)</span><br><span class="line"><span class="comment"># axis = 1 直接横向关联2个数组</span></span><br></pre></td></tr></table></figure>
 <h2 id="将变换后的日期关联到源表上"><a href="#将变换后的日期关联到源表上" class="headerlink" title="将变换后的日期关联到源表上"></a>将变换后的日期关联到源表上</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.merge(date_con,left_on=<span class="string">'dt'</span>,right_on=<span class="string">'date'</span>)</span><br></pre></td></tr></table></figure>
@@ -2092,7 +2134,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

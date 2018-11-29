@@ -375,7 +375,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/28/sql字符串处理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/matplotlib数据可视化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IvyJin">
@@ -394,7 +394,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/28/sql字符串处理/" itemprop="url">sql字符串处理</a></h1>
+                <a class="post-title-link" href="/2018/11/27/matplotlib数据可视化/" itemprop="url">matplotlib数据可视化</a></h1>
         
 
         <div class="post-meta">
@@ -406,8 +406,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T00:20:20+08:00">
-                2018-11-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T19:09:07+08:00">
+                2018-11-27
               </time>
             
 
@@ -429,8 +429,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/sql/" itemprop="url" rel="index">
-                    <span itemprop="name">sql</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -468,489 +468,106 @@
       
         
           
-            <!-- 
-| 用途 | 函数/方法 | demo |
-| --- | --- | --- |
-| 判断字符包含关系 | instr | instr('abc','a,b') |
-| 判断字符包含关系 | find_in_set | find_in_set('abc','a') != 0 |
-| 把字段拆为三部分，最后取中间 | regexp_extract | regexp_extract('"banner"]','(\\[?\\")(.*?)(\\"\\]?)',2) |
-| 替换多个 | regexp_extract | select regexp_extract('["banner"]','(\\[?\\")(.*?)(\\"\\])',2) |
-| 从url中取部分字段 | parse_url | parse_url(props['page_url'],'QUERY', 'id') |
-| ip转地址 | ip2code | substr(ip2code(props['x-clientIp'],0),3,4) |
-| 分号转义符 | \073 | split(info,"\073")[2] | -->
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/28/sql开窗函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IvyJin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="数据分析笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/28/sql开窗函数/" itemprop="url">sql开窗函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T00:19:40+08:00">
-                2018-11-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/sql/" itemprop="url" rel="index">
-                    <span itemprop="name">sql</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="计算一段时间内的累计值"><a href="#计算一段时间内的累计值" class="headerlink" title="计算一段时间内的累计值"></a>计算一段时间内的累计值</h1><h2 id="假设有表格t，数据表示每天各类商品的销量"><a href="#假设有表格t，数据表示每天各类商品的销量" class="headerlink" title="假设有表格t，数据表示每天各类商品的销量"></a>假设有表格t，数据表示每天各类商品的销量</h2><table>
+            <blockquote>
+<p>作为一个转专业的分析师，入行之前做图表基本都是Excel搞定，所以在学习用python实现可视化的时候，总还是习惯对标到Excel来理解。在Excel里面插入图表，第一步是选择图表类型；然后添加表元素，表元素包含了图表标题、坐标轴标题、坐标轴、数据标签、网格线和图例；同时可以对修改颜色、移动表的位置等等……对于matplotlib来说，基本也是具备这些功能的，目前也计划根据这个逻辑逐步梳理出来，方便之后的查询和代码复用。</p>
+</blockquote>
+<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment"># 解决中文乱码问题</span></span><br><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>]=[<span class="string">'SimHei'</span>]</span><br><span class="line"><span class="comment"># 解决负号显示不正常问题</span></span><br><span class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>]=<span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<h1 id="选择图表类型"><a href="#选择图表类型" class="headerlink" title="选择图表类型"></a>选择图表类型</h1><table>
 <thead>
 <tr>
-<th>date</th>
-<th>category</th>
-<th>value</th>
+<th>图表类型</th>
+<th>调用方式</th>
+<th>备注</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>20181012</td>
-<td>a</td>
-<td>100</td>
+<td>折线图</td>
+<td>plt.plot</td>
+<td></td>
 </tr>
 <tr>
-<td>20181013</td>
-<td>a</td>
-<td>200</td>
+<td>直方图</td>
+<td>plt.hist</td>
+<td></td>
 </tr>
 <tr>
-<td>20181012</td>
-<td>b</td>
-<td>300</td>
+<td>散点图</td>
+<td>plt.scatter</td>
+<td></td>
 </tr>
 <tr>
-<td>20181012</td>
-<td>b</td>
-<td>200</td>
+<td>饼状图</td>
+<td>plt.pie</td>
+<td></td>
+</tr>
+<tr>
+<td>堆积条形图</td>
+<td>plt.bar</td>
+<td>依次列举需要展示的y，其中y的bottom为上一个条形图的y值</td>
 </tr>
 </tbody>
 </table>
-<h2 id="取数代码"><a href="#取数代码" class="headerlink" title="取数代码"></a>取数代码</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="built_in">date</span>,</span><br><span class="line">    <span class="keyword">category</span>,</span><br><span class="line">    <span class="keyword">sum</span>(<span class="keyword">coalesce</span>(<span class="keyword">value</span>,<span class="number">0</span>)) <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> <span class="keyword">category</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="built_in">date</span>) <span class="keyword">as</span> total </span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    t</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    <span class="built_in">date</span>,</span><br><span class="line">    <span class="keyword">category</span>,</span><br><span class="line">    <span class="keyword">value</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    <span class="built_in">date</span> <span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><table>
+<h1 id="图表元素参数"><a href="#图表元素参数" class="headerlink" title="图表元素参数"></a>图表元素参数</h1><h2 id="情况1：直接用plt-plot"><a href="#情况1：直接用plt-plot" class="headerlink" title="情况1：直接用plt.plot"></a>情况1：直接用plt.plot</h2><table>
 <thead>
 <tr>
-<th>date</th>
-<th>category</th>
-<th>total</th>
+<th>图表元素</th>
+<th>参数</th>
+<th>案例</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>20181012</td>
-<td>a</td>
-<td>100</td>
+<td>位置</td>
+<td>axes</td>
+<td>plt.axes([0.2,0.2,0.5,0.5])</td>
 </tr>
 <tr>
-<td>20181013</td>
-<td>a</td>
-<td>300</td>
+<td>颜色</td>
+<td>color</td>
+<td>plt.plot(x,y,color=’red’)</td>
+</tr>
+<tr>
+<td>图例名称</td>
+<td>label</td>
+<td>plt.plot(x,y,label=’x’)</td>
+</tr>
+<tr>
+<td>透明度</td>
+<td>alpha</td>
+<td>plt.hist(x,color=’red’,alpha=0.7)</td>
+</tr>
+<tr>
+<td>坐标轴名称</td>
+<td>plt.xlabel/ylabel</td>
+<td>plt.xlabel(‘日期’)</td>
+</tr>
+<tr>
+<td>坐标轴范围</td>
+<td>plt.xlim/ylim</td>
+<td>plt.xlim(1,4)</td>
+</tr>
+<tr>
+<td>图例</td>
+<td>plt.legend(loc=’best’)</td>
+<td>plt.legend(loc=’best’),其中loc是调整图例位置的</td>
+</tr>
+<tr>
+<td>数据标签</td>
+<td>plt.text(x, y, s, fontdict=None, withdash=False, **kwargs),其中x,y是坐标，s是数据标签</td>
 </tr>
 </tbody>
 </table>
-<h1 id="取相邻时间的值"><a href="#取相邻时间的值" class="headerlink" title="取相邻时间的值"></a>取相邻时间的值</h1><h2 id="假设有表格t，数据表示学生迟到信息"><a href="#假设有表格t，数据表示学生迟到信息" class="headerlink" title="假设有表格t，数据表示学生迟到信息"></a>假设有表格t，数据表示学生迟到信息</h2><table>
-<thead>
-<tr>
-<th>date</th>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>20181012</td>
-<td>张三</td>
-</tr>
-<tr>
-<td>20181013</td>
-<td>张三</td>
-</tr>
-<tr>
-<td>20181012</td>
-<td>王五</td>
-</tr>
-<tr>
-<td>20181012</td>
-<td>李四</td>
-</tr>
-</tbody>
-</table>
-<h2 id="取数代码-1"><a href="#取数代码-1" class="headerlink" title="取数代码"></a>取数代码</h2><p>取相邻的数值的函数除了LAG还有lead，但是我觉得都可以通过order by里面的顺序控制，所以没太大必要记两个东西<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    dt,</span><br><span class="line">    <span class="keyword">name</span>,</span><br><span class="line">    LAG(album_category_id,<span class="number">1</span>) <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> <span class="keyword">name</span> <span class="keyword">order</span> <span class="keyword">by</span> dt) <span class="keyword">as</span> late_last_time<span class="comment">--取前1日的专辑类别</span></span><br><span class="line"><span class="keyword">from</span> dwd.album_detail_df</span><br></pre></td></tr></table></figure></p>
-<h2 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h2><table>
-<thead>
-<tr>
-<th>date</th>
-<th>name</th>
-<th>late_last_time</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>20181013</td>
-<td>张三</td>
-<td>20181012</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/28/sql行列转化/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IvyJin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="数据分析笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/28/sql行列转化/" itemprop="url">sql行列转化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T00:19:17+08:00">
-                2018-11-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/sql/" itemprop="url" rel="index">
-                    <span itemprop="name">sql</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="列转行"><a href="#列转行" class="headerlink" title="列转行"></a>列转行</h1><h2 id="方法1：函数：concat-ws-“-”-collect-set"><a href="#方法1：函数：concat-ws-“-”-collect-set" class="headerlink" title="方法1：函数：concat_ws(“,”,collect_set())"></a>方法1：函数：concat_ws(“,”,collect_set())</h2><h3 id="假设有表格t，表示学生迟到信息"><a href="#假设有表格t，表示学生迟到信息" class="headerlink" title="假设有表格t，表示学生迟到信息"></a>假设有表格t，表示学生迟到信息</h3><table>
-<thead>
-<tr>
-<th>date</th>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>20181012</td>
-<td>张三</td>
-</tr>
-<tr>
-<td>20181013</td>
-<td>张三</td>
-</tr>
-<tr>
-<td>20181014</td>
-<td>李四</td>
-</tr>
-<tr>
-<td>20181012</td>
-<td>李四</td>
-</tr>
-</tbody>
-</table>
-<h3 id="用列转行在1行查看学生的所有迟到信息"><a href="#用列转行在1行查看学生的所有迟到信息" class="headerlink" title="用列转行在1行查看学生的所有迟到信息"></a>用列转行在1行查看学生的所有迟到信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    t1.name,</span><br><span class="line">    <span class="keyword">concat_ws</span>(<span class="string">","</span>,collect_set(<span class="built_in">date</span>)) <span class="keyword">as</span> date_detail</span><br><span class="line"><span class="keyword">from</span> t </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    t1.name</span><br></pre></td></tr></table></figure>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><table>
-<thead>
-<tr>
-<th>name</th>
-<th>date_detail</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>张三</td>
-<td>20181012,20181013</td>
-</tr>
-<tr>
-<td>李四</td>
-<td>20181012,20181014</td>
-</tr>
-</tbody>
-</table>
-<h2 id="方法2：函数max结合case-when"><a href="#方法2：函数max结合case-when" class="headerlink" title="方法2：函数max结合case when"></a>方法2：函数max结合case when</h2><h3 id="假设有表t，表示学生各科的成绩表"><a href="#假设有表t，表示学生各科的成绩表" class="headerlink" title="假设有表t，表示学生各科的成绩表"></a>假设有表t，表示学生各科的成绩表</h3><table>
-<thead>
-<tr>
-<th>name</th>
-<th>course</th>
-<th>score</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>张三</td>
-<td>语文</td>
-<td>80</td>
-</tr>
-<tr>
-<td>张三</td>
-<td>数学</td>
-<td>90</td>
-</tr>
-<tr>
-<td>张三</td>
-<td>英语</td>
-<td>70</td>
-</tr>
-<tr>
-<td>张三</td>
-<td>历史</td>
-<td>78</td>
-</tr>
-</tbody>
-</table>
-<h3 id="一行展示学生信息"><a href="#一行展示学生信息" class="headerlink" title="一行展示学生信息"></a>一行展示学生信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	<span class="keyword">name</span>,</span><br><span class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> course=<span class="string">'语文'</span> <span class="keyword">then</span> score <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> score_yw,</span><br><span class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> course=<span class="string">'数学'</span> <span class="keyword">then</span> score <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> score_sx,</span><br><span class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> course=<span class="string">'英语'</span> <span class="keyword">then</span> score <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> score_eng,</span><br><span class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> course=<span class="string">'历史'</span> <span class="keyword">then</span> score <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> score_ls</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	t </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">	<span class="keyword">name</span></span><br></pre></td></tr></table></figure>
-<h1 id="行转列"><a href="#行转列" class="headerlink" title="行转列"></a>行转列</h1><h2 id="函数：LATERAL-VIEW-explode"><a href="#函数：LATERAL-VIEW-explode" class="headerlink" title="函数：LATERAL VIEW explode"></a>函数：LATERAL VIEW explode</h2><h2 id="假设有表t，每行表示学生迟到的日期明细"><a href="#假设有表t，每行表示学生迟到的日期明细" class="headerlink" title="假设有表t，每行表示学生迟到的日期明细"></a>假设有表t，每行表示学生迟到的日期明细</h2><table>
-<thead>
-<tr>
-<th>name</th>
-<th>date_detail</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>张三</td>
-<td>20181012,20181013</td>
-</tr>
-<tr>
-<td>李四</td>
-<td>20181012,20181014</td>
-</tr>
-</tbody>
-</table>
-<h2 id="现在需要统计每天迟到的学生数，需要先拆分多行"><a href="#现在需要统计每天迟到的学生数，需要先拆分多行" class="headerlink" title="现在需要统计每天迟到的学生数，需要先拆分多行"></a>现在需要统计每天迟到的学生数，需要先拆分多行</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	<span class="keyword">name</span>,</span><br><span class="line">	date_detail,</span><br><span class="line">	<span class="built_in">date</span></span><br><span class="line"><span class="keyword">from</span> t  </span><br><span class="line"><span class="keyword">where</span> LATERAL <span class="keyword">VIEW</span> explode(<span class="keyword">split</span>(date_detail,<span class="string">","</span>)) <span class="keyword">result</span> <span class="keyword">as</span> <span class="built_in">date</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">name</span>,date_detail,<span class="built_in">date</span></span><br></pre></td></tr></table></figure>
+<p>修改坐标轴间隔<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">start, end = ax.get_xlim() <span class="comment">#取出坐标轴起止值</span></span><br><span class="line">ax.xaxis.set_ticks(np.arange(start, end, <span class="number">7</span>)) <span class="comment">#x轴刻度从起始到终止，步长为7</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="情况2：引入画布"><a href="#情况2：引入画布" class="headerlink" title="情况2：引入画布"></a>情况2：引入画布</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建画布</span></span><br><span class="line">plt.figure(figsize=(<span class="number">15</span>,<span class="number">10</span>)) <span class="comment">#大小为15*10的画布</span></span><br><span class="line"><span class="comment"># 创建子图</span></span><br><span class="line">ax = plt.subplot(<span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span>) <span class="comment">#把画布切割为3*4的画布，这里表示占用第1个位置</span></span><br><span class="line">ax = plt.subplot(<span class="number">3</span>,<span class="number">4</span>,<span class="number">8</span>)  <span class="comment">#这里表示占用第8个位置</span></span><br><span class="line">ax = plt.subplot(<span class="number">3</span>,<span class="number">4</span>,<span class="number">12</span>)  <span class="comment">#这里表示占用第12个位置</span></span><br><span class="line"><span class="comment"># 设置子图的标题</span></span><br><span class="line">ax.set_title(<span class="string">'图1'</span>)</span><br><span class="line"><span class="comment"># 设置取值范围</span></span><br><span class="line">ax.set_xlim(<span class="number">1</span>,<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 如果是直方图，可以直接指定每一段的取值范围，且可实现不均等分</span></span><br><span class="line">ax.hist(data[<span class="string">'x'</span>],  [<span class="number">-0.5</span>, <span class="number">-0.45</span>,<span class="number">-0.4</span>,<span class="number">-0.35</span>, <span class="number">-0.3</span>,<span class="number">-0.25</span>,<span class="number">-0.2</span>,<span class="number">-0.15</span>,<span class="number">-0.1</span>,<span class="number">-0.05</span>,<span class="number">0</span>,<span class="number">0.05</span>,<span class="number">0.1</span>,<span class="number">0.15</span>,<span class="number">0.2</span>,<span class="number">0.25</span>,<span class="number">0.3</span>,<span class="number">0.35</span>,<span class="number">0.4</span>,<span class="number">0.45</span>,<span class="number">0.5</span>],histtype=<span class="string">'bar'</span>,alpha=<span class="number">0.75</span>,rwidth=<span class="number">0.8</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h1><h2 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fig,ax=plt.subplots(figsize=(<span class="number">6</span>,<span class="number">6</span>))</span><br><span class="line">ax.plot(df[<span class="string">'petal length'</span>],color=<span class="string">'blue'</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">'Specimen Number'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'petal length'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_title(<span class="string">'Petal length plot'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
+<h2 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单个直方图</span></span><br><span class="line">fig,ax = plt.subplots(figsize=(<span class="number">6</span>,<span class="number">4</span>))</span><br><span class="line">ax.hist(df[<span class="string">'petal width'</span>],color = <span class="string">'black'</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'Count'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">'Width'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">plt.title(<span class="string">'Iris Petal Width'</span>,fontsize=<span class="number">14</span>,y=<span class="number">1.01</span>)</span><br><span class="line">show()</span><br><span class="line"></span><br><span class="line"><span class="comment">#  对每列生成直方图</span></span><br><span class="line">fig,ax = plt.subplots(<span class="number">2</span>,<span class="number">2</span>,figsize=(<span class="number">6</span>,<span class="number">4</span>))</span><br><span class="line">ax[<span class="number">0</span>][<span class="number">0</span>].hist(df[<span class="string">'petal width'</span>],color=<span class="string">'black'</span>)</span><br><span class="line">ax[<span class="number">0</span>][<span class="number">1</span>].hist(df[<span class="string">'petal length'</span>],color=<span class="string">'black'</span>)</span><br><span class="line">ax[<span class="number">1</span>][<span class="number">0</span>].hist(df[<span class="string">'sepal width'</span>],color=<span class="string">'black'</span>)</span><br><span class="line">ax[<span class="number">1</span>][<span class="number">1</span>].hist(df[<span class="string">'sepal length'</span>],color=<span class="string">'black'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
+<h2 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fig,ax=plt.subplots(figsize=(<span class="number">6</span>,<span class="number">6</span>))</span><br><span class="line">ax.scatter(df[<span class="string">'petal width'</span>],df[<span class="string">'petal length'</span>],color=<span class="string">'blue'</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">'Width'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'length'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_title(<span class="string">'Petal Scatterplot'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
+<h1 id="堆积条形图"><a href="#堆积条形图" class="headerlink" title="堆积条形图"></a>堆积条形图</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">fig,ax=plt.subplots(figsize=(<span class="number">6</span>,<span class="number">6</span>))</span><br><span class="line">bar_width = <span class="number">.8</span></span><br><span class="line">labels = [x <span class="keyword">for</span> x <span class="keyword">in</span> df.columns <span class="keyword">if</span> <span class="string">'length'</span> <span class="keyword">in</span> x <span class="keyword">or</span> <span class="string">'width'</span> <span class="keyword">in</span> x]</span><br><span class="line">print(df[<span class="string">'class'</span>].unique())</span><br><span class="line">ver_y = [df[df[<span class="string">'class'</span>]==<span class="string">'Iris-versicolor'</span>][x].mean() <span class="keyword">for</span> x <span class="keyword">in</span> labels]</span><br><span class="line">vir_y = [df[df[<span class="string">'class'</span>]==<span class="string">'Iris-virginica'</span>][x].mean() <span class="keyword">for</span> x <span class="keyword">in</span> labels]</span><br><span class="line">set_y = [df[df[<span class="string">'class'</span>]==<span class="string">'Iris-setosa'</span>][x].mean() <span class="keyword">for</span> x <span class="keyword">in</span> labels]</span><br><span class="line">x = np.arange(len(labels))</span><br><span class="line">ax.bar(x,vir_y,bar_width,bottom=set_y,color=<span class="string">'darkgrey'</span>)</span><br><span class="line">ax.bar(x,set_y,bar_width,bottom=ver_y,color=<span class="string">'blue'</span>)</span><br><span class="line">ax.bar(x,ver_y,bar_width,color=<span class="string">'red'</span>)</span><br><span class="line">ax.set_xticks(x + (bar_width/<span class="number">2</span>))</span><br><span class="line">ax.set_xticklabels(labels,rotation = <span class="number">-70</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_title(<span class="string">'Mean Feature Meausurement By Class'</span>,y=<span class="number">1.01</span>)</span><br><span class="line">ax.legend([<span class="string">'Iris-virginica'</span>,<span class="string">'Iris-setosa'</span>,<span class="string">'Iris-versicolor'</span>])</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
+<h1 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">y = <span class="number">11</span>-x</span><br><span class="line">plt.bar(x, y)</span><br><span class="line"><span class="comment"># 循环，为每个柱形添加文本标注</span></span><br><span class="line">print(x,y)</span><br><span class="line"><span class="comment"># 居中对齐</span></span><br><span class="line"><span class="keyword">for</span> xx, yy <span class="keyword">in</span> zip(x,y):</span><br><span class="line">    plt.text(xx, yy+<span class="number">0.1</span>, str(round(yy,<span class="number">2</span>)), ha=<span class="string">'center'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
+<p><a href="http://www.runoob.com/w3cnote/matplotlib-tutorial.html" target="_blank" rel="noopener">Matplotlib教程</a></p>
+</blockquote>
 
           
         
@@ -1158,7 +775,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/25/matplotlib数据可视化/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/26/numpy数组操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IvyJin">
@@ -1177,7 +794,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/25/matplotlib数据可视化/" itemprop="url">matplotlib数据可视化</a></h1>
+                <a class="post-title-link" href="/2018/11/26/numpy数组操作/" itemprop="url">numpy数组操作</a></h1>
         
 
         <div class="post-meta">
@@ -1189,8 +806,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-25T19:09:07+08:00">
-                2018-11-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-26T00:09:17+08:00">
+                2018-11-26
               </time>
             
 
@@ -1251,107 +868,215 @@
       
         
           
-            <blockquote>
-<p>作为一个转专业的分析师，入行之前做图表基本都是Excel搞定，所以在学习用python实现可视化的时候，总还是习惯对标到Excel来理解。在Excel里面插入图表，第一步是选择图表类型；然后添加表元素，表元素包含了图表标题、坐标轴标题、坐标轴、数据标签、网格线和图例；同时可以对修改颜色、移动表的位置等等……对于matplotlib来说，基本也是具备这些功能的，目前也计划根据这个逻辑逐步梳理出来，方便之后的查询和代码复用。</p>
+            <p>numpy是高性能科学计算和数据分析的基础包，是很多工具的基础，在用python做数据分析的时候，也是非常重要哒。同样也是用了很多次，但是每次用的时候常会需要重复处理一些问题。</p>
+<h1 id="基础准备"><a href="#基础准备" class="headerlink" title="基础准备"></a>基础准备</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bool_</td>
+<td>布尔型数据类型（True 或者 False）</td>
+</tr>
+<tr>
+<td>int_</td>
+<td>默认的整数类型（类似于 C 语言中的 long，int32 或 int64）</td>
+</tr>
+<tr>
+<td>intc</td>
+<td>与 C 的 int 类型一样，一般是 int32 或 int 64</td>
+</tr>
+<tr>
+<td>intp</td>
+<td>用于索引的整数类型（类似于 C 的 ssize_t，一般情况下仍然是 int32 或 int64）</td>
+</tr>
+<tr>
+<td>int8</td>
+<td>字节（-128 to 127）</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>整数（-32768 to 32767）</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>整数（-2147483648 to 2147483647）</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>整数（-9223372036854775808 to 9223372036854775807）</td>
+</tr>
+<tr>
+<td>uint8</td>
+<td>无符号整数（0 to 255）</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>无符号整数（0 to 65535）</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>无符号整数（0 to 4294967295）</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>无符号整数（0 to 18446744073709551615）</td>
+</tr>
+<tr>
+<td>float_</td>
+<td>float64 类型的简写</td>
+</tr>
+<tr>
+<td>float16</td>
+<td>半精度浮点数，包括：1 个符号位，5 个指数位，10 个尾数位</td>
+</tr>
+<tr>
+<td>float32</td>
+<td>单精度浮点数，包括：1 个符号位，8 个指数位，23 个尾数位</td>
+</tr>
+<tr>
+<td>float64</td>
+<td>双精度浮点数，包括：1 个符号位，11 个指数位，52 个尾数位</td>
+</tr>
+<tr>
+<td>complex_</td>
+<td>complex128 类型的简写，即 128 位复数</td>
+</tr>
+<tr>
+<td>complex64</td>
+<td>复数，表示双 32 位浮点数（实数部分和虚数部分）</td>
+</tr>
+<tr>
+<td>complex128</td>
+<td>复数，表示双 64 位浮点数（实数部分和虚数部分）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="数组的属性"><a href="#数组的属性" class="headerlink" title="数组的属性"></a>数组的属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ndarray.ndim</td>
+<td>秩，即轴的数量或维度的数量</td>
+</tr>
+<tr>
+<td>ndarray.shape</td>
+<td>数组的维度，对于矩阵，n 行 m 列</td>
+</tr>
+<tr>
+<td>ndarray.size</td>
+<td>数组元素的总个数，相当于 .shape 中 n*m 的值</td>
+</tr>
+<tr>
+<td>ndarray.dtype</td>
+<td>ndarray 对象的元素类型</td>
+</tr>
+<tr>
+<td>ndarray.itemsize</td>
+<td>ndarray 对象中每个元素的大小，以字节为单位</td>
+</tr>
+<tr>
+<td>ndarray.flags</td>
+<td>ndarray 对象的内存信息</td>
+</tr>
+<tr>
+<td>ndarray.real</td>
+<td>ndarray元素的实部</td>
+</tr>
+<tr>
+<td>ndarray.image</td>
+<td>ndarray 元素的虚部</td>
+</tr>
+<tr>
+<td>ndarray.data</td>
+<td>包含实际数组元素的缓冲区，由于一般通过数组的索引获取元素，所以通常不需要使用这个属性。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h1><h2 id="新建数组"><a href="#新建数组" class="headerlink" title="新建数组"></a>新建数组</h2><p>shape用类似(5，3),[5,3]的方法表示即可<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建基本的数组</span></span><br><span class="line">np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建空数组</span></span><br><span class="line">numpy.empty(shape, dtype = float, order = <span class="string">'C'</span>) </span><br><span class="line"><span class="comment">#order有"C"和"F"两个选项,分别代表，行优先和列优先，在计算机内存中的存储元素的顺序。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建零数组</span></span><br><span class="line">numpy.zeros(shape, dtype = float, order = <span class="string">'C'</span>)</span><br><span class="line"><span class="comment"># order:'C' 用于 C 的行数组，或者 'F' 用于 FORTRAN 的列数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建指定形状的数组，数组元素以 1 来填充：</span></span><br><span class="line">numpy.ones(shape, dtype = <span class="keyword">None</span>, order = <span class="string">'C'</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="创建随机数组"><a href="#创建随机数组" class="headerlink" title="创建随机数组"></a>创建随机数组</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建 randn(size) 服从 X~N(0,1) 的正态分布随机数组</span></span><br><span class="line">random.randn(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 利用 randint([low,high],size) 创建一个整数型指定范围在 [low.high] 之间的数组</span></span><br><span class="line">a=random.randint(low,high,shape)</span><br></pre></td></tr></table></figure>
+<h2 id="从已有的数组创建"><a href="#从已有的数组创建" class="headerlink" title="从已有的数组创建"></a>从已有的数组创建</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">numpy.asarray(a, dtype = <span class="keyword">None</span>, order = <span class="keyword">None</span>)</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">x =  [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] </span><br><span class="line">a = np.asarray(x)  </span><br><span class="line"><span class="keyword">print</span> (a)</span><br></pre></td></tr></table></figure>
+<p>说明：<br>| 参数 | 描述 |<br>| — | — |<br>| a | 任意形式的输入参数，可以是，列表, 列表的元组, 元组, 元组的元组, 元组的列表，多维数组|<br>| dtype | 数据类型，可选 |<br>| order | 可选，有”C”和”F”两个选项,分别代表，行优先和列优先，在计算机内存中的存储元素的顺序。|</p>
+<h2 id="从数值范围创建数组"><a href="#从数值范围创建数组" class="headerlink" title="从数值范围创建数组"></a>从数值范围创建数组</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># numpy 包中的使用 arange 函数创建数值范围并返回 ndarray 对象，函数格式：</span></span><br><span class="line">numpy.arange(start, stop, step, dtype) </span><br><span class="line"><span class="comment"># 参数分别表示起始值（默认为0）、终止值（不包含），步长（默认为1），数据类型</span></span><br><span class="line"><span class="comment"># 使用案例:</span></span><br><span class="line">np.arange(<span class="number">15</span>) <span class="comment">#0-14的1行15列数组</span></span><br><span class="line">np.arange(<span class="number">15</span>).rehsape(<span class="number">5</span>,<span class="number">3</span>) <span class="comment">#取值为0-14的5*3的数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用linspace创建等差数列数组</span></span><br><span class="line">np.linspace(start, stop, num=<span class="number">50</span>, endpoint=<span class="keyword">True</span>, retstep=<span class="keyword">False</span>, dtype=<span class="keyword">None</span>) </span><br><span class="line"><span class="comment">#num表示生成等步长样本数量，默认为50；endpoint为true表示包含stop值；retstep如果为 True 时，生成的数组中会显示间距</span></span><br><span class="line"><span class="comment"># 使用案例</span></span><br><span class="line">np.linspace(<span class="number">1</span>,<span class="number">10</span>,<span class="number">10</span>) <span class="comment">#1-10均为分为10段</span></span><br><span class="line">np.linspace(<span class="number">1</span>,<span class="number">10</span>,<span class="number">10</span>).reshape(<span class="number">5</span>,<span class="number">2</span>) <span class="comment">#转化为5*2的数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># numpy.logspace 函数用于创建一个于等比数列</span></span><br><span class="line">np.logspace(start, stop, num=<span class="number">50</span>, endpoint=<span class="keyword">True</span>, base=<span class="number">10.0</span>, dtype=<span class="keyword">None</span>) </span><br><span class="line"><span class="comment"># base表示对数log的底数；start序列的起始值为[base ** start] ;stop序列的起始值为[base ** stop],**表示平方</span></span><br></pre></td></tr></table></figure>
+<h1 id="切片和索引"><a href="#切片和索引" class="headerlink" title="切片和索引"></a>切片和索引</h1><p>ndarray 数组可以基于 0 - n 的下标进行索引，切片对象可以通过内置的 slice 函数，并设置 start, stop 及 step 参数进行，从原数组中切割出一个新数组。<br>使用案例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">s = slice(<span class="number">2</span>,<span class="number">7</span>,<span class="number">2</span>)   <span class="comment"># 从索引 2 开始到索引 7 停止，间隔为2</span></span><br><span class="line"><span class="keyword">print</span> (a[s])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者通过:来分隔切片参数</span></span><br><span class="line">a = np.arange(<span class="number">10</span>)  </span><br><span class="line">b = a[<span class="number">2</span>:<span class="number">7</span>:<span class="number">2</span>]   <span class="comment"># 从索引 2 开始到索引 7 停止，间隔为 2</span></span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure></p>
+<p>冒号 : 的解释：<br>    如果只放置一个参数，如 [2]，将返回与该索引相对应的单个元素。<br>    如果为 [2:]，表示从该索引开始以后的所有项都将被提取。<br>    如果使用了两个参数，如 [2:7]，那么则提取两个索引(不包括停止索引)之间的项。</p>
+<p>使用案例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只放置一个参数</span></span><br><span class="line">a = np.arange(<span class="number">10</span>)  <span class="comment"># [0 1 2 3 4 5 6 7 8 9]</span></span><br><span class="line">b = a[<span class="number">5</span>] </span><br><span class="line">print(b) <span class="comment">#结果为5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># [2:]</span></span><br><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">print(a[<span class="number">2</span>:]) <span class="comment"># 结果为[2  3  4  5  6  7  8  9]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># [2:7]</span></span><br><span class="line">a = np.arange(<span class="number">10</span>)  <span class="comment"># 结果为[0 1 2 3 4 5 6 7 8 9]</span></span><br><span class="line">print(a[<span class="number">2</span>:<span class="number">5</span>]) <span class="comment"># 结果为[2 3 4 5 6]</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h1><h2 id="修改数组形状"><a href="#修改数组形状" class="headerlink" title="修改数组形状"></a>修改数组形状</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reshape（常用）</td>
+<td>不改变数据的条件下修改形状</td>
+</tr>
+<tr>
+<td>flat</td>
+<td>数组元素迭代器</td>
+</tr>
+<tr>
+<td>flatten</td>
+<td>返回一份数组拷贝，对拷贝所做的修改不会影响原始数组</td>
+</tr>
+<tr>
+<td>ravel</td>
+<td>返回展开数组</td>
+</tr>
+</tbody>
+</table>
+<h3 id="numpy-reshape"><a href="#numpy-reshape" class="headerlink" title="numpy.reshape"></a>numpy.reshape</h3><blockquote>
+<p>numpy.reshape(arr, newshape, order=’C’)<br>参数说明<br>arr：要修改形状的数组<br>newshape：整数或者整数数组，新的形状应当兼容原有形状<br>order：’C’ – 按行，’F’ – 按列，’A’ – 原顺序，’k’ – 元素在内存中的出现顺序。<br>使用案例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">8</span>)</span><br><span class="line">b = a.reshape(<span class="number">4</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment"># 解决中文乱码问题</span></span><br><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>]=[<span class="string">'SimHei'</span>]</span><br><span class="line"><span class="comment"># 解决负号显示不正常问题</span></span><br><span class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>]=<span class="keyword">False</span></span><br></pre></td></tr></table></figure>
-<h1 id="选择图表类型"><a href="#选择图表类型" class="headerlink" title="选择图表类型"></a>选择图表类型</h1><table>
-<thead>
-<tr>
-<th>图表类型</th>
-<th>调用方式</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>折线图</td>
-<td>plt.plot</td>
-<td></td>
-</tr>
-<tr>
-<td>直方图</td>
-<td>plt.hist</td>
-<td></td>
-</tr>
-<tr>
-<td>散点图</td>
-<td>plt.scatter</td>
-<td></td>
-</tr>
-<tr>
-<td>饼状图</td>
-<td>plt.pie</td>
-<td></td>
-</tr>
-<tr>
-<td>堆积条形图</td>
-<td>plt.bar</td>
-<td>依次列举需要展示的y，其中y的bottom为上一个条形图的y值</td>
-</tr>
-</tbody>
-</table>
-<h1 id="图表元素参数"><a href="#图表元素参数" class="headerlink" title="图表元素参数"></a>图表元素参数</h1><h2 id="情况1：直接用plt-plot"><a href="#情况1：直接用plt-plot" class="headerlink" title="情况1：直接用plt.plot"></a>情况1：直接用plt.plot</h2><table>
-<thead>
-<tr>
-<th>图表元素</th>
-<th>参数</th>
-<th>案例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>位置</td>
-<td>axes</td>
-<td>plt.axes([0.2,0.2,0.5,0.5])</td>
-</tr>
-<tr>
-<td>颜色</td>
-<td>color</td>
-<td>plt.plot(x,y,color=’red’)</td>
-</tr>
-<tr>
-<td>图例名称</td>
-<td>label</td>
-<td>plt.plot(x,y,label=’x’)</td>
-</tr>
-<tr>
-<td>透明度</td>
-<td>alpha</td>
-<td>plt.hist(x,color=’red’,alpha=0.7)</td>
-</tr>
-<tr>
-<td>坐标轴名称</td>
-<td>plt.xlabel/ylabel</td>
-<td>plt.xlabel(‘日期’)</td>
-</tr>
-<tr>
-<td>坐标轴范围</td>
-<td>plt.xlim/ylim</td>
-<td>plt.xlim(1,4)</td>
-</tr>
-<tr>
-<td>图例</td>
-<td>plt.legend(loc=’best’)</td>
-<td>plt.legend(loc=’best’),其中loc是调整图例位置的</td>
-</tr>
-<tr>
-<td>数据标签</td>
-<td>plt.text(x, y, s, fontdict=None, withdash=False, **kwargs),其中x,y是坐标，s是数据标签</td>
-</tr>
-</tbody>
-</table>
-<p>修改坐标轴间隔<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">start, end = ax.get_xlim() <span class="comment">#取出坐标轴起止值</span></span><br><span class="line">ax.xaxis.set_ticks(np.arange(start, end, <span class="number">7</span>)) <span class="comment">#x轴刻度从起始到终止，步长为7</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="情况2：引入画布"><a href="#情况2：引入画布" class="headerlink" title="情况2：引入画布"></a>情况2：引入画布</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建画布</span></span><br><span class="line">plt.figure(figsize=(<span class="number">15</span>,<span class="number">10</span>)) <span class="comment">#大小为15*10的画布</span></span><br><span class="line"><span class="comment"># 创建子图</span></span><br><span class="line">ax = plt.subplot(<span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span>) <span class="comment">#把画布切割为3*4的画布，这里表示占用第1个位置</span></span><br><span class="line">ax = plt.subplot(<span class="number">3</span>,<span class="number">4</span>,<span class="number">8</span>)  <span class="comment">#这里表示占用第8个位置</span></span><br><span class="line">ax = plt.subplot(<span class="number">3</span>,<span class="number">4</span>,<span class="number">12</span>)  <span class="comment">#这里表示占用第12个位置</span></span><br><span class="line"><span class="comment"># 设置子图的标题</span></span><br><span class="line">ax.set_title(<span class="string">'图1'</span>)</span><br><span class="line"><span class="comment"># 设置取值范围</span></span><br><span class="line">ax.set_xlim(<span class="number">1</span>,<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 如果是直方图，可以直接指定每一段的取值范围，且可实现不均等分</span></span><br><span class="line">ax.hist(data[<span class="string">'x'</span>],  [<span class="number">-0.5</span>, <span class="number">-0.45</span>,<span class="number">-0.4</span>,<span class="number">-0.35</span>, <span class="number">-0.3</span>,<span class="number">-0.25</span>,<span class="number">-0.2</span>,<span class="number">-0.15</span>,<span class="number">-0.1</span>,<span class="number">-0.05</span>,<span class="number">0</span>,<span class="number">0.05</span>,<span class="number">0.1</span>,<span class="number">0.15</span>,<span class="number">0.2</span>,<span class="number">0.25</span>,<span class="number">0.3</span>,<span class="number">0.35</span>,<span class="number">0.4</span>,<span class="number">0.45</span>,<span class="number">0.5</span>],histtype=<span class="string">'bar'</span>,alpha=<span class="number">0.75</span>,rwidth=<span class="number">0.8</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h1><h2 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fig,ax=plt.subplots(figsize=(<span class="number">6</span>,<span class="number">6</span>))</span><br><span class="line">ax.plot(df[<span class="string">'petal length'</span>],color=<span class="string">'blue'</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">'Specimen Number'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'petal length'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_title(<span class="string">'Petal length plot'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
-<h2 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单个直方图</span></span><br><span class="line">fig,ax = plt.subplots(figsize=(<span class="number">6</span>,<span class="number">4</span>))</span><br><span class="line">ax.hist(df[<span class="string">'petal width'</span>],color = <span class="string">'black'</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'Count'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">'Width'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">plt.title(<span class="string">'Iris Petal Width'</span>,fontsize=<span class="number">14</span>,y=<span class="number">1.01</span>)</span><br><span class="line">show()</span><br><span class="line"></span><br><span class="line"><span class="comment">#  对每列生成直方图</span></span><br><span class="line">fig,ax = plt.subplots(<span class="number">2</span>,<span class="number">2</span>,figsize=(<span class="number">6</span>,<span class="number">4</span>))</span><br><span class="line">ax[<span class="number">0</span>][<span class="number">0</span>].hist(df[<span class="string">'petal width'</span>],color=<span class="string">'black'</span>)</span><br><span class="line">ax[<span class="number">0</span>][<span class="number">1</span>].hist(df[<span class="string">'petal length'</span>],color=<span class="string">'black'</span>)</span><br><span class="line">ax[<span class="number">1</span>][<span class="number">0</span>].hist(df[<span class="string">'sepal width'</span>],color=<span class="string">'black'</span>)</span><br><span class="line">ax[<span class="number">1</span>][<span class="number">1</span>].hist(df[<span class="string">'sepal length'</span>],color=<span class="string">'black'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
-<h2 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fig,ax=plt.subplots(figsize=(<span class="number">6</span>,<span class="number">6</span>))</span><br><span class="line">ax.scatter(df[<span class="string">'petal width'</span>],df[<span class="string">'petal length'</span>],color=<span class="string">'blue'</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">'Width'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'length'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_title(<span class="string">'Petal Scatterplot'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
-<h1 id="堆积条形图"><a href="#堆积条形图" class="headerlink" title="堆积条形图"></a>堆积条形图</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">fig,ax=plt.subplots(figsize=(<span class="number">6</span>,<span class="number">6</span>))</span><br><span class="line">bar_width = <span class="number">.8</span></span><br><span class="line">labels = [x <span class="keyword">for</span> x <span class="keyword">in</span> df.columns <span class="keyword">if</span> <span class="string">'length'</span> <span class="keyword">in</span> x <span class="keyword">or</span> <span class="string">'width'</span> <span class="keyword">in</span> x]</span><br><span class="line">print(df[<span class="string">'class'</span>].unique())</span><br><span class="line">ver_y = [df[df[<span class="string">'class'</span>]==<span class="string">'Iris-versicolor'</span>][x].mean() <span class="keyword">for</span> x <span class="keyword">in</span> labels]</span><br><span class="line">vir_y = [df[df[<span class="string">'class'</span>]==<span class="string">'Iris-virginica'</span>][x].mean() <span class="keyword">for</span> x <span class="keyword">in</span> labels]</span><br><span class="line">set_y = [df[df[<span class="string">'class'</span>]==<span class="string">'Iris-setosa'</span>][x].mean() <span class="keyword">for</span> x <span class="keyword">in</span> labels]</span><br><span class="line">x = np.arange(len(labels))</span><br><span class="line">ax.bar(x,vir_y,bar_width,bottom=set_y,color=<span class="string">'darkgrey'</span>)</span><br><span class="line">ax.bar(x,set_y,bar_width,bottom=ver_y,color=<span class="string">'blue'</span>)</span><br><span class="line">ax.bar(x,ver_y,bar_width,color=<span class="string">'red'</span>)</span><br><span class="line">ax.set_xticks(x + (bar_width/<span class="number">2</span>))</span><br><span class="line">ax.set_xticklabels(labels,rotation = <span class="number">-70</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_title(<span class="string">'Mean Feature Meausurement By Class'</span>,y=<span class="number">1.01</span>)</span><br><span class="line">ax.legend([<span class="string">'Iris-virginica'</span>,<span class="string">'Iris-setosa'</span>,<span class="string">'Iris-versicolor'</span>])</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
-<h1 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">y = <span class="number">11</span>-x</span><br><span class="line">plt.bar(x, y)</span><br><span class="line"><span class="comment"># 循环，为每个柱形添加文本标注</span></span><br><span class="line">print(x,y)</span><br><span class="line"><span class="comment"># 居中对齐</span></span><br><span class="line"><span class="keyword">for</span> xx, yy <span class="keyword">in</span> zip(x,y):</span><br><span class="line">    plt.text(xx, yy+<span class="number">0.1</span>, str(round(yy,<span class="number">2</span>)), ha=<span class="string">'center'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="numpy-ndarray-flat"><a href="#numpy-ndarray-flat" class="headerlink" title="numpy.ndarray.flat"></a>numpy.ndarray.flat</h3><blockquote>
+<p>ndarray.flatten(order=’C’)<br>使用案例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">9</span>).reshape(<span class="number">3</span>,<span class="number">3</span>) </span><br><span class="line"><span class="keyword">print</span> (<span class="string">'原始数组：'</span>)</span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> a:</span><br><span class="line">    <span class="keyword">print</span> (row)</span><br><span class="line"><span class="comment">#对数组中每个元素都进行处理，可以使用flat属性，该属性是一个数组元素迭代器：</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">'迭代后的数组：'</span>)</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> a.flat:</span><br><span class="line">    <span class="keyword">print</span> (element)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="numpy-ndarray-flatten"><a href="#numpy-ndarray-flatten" class="headerlink" title="numpy.ndarray.flatten"></a>numpy.ndarray.flatten</h3><blockquote>
+<p>ndarray.flatten(order=’C’)<br>返回一份数组拷贝，对拷贝所做的修改不会影响原始数组<br>参数说明：order：’C’ – 按行，’F’ – 按列，’A’ – 原顺序，’K’ – 元素在内存中的出现顺序。</p>
+</blockquote>
+<p>使用案例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">8</span>).reshape(<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">print</span> (<span class="string">'原数组：'</span>)</span><br><span class="line"><span class="keyword">print</span> (a)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'\n'</span>)</span><br><span class="line"><span class="comment"># 默认按行</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">print</span> (<span class="string">'展开的数组：'</span>)</span><br><span class="line"><span class="keyword">print</span> (a.flatten())</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'\n'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">print</span> (<span class="string">'以 F 风格顺序展开的数组：'</span>)</span><br><span class="line"><span class="keyword">print</span> (a.flatten(order = <span class="string">'F'</span>))</span><br></pre></td></tr></table></figure></p>
+<p>结果输出：</p>
+<blockquote>
+<p>原数组：<br>[[0 1 2 3]<br>[4 5 6 7]]</p>
+</blockquote>
+<blockquote>
+<p>展开的数组：<br>[0 1 2 3 4 5 6 7]</p>
+</blockquote>
+<blockquote>
+<p>以 F 风格顺序展开的数组：<br>[0 4 1 5 2 6 3 7]</p>
+</blockquote>
+<h3 id="numpy-ravel"><a href="#numpy-ravel" class="headerlink" title="numpy.ravel()"></a>numpy.ravel()</h3><blockquote>
+<p>numpy.ravel(a, order=’C’)<br>展平的数组元素，顺序通常是”C风格”，返回的是数组视图，修改会影响原始数组<br>参数说明：order：’C’ – 按行，’F’ – 按列，’A’ – 原顺序，’K’ – 元素在内存中的出现顺序。</p>
+</blockquote>
+<p>使用案例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.arange(<span class="number">8</span>).reshape(<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'原数组：'</span>)</span><br><span class="line"><span class="keyword">print</span> (a)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'\n'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">print</span> (<span class="string">'调用 ravel 函数之后：'</span>)</span><br><span class="line"><span class="keyword">print</span> (a.ravel())</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'\n'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">print</span> (<span class="string">'以 F 风格顺序调用 ravel 函数之后：'</span>)</span><br><span class="line"><span class="keyword">print</span> (a.ravel(order = <span class="string">'F'</span>))</span><br></pre></td></tr></table></figure></p>
+<p>结果输出：</p>
+<blockquote>
+<p>原数组：<br>[[0 1 2 3]<br>[4 5 6 7]]</p>
+</blockquote>
+<p>调用 ravel 函数之后：</p>
+<blockquote>
+<p>[0 1 2 3 4 5 6 7]</p>
+</blockquote>
+<blockquote>
+<p>以 F 风格顺序调用 ravel 函数之后：<br>[0 4 1 5 2 6 3 7]</p>
+</blockquote>
+<h2 id="连接数组"><a href="#连接数组" class="headerlink" title="连接数组"></a>连接数组</h2><p>| 函数 | 描述 |<br>| concatenate | 连接沿现有轴的数组序列 |<br>| stack | 沿着新的轴加入一系列数组。 |<br>| hstack | 水平堆叠序列中的数组（列方向）<br>| vstack | 竖直堆叠序列中的数组（行方向）</p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p><a href="http://www.runoob.com/w3cnote/matplotlib-tutorial.html" target="_blank" rel="noopener">Matplotlib教程</a></p>
+<p>[Numpy教程]（<a href="http://www.runoob.com/numpy/numpy-tutorial.html）" target="_blank" rel="noopener">http://www.runoob.com/numpy/numpy-tutorial.html）</a></p>
 </blockquote>
-
+<!-- ## ufunc
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">一元</span><br><span class="line">ceil：大于等于该值的最小整数</span><br><span class="line">floor：小于等于该值得最大整数</span><br><span class="line">modf：将数组的整数和小数部分以两个独立的数组的形式返回</span><br><span class="line">二元</span><br><span class="line">subtract：从第一个数组中，减去第二个数组中的元素</span><br><span class="line">power：将第一个数组中的元素A，根据第二个数组中的相应元素B，计算指数</span><br><span class="line">copysign：将第二个数组中值的符号复制给第一个数组中的值</span><br><span class="line">mod：元素级求模（除法的余数）</span><br></pre></td></tr></table></figure>
+<h2 id="统计方法"><a href="#统计方法" class="headerlink" title="统计方法"></a>统计方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sum\mean\std\var\min\max\argmin\argmax</span><br><span class="line">cumsum(所有元素的累积和)\cumprod(所有元素的累计积)</span><br><span class="line">numpy.linalg函数</span><br><span class="line">dot：矩阵乘法</span><br><span class="line">trace：对角线元素的和</span><br><span class="line">inv：矩阵的逆</span><br><span class="line">Pinv：矩阵的违逆</span><br><span class="line"> 随机数生成：np.random</span><br><span class="line">seed：确定随机数生成器的随机种子</span><br><span class="line">randint\randn(正态分布，平均值为0，标准差为1)\binomial(二项式分布)\normal(正态（高斯）分布) --&gt;</span><br></pre></td></tr></table></figure>-->
           
         
       
@@ -1727,7 +1452,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/numpy数组操作/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/sklearn数据归一化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IvyJin">
@@ -1746,7 +1471,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/08/numpy数组操作/" itemprop="url">numpy数组操作</a></h1>
+                <a class="post-title-link" href="/2018/11/08/sklearn数据归一化/" itemprop="url">sklearn数据归一化</a></h1>
         
 
         <div class="post-meta">
@@ -1758,7 +1483,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T00:09:17+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T00:09:35+08:00">
                 2018-11-08
               </time>
             
@@ -1820,215 +1545,156 @@
       
         
           
-            <p>numpy是高性能科学计算和数据分析的基础包，是很多工具的基础，在用python做数据分析的时候，也是非常重要哒。同样也是用了很多次，但是每次用的时候常会需要重复处理一些问题。</p>
-<h1 id="基础准备"><a href="#基础准备" class="headerlink" title="基础准备"></a>基础准备</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><table>
-<thead>
-<tr>
-<th>名称</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>bool_</td>
-<td>布尔型数据类型（True 或者 False）</td>
-</tr>
-<tr>
-<td>int_</td>
-<td>默认的整数类型（类似于 C 语言中的 long，int32 或 int64）</td>
-</tr>
-<tr>
-<td>intc</td>
-<td>与 C 的 int 类型一样，一般是 int32 或 int 64</td>
-</tr>
-<tr>
-<td>intp</td>
-<td>用于索引的整数类型（类似于 C 的 ssize_t，一般情况下仍然是 int32 或 int64）</td>
-</tr>
-<tr>
-<td>int8</td>
-<td>字节（-128 to 127）</td>
-</tr>
-<tr>
-<td>int16</td>
-<td>整数（-32768 to 32767）</td>
-</tr>
-<tr>
-<td>int32</td>
-<td>整数（-2147483648 to 2147483647）</td>
-</tr>
-<tr>
-<td>int64</td>
-<td>整数（-9223372036854775808 to 9223372036854775807）</td>
-</tr>
-<tr>
-<td>uint8</td>
-<td>无符号整数（0 to 255）</td>
-</tr>
-<tr>
-<td>uint16</td>
-<td>无符号整数（0 to 65535）</td>
-</tr>
-<tr>
-<td>uint32</td>
-<td>无符号整数（0 to 4294967295）</td>
-</tr>
-<tr>
-<td>uint64</td>
-<td>无符号整数（0 to 18446744073709551615）</td>
-</tr>
-<tr>
-<td>float_</td>
-<td>float64 类型的简写</td>
-</tr>
-<tr>
-<td>float16</td>
-<td>半精度浮点数，包括：1 个符号位，5 个指数位，10 个尾数位</td>
-</tr>
-<tr>
-<td>float32</td>
-<td>单精度浮点数，包括：1 个符号位，8 个指数位，23 个尾数位</td>
-</tr>
-<tr>
-<td>float64</td>
-<td>双精度浮点数，包括：1 个符号位，11 个指数位，52 个尾数位</td>
-</tr>
-<tr>
-<td>complex_</td>
-<td>complex128 类型的简写，即 128 位复数</td>
-</tr>
-<tr>
-<td>complex64</td>
-<td>复数，表示双 32 位浮点数（实数部分和虚数部分）</td>
-</tr>
-<tr>
-<td>complex128</td>
-<td>复数，表示双 64 位浮点数（实数部分和虚数部分）</td>
-</tr>
-</tbody>
-</table>
-<h2 id="数组的属性"><a href="#数组的属性" class="headerlink" title="数组的属性"></a>数组的属性</h2><table>
-<thead>
-<tr>
-<th>属性</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ndarray.ndim</td>
-<td>秩，即轴的数量或维度的数量</td>
-</tr>
-<tr>
-<td>ndarray.shape</td>
-<td>数组的维度，对于矩阵，n 行 m 列</td>
-</tr>
-<tr>
-<td>ndarray.size</td>
-<td>数组元素的总个数，相当于 .shape 中 n*m 的值</td>
-</tr>
-<tr>
-<td>ndarray.dtype</td>
-<td>ndarray 对象的元素类型</td>
-</tr>
-<tr>
-<td>ndarray.itemsize</td>
-<td>ndarray 对象中每个元素的大小，以字节为单位</td>
-</tr>
-<tr>
-<td>ndarray.flags</td>
-<td>ndarray 对象的内存信息</td>
-</tr>
-<tr>
-<td>ndarray.real</td>
-<td>ndarray元素的实部</td>
-</tr>
-<tr>
-<td>ndarray.image</td>
-<td>ndarray 元素的虚部</td>
-</tr>
-<tr>
-<td>ndarray.data</td>
-<td>包含实际数组元素的缓冲区，由于一般通过数组的索引获取元素，所以通常不需要使用这个属性。</td>
-</tr>
-</tbody>
-</table>
-<h1 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h1><h2 id="新建数组"><a href="#新建数组" class="headerlink" title="新建数组"></a>新建数组</h2><p>shape用类似(5，3),[5,3]的方法表示即可<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建基本的数组</span></span><br><span class="line">np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建空数组</span></span><br><span class="line">numpy.empty(shape, dtype = float, order = <span class="string">'C'</span>) </span><br><span class="line"><span class="comment">#order有"C"和"F"两个选项,分别代表，行优先和列优先，在计算机内存中的存储元素的顺序。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建零数组</span></span><br><span class="line">numpy.zeros(shape, dtype = float, order = <span class="string">'C'</span>)</span><br><span class="line"><span class="comment"># order:'C' 用于 C 的行数组，或者 'F' 用于 FORTRAN 的列数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建指定形状的数组，数组元素以 1 来填充：</span></span><br><span class="line">numpy.ones(shape, dtype = <span class="keyword">None</span>, order = <span class="string">'C'</span>)</span><br></pre></td></tr></table></figure></p>
-<h2 id="创建随机数组"><a href="#创建随机数组" class="headerlink" title="创建随机数组"></a>创建随机数组</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建 randn(size) 服从 X~N(0,1) 的正态分布随机数组</span></span><br><span class="line">random.randn(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 利用 randint([low,high],size) 创建一个整数型指定范围在 [low.high] 之间的数组</span></span><br><span class="line">a=random.randint(low,high,shape)</span><br></pre></td></tr></table></figure>
-<h2 id="从已有的数组创建"><a href="#从已有的数组创建" class="headerlink" title="从已有的数组创建"></a>从已有的数组创建</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">numpy.asarray(a, dtype = <span class="keyword">None</span>, order = <span class="keyword">None</span>)</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">x =  [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] </span><br><span class="line">a = np.asarray(x)  </span><br><span class="line"><span class="keyword">print</span> (a)</span><br></pre></td></tr></table></figure>
-<p>说明：<br>| 参数 | 描述 |<br>| — | — |<br>| a | 任意形式的输入参数，可以是，列表, 列表的元组, 元组, 元组的元组, 元组的列表，多维数组|<br>| dtype | 数据类型，可选 |<br>| order | 可选，有”C”和”F”两个选项,分别代表，行优先和列优先，在计算机内存中的存储元素的顺序。|</p>
-<h2 id="从数值范围创建数组"><a href="#从数值范围创建数组" class="headerlink" title="从数值范围创建数组"></a>从数值范围创建数组</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># numpy 包中的使用 arange 函数创建数值范围并返回 ndarray 对象，函数格式：</span></span><br><span class="line">numpy.arange(start, stop, step, dtype) </span><br><span class="line"><span class="comment"># 参数分别表示起始值（默认为0）、终止值（不包含），步长（默认为1），数据类型</span></span><br><span class="line"><span class="comment"># 使用案例:</span></span><br><span class="line">np.arange(<span class="number">15</span>) <span class="comment">#0-14的1行15列数组</span></span><br><span class="line">np.arange(<span class="number">15</span>).rehsape(<span class="number">5</span>,<span class="number">3</span>) <span class="comment">#取值为0-14的5*3的数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用linspace创建等差数列数组</span></span><br><span class="line">np.linspace(start, stop, num=<span class="number">50</span>, endpoint=<span class="keyword">True</span>, retstep=<span class="keyword">False</span>, dtype=<span class="keyword">None</span>) </span><br><span class="line"><span class="comment">#num表示生成等步长样本数量，默认为50；endpoint为true表示包含stop值；retstep如果为 True 时，生成的数组中会显示间距</span></span><br><span class="line"><span class="comment"># 使用案例</span></span><br><span class="line">np.linspace(<span class="number">1</span>,<span class="number">10</span>,<span class="number">10</span>) <span class="comment">#1-10均为分为10段</span></span><br><span class="line">np.linspace(<span class="number">1</span>,<span class="number">10</span>,<span class="number">10</span>).reshape(<span class="number">5</span>,<span class="number">2</span>) <span class="comment">#转化为5*2的数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># numpy.logspace 函数用于创建一个于等比数列</span></span><br><span class="line">np.logspace(start, stop, num=<span class="number">50</span>, endpoint=<span class="keyword">True</span>, base=<span class="number">10.0</span>, dtype=<span class="keyword">None</span>) </span><br><span class="line"><span class="comment"># base表示对数log的底数；start序列的起始值为[base ** start] ;stop序列的起始值为[base ** stop],**表示平方</span></span><br></pre></td></tr></table></figure>
-<h1 id="切片和索引"><a href="#切片和索引" class="headerlink" title="切片和索引"></a>切片和索引</h1><p>ndarray 数组可以基于 0 - n 的下标进行索引，切片对象可以通过内置的 slice 函数，并设置 start, stop 及 step 参数进行，从原数组中切割出一个新数组。<br>使用案例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">s = slice(<span class="number">2</span>,<span class="number">7</span>,<span class="number">2</span>)   <span class="comment"># 从索引 2 开始到索引 7 停止，间隔为2</span></span><br><span class="line"><span class="keyword">print</span> (a[s])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者通过:来分隔切片参数</span></span><br><span class="line">a = np.arange(<span class="number">10</span>)  </span><br><span class="line">b = a[<span class="number">2</span>:<span class="number">7</span>:<span class="number">2</span>]   <span class="comment"># 从索引 2 开始到索引 7 停止，间隔为 2</span></span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure></p>
-<p>冒号 : 的解释：<br>    如果只放置一个参数，如 [2]，将返回与该索引相对应的单个元素。<br>    如果为 [2:]，表示从该索引开始以后的所有项都将被提取。<br>    如果使用了两个参数，如 [2:7]，那么则提取两个索引(不包括停止索引)之间的项。</p>
-<p>使用案例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只放置一个参数</span></span><br><span class="line">a = np.arange(<span class="number">10</span>)  <span class="comment"># [0 1 2 3 4 5 6 7 8 9]</span></span><br><span class="line">b = a[<span class="number">5</span>] </span><br><span class="line">print(b) <span class="comment">#结果为5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># [2:]</span></span><br><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">print(a[<span class="number">2</span>:]) <span class="comment"># 结果为[2  3  4  5  6  7  8  9]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># [2:7]</span></span><br><span class="line">a = np.arange(<span class="number">10</span>)  <span class="comment"># 结果为[0 1 2 3 4 5 6 7 8 9]</span></span><br><span class="line">print(a[<span class="number">2</span>:<span class="number">5</span>]) <span class="comment"># 结果为[2 3 4 5 6]</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h1><h2 id="修改数组形状"><a href="#修改数组形状" class="headerlink" title="修改数组形状"></a>修改数组形状</h2><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>reshape（常用）</td>
-<td>不改变数据的条件下修改形状</td>
-</tr>
-<tr>
-<td>flat</td>
-<td>数组元素迭代器</td>
-</tr>
-<tr>
-<td>flatten</td>
-<td>返回一份数组拷贝，对拷贝所做的修改不会影响原始数组</td>
-</tr>
-<tr>
-<td>ravel</td>
-<td>返回展开数组</td>
-</tr>
-</tbody>
-</table>
-<h3 id="numpy-reshape"><a href="#numpy-reshape" class="headerlink" title="numpy.reshape"></a>numpy.reshape</h3><blockquote>
-<p>numpy.reshape(arr, newshape, order=’C’)<br>参数说明<br>arr：要修改形状的数组<br>newshape：整数或者整数数组，新的形状应当兼容原有形状<br>order：’C’ – 按行，’F’ – 按列，’A’ – 原顺序，’k’ – 元素在内存中的出现顺序。<br>使用案例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">8</span>)</span><br><span class="line">b = a.reshape(<span class="number">4</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="numpy-ndarray-flat"><a href="#numpy-ndarray-flat" class="headerlink" title="numpy.ndarray.flat"></a>numpy.ndarray.flat</h3><blockquote>
-<p>ndarray.flatten(order=’C’)<br>使用案例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">9</span>).reshape(<span class="number">3</span>,<span class="number">3</span>) </span><br><span class="line"><span class="keyword">print</span> (<span class="string">'原始数组：'</span>)</span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> a:</span><br><span class="line">    <span class="keyword">print</span> (row)</span><br><span class="line"><span class="comment">#对数组中每个元素都进行处理，可以使用flat属性，该属性是一个数组元素迭代器：</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">'迭代后的数组：'</span>)</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> a.flat:</span><br><span class="line">    <span class="keyword">print</span> (element)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="numpy-ndarray-flatten"><a href="#numpy-ndarray-flatten" class="headerlink" title="numpy.ndarray.flatten"></a>numpy.ndarray.flatten</h3><blockquote>
-<p>ndarray.flatten(order=’C’)<br>返回一份数组拷贝，对拷贝所做的修改不会影响原始数组<br>参数说明：order：’C’ – 按行，’F’ – 按列，’A’ – 原顺序，’K’ – 元素在内存中的出现顺序。</p>
-</blockquote>
-<p>使用案例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">8</span>).reshape(<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">print</span> (<span class="string">'原数组：'</span>)</span><br><span class="line"><span class="keyword">print</span> (a)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'\n'</span>)</span><br><span class="line"><span class="comment"># 默认按行</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">print</span> (<span class="string">'展开的数组：'</span>)</span><br><span class="line"><span class="keyword">print</span> (a.flatten())</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'\n'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">print</span> (<span class="string">'以 F 风格顺序展开的数组：'</span>)</span><br><span class="line"><span class="keyword">print</span> (a.flatten(order = <span class="string">'F'</span>))</span><br></pre></td></tr></table></figure></p>
-<p>结果输出：</p>
-<blockquote>
-<p>原数组：<br>[[0 1 2 3]<br>[4 5 6 7]]</p>
-</blockquote>
-<blockquote>
-<p>展开的数组：<br>[0 1 2 3 4 5 6 7]</p>
-</blockquote>
-<blockquote>
-<p>以 F 风格顺序展开的数组：<br>[0 4 1 5 2 6 3 7]</p>
-</blockquote>
-<h3 id="numpy-ravel"><a href="#numpy-ravel" class="headerlink" title="numpy.ravel()"></a>numpy.ravel()</h3><blockquote>
-<p>numpy.ravel(a, order=’C’)<br>展平的数组元素，顺序通常是”C风格”，返回的是数组视图，修改会影响原始数组<br>参数说明：order：’C’ – 按行，’F’ – 按列，’A’ – 原顺序，’K’ – 元素在内存中的出现顺序。</p>
-</blockquote>
-<p>使用案例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.arange(<span class="number">8</span>).reshape(<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'原数组：'</span>)</span><br><span class="line"><span class="keyword">print</span> (a)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'\n'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">print</span> (<span class="string">'调用 ravel 函数之后：'</span>)</span><br><span class="line"><span class="keyword">print</span> (a.ravel())</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'\n'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">print</span> (<span class="string">'以 F 风格顺序调用 ravel 函数之后：'</span>)</span><br><span class="line"><span class="keyword">print</span> (a.ravel(order = <span class="string">'F'</span>))</span><br></pre></td></tr></table></figure></p>
-<p>结果输出：</p>
-<blockquote>
-<p>原数组：<br>[[0 1 2 3]<br>[4 5 6 7]]</p>
-</blockquote>
-<p>调用 ravel 函数之后：</p>
-<blockquote>
-<p>[0 1 2 3 4 5 6 7]</p>
-</blockquote>
-<blockquote>
-<p>以 F 风格顺序调用 ravel 函数之后：<br>[0 4 1 5 2 6 3 7]</p>
-</blockquote>
-<h2 id="连接数组"><a href="#连接数组" class="headerlink" title="连接数组"></a>连接数组</h2><p>| 函数 | 描述 |<br>| concatenate | 连接沿现有轴的数组序列 |<br>| stack | 沿着新的轴加入一系列数组。 |<br>| hstack | 水平堆叠序列中的数组（列方向）<br>| vstack | 竖直堆叠序列中的数组（行方向）</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p>[Numpy教程]（<a href="http://www.runoob.com/numpy/numpy-tutorial.html）" target="_blank" rel="noopener">http://www.runoob.com/numpy/numpy-tutorial.html）</a></p>
-</blockquote>
-<!-- ## ufunc
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">一元</span><br><span class="line">ceil：大于等于该值的最小整数</span><br><span class="line">floor：小于等于该值得最大整数</span><br><span class="line">modf：将数组的整数和小数部分以两个独立的数组的形式返回</span><br><span class="line">二元</span><br><span class="line">subtract：从第一个数组中，减去第二个数组中的元素</span><br><span class="line">power：将第一个数组中的元素A，根据第二个数组中的相应元素B，计算指数</span><br><span class="line">copysign：将第二个数组中值的符号复制给第一个数组中的值</span><br><span class="line">mod：元素级求模（除法的余数）</span><br></pre></td></tr></table></figure>
-<h2 id="统计方法"><a href="#统计方法" class="headerlink" title="统计方法"></a>统计方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sum\mean\std\var\min\max\argmin\argmax</span><br><span class="line">cumsum(所有元素的累积和)\cumprod(所有元素的累计积)</span><br><span class="line">numpy.linalg函数</span><br><span class="line">dot：矩阵乘法</span><br><span class="line">trace：对角线元素的和</span><br><span class="line">inv：矩阵的逆</span><br><span class="line">Pinv：矩阵的违逆</span><br><span class="line"> 随机数生成：np.random</span><br><span class="line">seed：确定随机数生成器的随机种子</span><br><span class="line">randint\randn(正态分布，平均值为0，标准差为1)\binomial(二项式分布)\normal(正态（高斯）分布) --&gt;</span><br></pre></td></tr></table></figure>-->
+            <h2 id="导入包"><a href="#导入包" class="headerlink" title="导入包"></a>导入包</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+<h2 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X = np.random.randint(<span class="number">0</span>,<span class="number">100</span>,size=(<span class="number">50</span>,<span class="number">2</span>))</span><br><span class="line">X = np.array(X,dtype=float)</span><br><span class="line">plt.scatter(X[:,<span class="number">0</span>] ,X[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<h2 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h2><h3 id="最值归一化"><a href="#最值归一化" class="headerlink" title="最值归一化"></a>最值归一化</h3><p>适用场景：有明显数据边界<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X[:,<span class="number">0</span>] = ((X[:,<span class="number">0</span>]) - np.min(X[:,<span class="number">0</span>])) / (np.max(X[:,<span class="number">0</span>]) - np.min(X[:,<span class="number">0</span>]))</span><br><span class="line">X[:,<span class="number">1</span>] = ((X[:,<span class="number">1</span>]) - np.min(X[:,<span class="number">1</span>])) / (np.max(X[:,<span class="number">1</span>]) - np.min(X[:,<span class="number">1</span>]))</span><br><span class="line">plt.scatter(X[:,<span class="number">0</span>] ,X[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
+<h3 id="均值方差归一化"><a href="#均值方差归一化" class="headerlink" title="均值方差归一化"></a>均值方差归一化</h3><p>适用场景：无明显数据边界<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X[:,<span class="number">0</span>] = ((X[:,<span class="number">0</span>]) - np.mean(X[:,<span class="number">0</span>])) / np.std(X[:,<span class="number">0</span>])</span><br><span class="line">X[:,<span class="number">1</span>] = ((X[:,<span class="number">1</span>]) - np.mean(X[:,<span class="number">1</span>])) / np.std(X[:,<span class="number">1</span>])</span><br><span class="line">plt.scatter(X[:,<span class="number">0</span>] ,X[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
+<h2 id="sklearn中的scaler"><a href="#sklearn中的scaler" class="headerlink" title="sklearn中的scaler"></a>sklearn中的scaler</h2><h3 id="数据准备-1"><a href="#数据准备-1" class="headerlink" title="数据准备"></a>数据准备</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sklearn</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据导入</span></span><br><span class="line">iris = datasets.load_iris()</span><br><span class="line">X = iris.data</span><br><span class="line">y = iris.target</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拆分训练数据集和测试数据集 </span></span><br><span class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> train_test_split</span><br><span class="line">X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=<span class="number">0.2</span>,random_state=<span class="number">666</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="利用scikit-learn中的StandardScaler"><a href="#利用scikit-learn中的StandardScaler" class="headerlink" title="利用scikit-learn中的StandardScaler"></a>利用scikit-learn中的StandardScaler</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line">StandardScaler = StandardScaler()</span><br><span class="line">StandardScaler.fit(X_train)</span><br><span class="line">StandardScaler.mean_</span><br><span class="line">StandardScaler.scale_</span><br><span class="line">X_train = StandardScaler.transform(X_train)</span><br><span class="line">X_test_standard = StandardScaler.transform(X_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用KNN模型运行数据</span></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line">knn_clf = KNeighborsClassifier(n_neighbors=<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line">knn_clf.fit(X_train,y_train)</span><br><span class="line"><span class="comment"># 模型评价</span></span><br><span class="line">knn_clf.score(X_test_standard,y_test)</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/python实现常见算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IvyJin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="数据分析笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/01/python实现常见算法/" itemprop="url">用python实现常见算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-01T21:58:58+08:00">
+                2018-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-判断是否为素数、拆解质因数"><a href="#1-判断是否为素数、拆解质因数" class="headerlink" title="1.判断是否为素数、拆解质因数"></a>1.判断是否为素数、拆解质因数</h2><h3 id="1-1-判断是否为素数的函数"><a href="#1-1-判断是否为素数的函数" class="headerlink" title="1.1 判断是否为素数的函数"></a>1.1 判断是否为素数的函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n&lt;=<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,int(n/<span class="number">2</span>)+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> n%i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-输出1-100之间的素数"><a href="#1-2-输出1-100之间的素数" class="headerlink" title="1.2 输出1-100之间的素数"></a>1.2 输出1-100之间的素数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lst = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">100</span>):</span><br><span class="line">    <span class="keyword">if</span> isPrime(i)==<span class="keyword">True</span>:</span><br><span class="line">        print(i,<span class="string">'是素数'</span>)</span><br><span class="line">        lst.append(i)</span><br><span class="line">    <span class="keyword">else</span>: </span><br><span class="line">        print(i,<span class="string">"不是素数"</span>) </span><br><span class="line">print(lst)</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-分解质因数"><a href="#1-3-分解质因数" class="headerlink" title="1.3 分解质因数"></a>1.3 分解质因数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">n = int(<span class="number">90</span>)</span><br><span class="line">lst_1 = []</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getChildren</span><span class="params">(n)</span>:</span></span><br><span class="line">    isZhishu = <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,int(math.sqrt(n+<span class="number">1</span>)+<span class="number">1</span>)):</span><br><span class="line">        <span class="keyword">if</span> n%i == <span class="number">0</span>  <span class="keyword">and</span> i != n:</span><br><span class="line">            lst_1.append(i)</span><br><span class="line">            isZhishu = <span class="keyword">False</span></span><br><span class="line">            getChildren(n/i)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> isZhishu:</span><br><span class="line">        lst_1.append(n)</span><br><span class="line">getChildren(n)</span><br><span class="line">print(lst_1)</span><br></pre></td></tr></table></figure>
           
         
       
@@ -2150,6 +1816,151 @@
             <h2 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm</span><br><span class="line"><span class="keyword">import</span> pandas</span><br><span class="line"><span class="keyword">from</span> patsy <span class="keyword">import</span> dmatrices</span><br></pre></td></tr></table></figure>
 <h2 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h2><h3 id="R模式"><a href="#R模式" class="headerlink" title="R模式"></a>R模式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm</span><br><span class="line"><span class="keyword">import</span> statsmodels.formula.api <span class="keyword">as</span> smf</span><br><span class="line">dat = sm.datasets.get_rdataset(<span class="string">"Guerry"</span>, <span class="string">"HistData"</span>).data</span><br><span class="line">results = smf.ols(<span class="string">'Lottery ~ Literacy + np.log(Pop1831)'</span>, data=dat).fit()</span><br></pre></td></tr></table></figure>
 <h3 id="Sklearn模式"><a href="#Sklearn模式" class="headerlink" title="Sklearn模式"></a>Sklearn模式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">nobs = <span class="number">100</span></span><br><span class="line">X = np.random.random((nobs, <span class="number">2</span>))</span><br><span class="line">X = sm.add_constant(X)</span><br><span class="line">beta = [<span class="number">1</span>, <span class="number">.1</span>, <span class="number">.5</span>]</span><br><span class="line">e = np.random.random(nobs)</span><br><span class="line">y = np.dot(X, beta) + e</span><br><span class="line">results = smf.OLS(y, X).fit()</span><br><span class="line">print(results.summary2())</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/python连接spark/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IvyJin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="数据分析笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/16/python连接spark/" itemprop="url">用python连接spark</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T00:20:38+08:00">
+                2018-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>倒腾了好久，终于实现用python连接spark了，为避免重复采坑，特别记录下</p>
+<h2 id="启动thriftserver"><a href="#启动thriftserver" class="headerlink" title="启动thriftserver"></a>启动thriftserver</h2><h3 id="在启动之前，需要安装spark-这次安装的是spark-2-3-2-bin-hadoop2-7-tgz-yarn-nodejs-JDK"><a href="#在启动之前，需要安装spark-这次安装的是spark-2-3-2-bin-hadoop2-7-tgz-yarn-nodejs-JDK" class="headerlink" title="在启动之前，需要安装spark(这次安装的是spark-2.3.2-bin-hadoop2.7.tgz),yarn,nodejs,JDK"></a>在启动之前，需要安装spark(这次安装的是spark-2.3.2-bin-hadoop2.7.tgz),yarn,nodejs,JDK</h3><p><a href="https://www.apache.org/dyn/closer.lua/spark/spark-2.3.2/spark-2.3.2-bin-hadoop2.7.tgz" target="_blank" rel="noopener">spark下载地址</a><br><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html" target="_blank" rel="noopener">JDK下载地址</a><br>由于之前安装了nodejs，所以安装yarn的时候只执行了sudo npm install yarn -g</p>
+<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><p>切换到下载目录 -&gt; 执行【 tar -zxvf spark-2.3.2-bin-hadoop2.7.tgz 】 -&gt; 切换到$SPARK_HOME/sbin/ -&gt; 执行命令启动thriftserver<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./start-thriftserver.sh --master yarn --conf spark.driver.memory=3G --executor-memory 1G --num-executors 10</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装impyla"><a href="#安装impyla" class="headerlink" title="安装impyla"></a>安装impyla</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pip install six</span><br><span class="line">pip install bit_array</span><br><span class="line">pip install thriftpy   </span><br><span class="line"><span class="comment">## thrift (on Python 2.x) or thriftpy (on Python 3.x)</span></span><br><span class="line">pip install thrift_sasl</span><br><span class="line">pip install sasl</span><br><span class="line">pip install impyla</span><br><span class="line"> </span><br><span class="line"><span class="comment">## 注意：还需要安装另外一个模块，官网上并没有给出（for python3）：</span></span><br><span class="line">pip install git+https://github.com/laserson/python-sasl.git@cython</span><br></pre></td></tr></table></figure>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> impala.dbapi <span class="keyword">import</span> connect</span><br><span class="line">conn = connect(host=<span class="string">''</span>, port=, user=<span class="string">''</span>, password=<span class="string">''</span>, database=<span class="string">''</span>, auth_mechanism=<span class="string">'PLAIN'</span>)</span><br><span class="line">cursor = conn.cursor()</span><br><span class="line">cursor.execute(<span class="string">'SELECT * FROM t LIMIT 100'</span>)</span><br><span class="line">print(cursor.description)  <span class="comment"># prints the result set's schema</span></span><br><span class="line">results = cursor.fetchall()</span><br><span class="line">print(results)</span><br></pre></td></tr></table></figure>
           
         
       

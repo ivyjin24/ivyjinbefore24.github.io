@@ -229,6 +229,294 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/python时间序列/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IvyJin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="数据分析笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/29/python时间序列/" itemprop="url">python时间序列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T17:09:40+08:00">
+                2018-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/sql留存写法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IvyJin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="数据分析笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/29/sql留存写法/" itemprop="url">sql留存写法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T17:09:27+08:00">
+                2018-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/sql/" itemprop="url" rel="index">
+                    <span itemprop="name">sql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>用户在某段时间内开始使用应用，经过一段时间后，仍然继续使用该应用的用户，被认作是留存用户。<br>留存率=新增用户中登录用户数/新增用户数 * 100%（一般统计周期为天）<br>假设某APP的用户活跃表为t，结构如下</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>dt</th>
+<th>deviceid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20181128</td>
+<td>aaa</td>
+</tr>
+<tr>
+<td>20181127</td>
+<td>aaa</td>
+</tr>
+<tr>
+<td>20181125</td>
+<td>bbb</td>
+</tr>
+</tbody>
+</table>
+<p>那么次日留存写法（假设已经按日去重）为：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">with a as</span><br><span class="line">(<span class="keyword">select</span></span><br><span class="line">	deviceid，</span><br><span class="line">	<span class="keyword">min</span>(<span class="keyword">concat</span>(<span class="keyword">substr</span>(dt,<span class="number">1</span>,<span class="number">4</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(dt,<span class="number">5</span>,<span class="number">2</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(dt,<span class="number">7</span>,<span class="number">2</span>))) <span class="keyword">as</span> <span class="built_in">date</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	t </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">	deviceid，</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">	a.date,</span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">distinct</span> a.deviceid) <span class="keyword">as</span> increase_num,</span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">distinct</span> b.deviceid) <span class="keyword">as</span> retained_num,</span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">distinct</span> b.deviceid)/<span class="keyword">count</span>(<span class="keyword">distinct</span> a.deviceid) <span class="keyword">as</span> retained_rate</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	a </span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> </span><br><span class="line">	t </span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">	a.deviceid = t.deviceid</span><br><span class="line">	<span class="keyword">and</span> t.dt = regexp_replace(<span class="keyword">date_add</span>(a.date,<span class="number">1</span>),<span class="string">"-"</span>,<span class="string">""</span>)</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">	a.date </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">	<span class="built_in">date</span> <span class="keyword">desc</span></span><br></pre></td></tr></table></figure></p>
+<p>取20天内每天的留存<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">with a as</span><br><span class="line">(<span class="keyword">select</span></span><br><span class="line">	deviceid，</span><br><span class="line">	<span class="keyword">min</span>(<span class="keyword">concat</span>(<span class="keyword">substr</span>(dt,<span class="number">1</span>,<span class="number">4</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(dt,<span class="number">5</span>,<span class="number">2</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(dt,<span class="number">7</span>,<span class="number">2</span>))) <span class="keyword">as</span> <span class="built_in">date</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	t </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">	deviceid，</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">	a.date,</span><br><span class="line">	<span class="keyword">datediff</span>(<span class="keyword">concat</span>(<span class="keyword">substr</span>(t.dt,<span class="number">1</span>,<span class="number">4</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(t.dt,<span class="number">5</span>,<span class="number">2</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(t.dt,<span class="number">7</span>,<span class="number">2</span>)),a.date) <span class="keyword">as</span> dim,</span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">distinct</span> a.deviceid) <span class="keyword">as</span> increase_num,</span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">distinct</span> b.deviceid) <span class="keyword">as</span> retained_num,</span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">distinct</span> b.deviceid)/<span class="keyword">count</span>(<span class="keyword">distinct</span> a.deviceid) <span class="keyword">as</span> retained_rate</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	a </span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> </span><br><span class="line">	t </span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">	a.deviceid = t.deviceid</span><br><span class="line">	<span class="keyword">and</span> t.dt &lt;= regexp_replace(<span class="keyword">date_add</span>(a.date,<span class="number">20</span>),<span class="string">"-"</span>,<span class="string">""</span>)</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">	a.date,</span><br><span class="line">	<span class="keyword">datediff</span>(<span class="keyword">concat</span>(<span class="keyword">substr</span>(t.dt,<span class="number">1</span>,<span class="number">4</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(t.dt,<span class="number">5</span>,<span class="number">2</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(t.dt,<span class="number">7</span>,<span class="number">2</span>)),a.date)</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">	<span class="built_in">date</span> <span class="keyword">desc</span></span><br></pre></td></tr></table></figure></p>
+<p>次周、次月留存写法可依此类推</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/DataFrame字符串转化为时间/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1216,7 +1504,7 @@
 </blockquote>
 <h2 id="连接数组"><a href="#连接数组" class="headerlink" title="连接数组"></a>连接数组</h2><p>| 函数 | 描述 |<br>| concatenate | 连接沿现有轴的数组序列 |<br>| stack | 沿着新的轴加入一系列数组。 |<br>| hstack | 水平堆叠序列中的数组（列方向）<br>| vstack | 竖直堆叠序列中的数组（行方向）</p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p>[Numpy教程]（<a href="http://www.runoob.com/numpy/numpy-tutorial.html）" target="_blank" rel="noopener">http://www.runoob.com/numpy/numpy-tutorial.html）</a></p>
+<p><a href="http://www.runoob.com/numpy/numpy-tutorial.html" target="_blank" rel="noopener">Numpy教程</a></p>
 </blockquote>
 <!-- ## ufunc
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">一元</span><br><span class="line">ceil：大于等于该值的最小整数</span><br><span class="line">floor：小于等于该值得最大整数</span><br><span class="line">modf：将数组的整数和小数部分以两个独立的数组的形式返回</span><br><span class="line">二元</span><br><span class="line">subtract：从第一个数组中，减去第二个数组中的元素</span><br><span class="line">power：将第一个数组中的元素A，根据第二个数组中的相应元素B，计算指数</span><br><span class="line">copysign：将第二个数组中值的符号复制给第一个数组中的值</span><br><span class="line">mod：元素级求模（除法的余数）</span><br></pre></td></tr></table></figure>
@@ -1396,12 +1684,14 @@
 <h2 id="缺失值与空值处理"><a href="#缺失值与空值处理" class="headerlink" title="缺失值与空值处理"></a>缺失值与空值处理</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除空值</span></span><br><span class="line">data.dropna(axis=<span class="number">0</span>, how=<span class="string">'any'</span>, thresh=<span class="keyword">None</span>, subset=<span class="keyword">None</span>, inplace=<span class="keyword">False</span>)</span><br><span class="line"><span class="comment"># 其中：</span></span><br><span class="line"><span class="comment"># axis:维度，axis=0表示index行,axis=1表示columns列，默认为0</span></span><br><span class="line"><span class="comment"># how:"all"表示这一行或列中的元素全部缺失（为nan）才删除这一行或列，"any"表示这一行或列中只要有元素缺失，就删除这一行或列 </span></span><br><span class="line"><span class="comment"># thresh:一行或一列中至少出现了thresh个才删除</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 填充空值</span></span><br><span class="line">data.fillna()</span><br><span class="line"><span class="comment"># 判断是否为空值</span></span><br><span class="line">data.isnull()</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">data.isna()</span><br></pre></td></tr></table></figure>
 <h2 id="数据筛选"><a href="#数据筛选" class="headerlink" title="数据筛选"></a>数据筛选</h2><h3 id="取出特定行"><a href="#取出特定行" class="headerlink" title="取出特定行"></a>取出特定行</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 取出前5行</span></span><br><span class="line">data.head(<span class="number">5</span>)</span><br><span class="line"><span class="comment"># 取出后5行</span></span><br><span class="line">data.tail(<span class="number">5</span>)</span><br><span class="line"><span class="comment"># 取出2-4行</span></span><br><span class="line">data[<span class="number">1</span>:<span class="number">4</span>] <span class="comment">#行数从0开始计，包含第2行不含第5行 </span></span><br><span class="line"><span class="comment"># 筛选满足一定条件的</span></span><br><span class="line">data[data[<span class="string">'a'</span>]==<span class="number">1</span>]</span><br><span class="line"><span class="comment"># 筛选同时满足多个条件的</span></span><br><span class="line">data[(data[<span class="string">'a'</span>]==<span class="number">1</span>)&amp;(data[<span class="string">'b'</span>]==<span class="number">12</span>)]</span><br><span class="line"><span class="comment"># 筛选多个条件中任一条件的</span></span><br><span class="line">data[(data[<span class="string">'a'</span>]==<span class="number">1</span>)|(data[<span class="string">'b'</span>]==<span class="number">12</span>)]</span><br></pre></td></tr></table></figure>
 <h3 id="取出特定列"><a href="#取出特定列" class="headerlink" title="取出特定列"></a>取出特定列</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一列</span></span><br><span class="line">data[<span class="string">'a'</span>]</span><br><span class="line"><span class="comment"># 两列</span></span><br><span class="line">data[[<span class="string">'a'</span>,<span class="string">'b'</span>]]</span><br></pre></td></tr></table></figure>
-<h1 id="数据合并"><a href="#数据合并" class="headerlink" title="数据合并"></a>数据合并</h1><h2 id="将数据框的行或列合并（concat）"><a href="#将数据框的行或列合并（concat）" class="headerlink" title="将数据框的行或列合并（concat）"></a>将数据框的行或列合并（concat）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pd.concat([df1[:],df2[:],...],axis=<span class="number">0</span>) <span class="comment">##按列拼接数据，要求列数和列名一样</span></span><br><span class="line">pd.concat([df1,df2,...],axis=<span class="number">1</span>）<span class="comment">##按行拼接数据，行数和行索引相同</span></span><br></pre></td></tr></table></figure>
-<h2 id="append将一行或多行数据添加"><a href="#append将一行或多行数据添加" class="headerlink" title="append将一行或多行数据添加"></a>append将一行或多行数据添加</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.append(df1[:],ignore_index=<span class="keyword">True</span>) <span class="comment">##将会重新设定index</span></span><br></pre></td></tr></table></figure>
+<h1 id="数据合并"><a href="#数据合并" class="headerlink" title="数据合并"></a>数据合并</h1><h2 id="将数据框的行或列合并（concat）"><a href="#将数据框的行或列合并（concat）" class="headerlink" title="将数据框的行或列合并（concat）"></a>将数据框的行或列合并（concat）</h2><p>格式：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pd.concat([df1[:],df2[:],...],axis=<span class="number">0</span>) <span class="comment">##按列拼接数据，要求列数和列名一样</span></span><br><span class="line">pd.concat([df1,df2,...],axis=<span class="number">1</span>）<span class="comment">##按行拼接数据，行数和行索引相同</span></span><br></pre></td></tr></table></figure></p>
+<p>使用案例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 数据准备</span></span><br><span class="line">a = pd.DataFrame([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]],columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>])</span><br><span class="line">b = pd.DataFrame([[<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">9</span>,<span class="number">6</span>]],columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>])</span><br><span class="line"><span class="comment"># 数组连接concat</span></span><br><span class="line"><span class="comment"># axis=0</span></span><br><span class="line">In [<span class="number">1</span>]:</span><br><span class="line">pd.concat([a,b],axis=<span class="number">0</span>)</span><br><span class="line">Out[<span class="number">1</span>]:</span><br><span class="line"></span><br><span class="line">	a	b	c</span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">2</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">4</span>	<span class="number">5</span>	<span class="number">6</span></span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">5</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">4</span>	<span class="number">9</span>	<span class="number">6</span></span><br><span class="line"><span class="comment"># axis=1</span></span><br><span class="line">In [<span class="number">2</span>]:</span><br><span class="line">pd.concat([a,b],axis=<span class="number">1</span>)</span><br><span class="line">Out[<span class="number">2</span>]:</span><br><span class="line">	a	b	c	a	b	c</span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">2</span>	<span class="number">3</span>	<span class="number">1</span>	<span class="number">5</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">4</span>	<span class="number">5</span>	<span class="number">6</span>	<span class="number">4</span>	<span class="number">9</span>	<span class="number">6</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="append将一行或多行数据添加"><a href="#append将一行或多行数据添加" class="headerlink" title="append将一行或多行数据添加"></a>append将一行或多行数据添加</h2><p>这种写法在for循环中经常会用到<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.append(df1[:],ignore_index=<span class="keyword">True</span>) <span class="comment">##将会重新设定index</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="将多个dataframe整合在一起Merge"><a href="#将多个dataframe整合在一起Merge" class="headerlink" title="将多个dataframe整合在一起Merge"></a>将多个dataframe整合在一起Merge</h2><p>用过几次后，领悟到dataframe的Merge和sql的表关联非常相似滴~<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 内联表，关联字段名称一样</span></span><br><span class="line">data.merge(data1,on=[<span class="string">'column_name'</span>,...],how=inner)</span><br><span class="line"><span class="comment"># 内联表，关联字段名称存在差异</span></span><br><span class="line">data.merge(data1,left_on=[<span class="string">'column_name'</span>,...],right_on=[<span class="string">'column_name'</span>,...],how=<span class="string">'inner'</span>)</span><br><span class="line"><span class="comment"># 参数how</span></span><br><span class="line">how=<span class="string">"inner"</span>,<span class="string">"left"</span>,<span class="string">"right"</span>,<span class="string">"outer"</span><span class="comment">#分别表示内连接，左连接，右连接，外连接。</span></span><br></pre></td></tr></table></figure></p>
+<p>案例<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># merge</span></span><br><span class="line">In [<span class="number">3</span>]:</span><br><span class="line">a.merge(b,on=<span class="string">'a'</span>)</span><br><span class="line">Out[<span class="number">3</span>]:</span><br><span class="line">	a	b_x	c_x	b_y	c_y</span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">2</span>	<span class="number">3</span>	<span class="number">5</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">4</span>	<span class="number">5</span>	<span class="number">6</span>	<span class="number">9</span>	<span class="number">6</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="转化为numpy-array连接"><a href="#转化为numpy-array连接" class="headerlink" title="转化为numpy.array连接"></a>转化为numpy.array连接</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y = np.column_stack((x, y))</span><br><span class="line">y = DataFrame(y,columns=[[<span class="string">'a'</span>,<span class="string">'b'</span>,...]])</span><br></pre></td></tr></table></figure>
-<h1 id="数据聚合：groupby"><a href="#数据聚合：groupby" class="headerlink" title="数据聚合：groupby"></a>数据聚合：groupby</h1><p>dataframe的groupby，数据处理逻辑和sql也非常相似~<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 整体聚合</span></span><br><span class="line">data.groupby(data[<span class="string">'dt'</span>]).count()</span><br><span class="line"><span class="comment"># 多个字段聚合</span></span><br><span class="line">data[[<span class="string">'a'</span>,<span class="string">'b'</span>]].groupby(data[<span class="string">'dt'</span>]).mean()</span><br><span class="line"><span class="comment"># 单个字段聚合</span></span><br><span class="line">data[<span class="string">'a'</span>].groupby(data[<span class="string">'dt'</span>]).mean()</span><br></pre></td></tr></table></figure></p>
-<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 数据准备</span></span><br><span class="line">a = pd.DataFrame([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]],columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>])</span><br><span class="line">b = pd.DataFrame([[<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">9</span>,<span class="number">6</span>]],columns=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># concat:axis=0</span></span><br><span class="line">In [<span class="number">1</span>]:</span><br><span class="line">pd.concat([a,b],axis=<span class="number">0</span>)</span><br><span class="line">Out[<span class="number">1</span>]:</span><br><span class="line"></span><br><span class="line">	a	b	c</span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">2</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">4</span>	<span class="number">5</span>	<span class="number">6</span></span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">5</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">4</span>	<span class="number">9</span>	<span class="number">6</span></span><br><span class="line"><span class="comment"># concat:axis=1</span></span><br><span class="line">In [<span class="number">2</span>]:</span><br><span class="line">pd.concat([a,b],axis=<span class="number">1</span>)</span><br><span class="line">Out[<span class="number">2</span>]:</span><br><span class="line">	a	b	c	a	b	c</span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">2</span>	<span class="number">3</span>	<span class="number">1</span>	<span class="number">5</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">4</span>	<span class="number">5</span>	<span class="number">6</span>	<span class="number">4</span>	<span class="number">9</span>	<span class="number">6</span></span><br><span class="line"><span class="comment"># merge</span></span><br><span class="line">In [<span class="number">3</span>]:</span><br><span class="line">a.merge(b,on=<span class="string">'a'</span>)</span><br><span class="line">Out[<span class="number">3</span>]:</span><br><span class="line">	a	b_x	c_x	b_y	c_y</span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">2</span>	<span class="number">3</span>	<span class="number">5</span>	<span class="number">3</span></span><br><span class="line"><span class="number">1</span>	<span class="number">4</span>	<span class="number">5</span>	<span class="number">6</span>	<span class="number">9</span>	<span class="number">6</span></span><br><span class="line"><span class="comment"># column_stack</span></span><br><span class="line">In[<span class="number">4</span>]:</span><br><span class="line">y = np.column_stack((a, b))</span><br><span class="line">y</span><br><span class="line">Out[<span class="number">4</span>]:</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">6</span>]])</span><br></pre></td></tr></table></figure>
+<p>使用案例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">In[<span class="number">4</span>]:</span><br><span class="line">y = np.column_stack((a, b))</span><br><span class="line">y</span><br><span class="line">Out[<span class="number">4</span>]:</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">6</span>]])</span><br></pre></td></tr></table></figure></p>
+<h1 id="数据聚合：groupby"><a href="#数据聚合：groupby" class="headerlink" title="数据聚合：groupby"></a>数据聚合：groupby</h1><p>dataframe的groupby，数据处理逻辑和sql也非常相似~<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 整体聚合</span></span><br><span class="line">data.groupby(data[<span class="string">'dt'</span>]).count()</span><br><span class="line"><span class="comment"># 多个字段聚合</span></span><br><span class="line">data[[<span class="string">'a'</span>,<span class="string">'b'</span>]].groupby(data[<span class="string">'dt'</span>]).mean()</span><br><span class="line"><span class="comment"># 单个字段聚合</span></span><br><span class="line">data[<span class="string">'a'</span>].groupby(data[<span class="string">'dt'</span>]).mean()</span><br><span class="line"><span class="comment"># 唯一计数</span></span><br><span class="line">data[<span class="string">'id'</span>].groupby(data[<span class="string">'class'</span>]).nunique()</span><br></pre></td></tr></table></figure></p>
 <h1 id="数据输出"><a href="#数据输出" class="headerlink" title="数据输出"></a>数据输出</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.to_csv(<span class="string">'output.csv'</span>,encoding=<span class="string">'gbk'</span>)</span><br></pre></td></tr></table></figure>
 <p>好了，暂时整理到这里，下次接触到的时候慢慢补充~</p>
 
@@ -1730,270 +2020,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/python实现常见算法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IvyJin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="数据分析笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/01/python实现常见算法/" itemprop="url">用python实现常见算法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-01T21:58:58+08:00">
-                2018-11-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-判断是否为素数、拆解质因数"><a href="#1-判断是否为素数、拆解质因数" class="headerlink" title="1.判断是否为素数、拆解质因数"></a>1.判断是否为素数、拆解质因数</h2><h3 id="1-1-判断是否为素数的函数"><a href="#1-1-判断是否为素数的函数" class="headerlink" title="1.1 判断是否为素数的函数"></a>1.1 判断是否为素数的函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n&lt;=<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,int(n/<span class="number">2</span>)+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> n%i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-2-输出1-100之间的素数"><a href="#1-2-输出1-100之间的素数" class="headerlink" title="1.2 输出1-100之间的素数"></a>1.2 输出1-100之间的素数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lst = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">100</span>):</span><br><span class="line">    <span class="keyword">if</span> isPrime(i)==<span class="keyword">True</span>:</span><br><span class="line">        print(i,<span class="string">'是素数'</span>)</span><br><span class="line">        lst.append(i)</span><br><span class="line">    <span class="keyword">else</span>: </span><br><span class="line">        print(i,<span class="string">"不是素数"</span>) </span><br><span class="line">print(lst)</span><br></pre></td></tr></table></figure>
-<h3 id="1-3-分解质因数"><a href="#1-3-分解质因数" class="headerlink" title="1.3 分解质因数"></a>1.3 分解质因数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">n = int(<span class="number">90</span>)</span><br><span class="line">lst_1 = []</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getChildren</span><span class="params">(n)</span>:</span></span><br><span class="line">    isZhishu = <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,int(math.sqrt(n+<span class="number">1</span>)+<span class="number">1</span>)):</span><br><span class="line">        <span class="keyword">if</span> n%i == <span class="number">0</span>  <span class="keyword">and</span> i != n:</span><br><span class="line">            lst_1.append(i)</span><br><span class="line">            isZhishu = <span class="keyword">False</span></span><br><span class="line">            getChildren(n/i)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> isZhishu:</span><br><span class="line">        lst_1.append(n)</span><br><span class="line">getChildren(n)</span><br><span class="line">print(lst_1)</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/17/statsmodels建模/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IvyJin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="数据分析笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/17/statsmodels建模/" itemprop="url">statsmodels建模</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T10:48:49+08:00">
-                2018-10-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm</span><br><span class="line"><span class="keyword">import</span> pandas</span><br><span class="line"><span class="keyword">from</span> patsy <span class="keyword">import</span> dmatrices</span><br></pre></td></tr></table></figure>
-<h2 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h2><h3 id="R模式"><a href="#R模式" class="headerlink" title="R模式"></a>R模式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm</span><br><span class="line"><span class="keyword">import</span> statsmodels.formula.api <span class="keyword">as</span> smf</span><br><span class="line">dat = sm.datasets.get_rdataset(<span class="string">"Guerry"</span>, <span class="string">"HistData"</span>).data</span><br><span class="line">results = smf.ols(<span class="string">'Lottery ~ Literacy + np.log(Pop1831)'</span>, data=dat).fit()</span><br></pre></td></tr></table></figure>
-<h3 id="Sklearn模式"><a href="#Sklearn模式" class="headerlink" title="Sklearn模式"></a>Sklearn模式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">nobs = <span class="number">100</span></span><br><span class="line">X = np.random.random((nobs, <span class="number">2</span>))</span><br><span class="line">X = sm.add_constant(X)</span><br><span class="line">beta = [<span class="number">1</span>, <span class="number">.1</span>, <span class="number">.5</span>]</span><br><span class="line">e = np.random.random(nobs)</span><br><span class="line">y = np.dot(X, beta) + e</span><br><span class="line">results = smf.OLS(y, X).fit()</span><br><span class="line">print(results.summary2())</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2044,7 +2070,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2066,7 +2092,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

@@ -229,6 +229,270 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/python实现常见算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IvyJin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="数据分析笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/01/python实现常见算法/" itemprop="url">用python实现常见算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-01T21:58:58+08:00">
+                2018-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-判断是否为素数、拆解质因数"><a href="#1-判断是否为素数、拆解质因数" class="headerlink" title="1.判断是否为素数、拆解质因数"></a>1.判断是否为素数、拆解质因数</h2><h3 id="1-1-判断是否为素数的函数"><a href="#1-1-判断是否为素数的函数" class="headerlink" title="1.1 判断是否为素数的函数"></a>1.1 判断是否为素数的函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n&lt;=<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,int(n/<span class="number">2</span>)+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> n%i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-输出1-100之间的素数"><a href="#1-2-输出1-100之间的素数" class="headerlink" title="1.2 输出1-100之间的素数"></a>1.2 输出1-100之间的素数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lst = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">100</span>):</span><br><span class="line">    <span class="keyword">if</span> isPrime(i)==<span class="keyword">True</span>:</span><br><span class="line">        print(i,<span class="string">'是素数'</span>)</span><br><span class="line">        lst.append(i)</span><br><span class="line">    <span class="keyword">else</span>: </span><br><span class="line">        print(i,<span class="string">"不是素数"</span>) </span><br><span class="line">print(lst)</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-分解质因数"><a href="#1-3-分解质因数" class="headerlink" title="1.3 分解质因数"></a>1.3 分解质因数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">n = int(<span class="number">90</span>)</span><br><span class="line">lst_1 = []</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getChildren</span><span class="params">(n)</span>:</span></span><br><span class="line">    isZhishu = <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,int(math.sqrt(n+<span class="number">1</span>)+<span class="number">1</span>)):</span><br><span class="line">        <span class="keyword">if</span> n%i == <span class="number">0</span>  <span class="keyword">and</span> i != n:</span><br><span class="line">            lst_1.append(i)</span><br><span class="line">            isZhishu = <span class="keyword">False</span></span><br><span class="line">            getChildren(n/i)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> isZhishu:</span><br><span class="line">        lst_1.append(n)</span><br><span class="line">getChildren(n)</span><br><span class="line">print(lst_1)</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/17/statsmodels建模/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IvyJin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="数据分析笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/17/statsmodels建模/" itemprop="url">statsmodels建模</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T10:48:49+08:00">
+                2018-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm</span><br><span class="line"><span class="keyword">import</span> pandas</span><br><span class="line"><span class="keyword">from</span> patsy <span class="keyword">import</span> dmatrices</span><br></pre></td></tr></table></figure>
+<h2 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h2><h3 id="R模式"><a href="#R模式" class="headerlink" title="R模式"></a>R模式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm</span><br><span class="line"><span class="keyword">import</span> statsmodels.formula.api <span class="keyword">as</span> smf</span><br><span class="line">dat = sm.datasets.get_rdataset(<span class="string">"Guerry"</span>, <span class="string">"HistData"</span>).data</span><br><span class="line">results = smf.ols(<span class="string">'Lottery ~ Literacy + np.log(Pop1831)'</span>, data=dat).fit()</span><br></pre></td></tr></table></figure>
+<h3 id="Sklearn模式"><a href="#Sklearn模式" class="headerlink" title="Sklearn模式"></a>Sklearn模式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">nobs = <span class="number">100</span></span><br><span class="line">X = np.random.random((nobs, <span class="number">2</span>))</span><br><span class="line">X = sm.add_constant(X)</span><br><span class="line">beta = [<span class="number">1</span>, <span class="number">.1</span>, <span class="number">.5</span>]</span><br><span class="line">e = np.random.random(nobs)</span><br><span class="line">y = np.dot(X, beta) + e</span><br><span class="line">results = smf.OLS(y, X).fit()</span><br><span class="line">print(results.summary2())</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/python连接spark/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -327,6 +591,7 @@
 <h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><p>切换到下载目录 -&gt; 执行【 tar -zxvf spark-2.3.2-bin-hadoop2.7.tgz 】 -&gt; 切换到$SPARK_HOME/sbin/ -&gt; 执行命令启动thriftserver<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./start-thriftserver.sh --master yarn --conf spark.driver.memory=3G --executor-memory 1G --num-executors 10</span><br></pre></td></tr></table></figure></p>
 <h2 id="安装impyla"><a href="#安装impyla" class="headerlink" title="安装impyla"></a>安装impyla</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pip install six</span><br><span class="line">pip install bit_array</span><br><span class="line">pip install thriftpy   </span><br><span class="line"><span class="comment">## thrift (on Python 2.x) or thriftpy (on Python 3.x)</span></span><br><span class="line">pip install thrift_sasl</span><br><span class="line">pip install sasl</span><br><span class="line">pip install impyla</span><br><span class="line"> </span><br><span class="line"><span class="comment">## 注意：还需要安装另外一个模块，官网上并没有给出（for python3）：</span></span><br><span class="line">pip install git+https://github.com/laserson/python-sasl.git@cython</span><br></pre></td></tr></table></figure>
 <h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> impala.dbapi <span class="keyword">import</span> connect</span><br><span class="line">conn = connect(host=<span class="string">''</span>, port=, user=<span class="string">''</span>, password=<span class="string">''</span>, database=<span class="string">''</span>, auth_mechanism=<span class="string">'PLAIN'</span>)</span><br><span class="line">cursor = conn.cursor()</span><br><span class="line">cursor.execute(<span class="string">'SELECT * FROM t LIMIT 100'</span>)</span><br><span class="line">print(cursor.description)  <span class="comment"># prints the result set's schema</span></span><br><span class="line">results = cursor.fetchall()</span><br><span class="line">print(results)</span><br></pre></td></tr></table></figure>
+<h2 id="将读取结果转化为DataFrame"><a href="#将读取结果转化为DataFrame" class="headerlink" title="将读取结果转化为DataFrame"></a>将读取结果转化为DataFrame</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 取出列名</span></span><br><span class="line">name = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(np.array(cursor.description))):</span><br><span class="line">    x = np.array(cursor.description)[i,<span class="number">0</span>]</span><br><span class="line">    name.append(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转化为DataFrame</span></span><br><span class="line">data = DataFrame(results,columns=name)</span><br><span class="line">data.describe() <span class="comment"># 查看数据概览</span></span><br></pre></td></tr></table></figure>
           
         
       
@@ -1570,307 +1835,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/tableau简单操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IvyJin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="数据分析笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/24/tableau简单操作/" itemprop="url">tableau小技巧</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T23:34:20+08:00">
-                2018-06-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tableau/" itemprop="url" rel="index">
-                    <span itemprop="name">tableau</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="用tableau做报表的时候会遇到一些需求点，在具体操作时可能会不太好找，特地记录下来"><a href="#用tableau做报表的时候会遇到一些需求点，在具体操作时可能会不太好找，特地记录下来" class="headerlink" title="用tableau做报表的时候会遇到一些需求点，在具体操作时可能会不太好找，特地记录下来"></a>用tableau做报表的时候会遇到一些需求点，在具体操作时可能会不太好找，特地记录下来</h1><h2 id="展示维度过多的问题"><a href="#展示维度过多的问题" class="headerlink" title="展示维度过多的问题"></a>展示维度过多的问题</h2><p>tableau做报表时，经常会遇到需要展示很多维度的列表，但是tableau默认只能展示六列，下面是解决维度过多导致排列拥挤的操作：</p>
-<div style="text-align: left;"><br>    <video controls="controls" src="/videos/overdim.mp4" style="width: 800px; height: 300px;"><br>    </video><br></div>
-
-<h2 id="维度值-筛选条件排序的问题-以上例，因为比较关注aa8-所以筛选条件中需要将aa8放在第一位"><a href="#维度值-筛选条件排序的问题-以上例，因为比较关注aa8-所以筛选条件中需要将aa8放在第一位" class="headerlink" title="维度值/筛选条件排序的问题,以上例，因为比较关注aa8,所以筛选条件中需要将aa8放在第一位"></a>维度值/筛选条件排序的问题,以上例，因为比较关注aa8,所以筛选条件中需要将aa8放在第一位</h2><div style="text-align: left;"><br>    <video controls="controls" src="/videos/filter_rank.mp4" style="width: 800px; height: 300px;"><br>    </video><br></div>
-
-
-<h2 id="实现筛选条件的联动"><a href="#实现筛选条件的联动" class="headerlink" title="实现筛选条件的联动"></a>实现筛选条件的联动</h2><p>应用场景：如需要有省市这种层级关系时，可以控制“市”为只展示相关值，即可实现先选特定省，然后在省份下面选择特定的市/地区<br>操作方法：将下级筛选条件选择仅显示相关值</p>
-<div style="text-align: left;"><br>    <video controls="controls" src="/videos/filter_control.mp4" style="width: 800px; height: 300px;"><br>    </video><br></div>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/09/Tensorflow安装/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IvyJin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="数据分析笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/09/Tensorflow安装/" itemprop="url">tensorflow安装</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-09T08:04:12+08:00">
-                2018-06-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><p>docker安装地址：<a href="https://www.docker.com/get-docker" target="_blank" rel="noopener">https://www.docker.com/get-docker</a><br>注册的时候可能会需要翻墙</p>
-<h2 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h2><p>mac右上角点docker图标启动</p>
-<h2 id="用docker安装tensorflow"><a href="#用docker安装tensorflow" class="headerlink" title="用docker安装tensorflow"></a>用docker安装tensorflow</h2><p>首次运行会安装tensorflow image服务，速度可能会比较慢;最后打开<a href="http://localhost:8888就可以使用jupyter" target="_blank" rel="noopener">http://localhost:8888就可以使用jupyter</a> notebook<br>python2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 tensorflow/tensorflow</span><br></pre></td></tr></table></figure></p>
-<p>python3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 tensorflow/tensorflow:latest-py3</span><br></pre></td></tr></table></figure></p>
-<h2 id="停止-启动容器"><a href="#停止-启动容器" class="headerlink" title="停止/启动容器"></a>停止/启动容器</h2><p>停止：control+c 停止容器<br>启动：<br>查看容器ID<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></p>
-<p>运行容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start -i (跟上面查到的容器ID)</span><br></pre></td></tr></table></figure></p>
-<h2 id="jupyter读取（挂载）本地文件"><a href="#jupyter读取（挂载）本地文件" class="headerlink" title="jupyter读取（挂载）本地文件"></a>jupyter读取（挂载）本地文件</h2><p>python2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 -v 本地文件夹的绝对路径:jupyter路径 tensorflow/tensorflow</span><br></pre></td></tr></table></figure></p>
-<p>python3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8888:8888 -v ~/tensorflow:/notebooks tensorflow/tensorflow:latest-py3</span><br></pre></td></tr></table></figure></p>
-<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>可能会提示端口被占用，是因为挂载需要在CONTAINER创建时挂载；<br>这时候需要先执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></p>
-<p>查看所有CONTAINER，然后删除所有CONTAINER<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm (跟上面查到的容器ID）</span><br></pre></td></tr></table></figure></p>
-<h2 id="jupyter执行终端命令"><a href="#jupyter执行终端命令" class="headerlink" title="jupyter执行终端命令"></a>jupyter执行终端命令</h2><p>在命令前加!即可，如!ls</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1921,7 +1885,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1943,7 +1907,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

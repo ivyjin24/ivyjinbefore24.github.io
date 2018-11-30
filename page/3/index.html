@@ -624,7 +624,67 @@
       
         
           
-            <p>很久以前做了内容标题的用词频率分析，分析之前需要对标题做分词处理，有些基础知识记不得了，先把代码贴出来保存，有空复习一遍再填充<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function, unicode_literals</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> psycopg2</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="comment">#import re, string</span></span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"><span class="keyword">import</span> jieba.analyse</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime,date,time,timedelta</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    reload(sys)</span><br><span class="line">    sys.setdefaultencoding(<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">from</span> textrank4zh <span class="keyword">import</span> TextRank4Keyword</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_pg</span><span class="params">()</span>:</span></span><br><span class="line">       not_finish=<span class="keyword">True</span></span><br><span class="line">       <span class="keyword">while</span>(not_finish):</span><br><span class="line">          i = <span class="number">0</span></span><br><span class="line">          <span class="keyword">for</span> x <span class="keyword">in</span> values:</span><br><span class="line">             <span class="comment"># print("++ %s ++" % x)</span></span><br><span class="line">             <span class="comment"># cutword(''.join(list(x)))</span></span><br><span class="line">             i = i + <span class="number">1</span></span><br><span class="line">             cutword(i, x)</span><br><span class="line">          not_finish=<span class="keyword">False</span></span><br><span class="line">       conn.commit()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cutword</span><span class="params">(rowIndex, row)</span>:</span></span><br><span class="line">       seg_list = list(jieba.cut(row[<span class="number">1</span>], cut_all=<span class="keyword">False</span>))</span><br><span class="line">      <span class="comment"># print("Divided: " + ",".join(seg_list)) </span></span><br><span class="line">       tmp =  <span class="string">""</span></span><br><span class="line">       <span class="keyword">for</span> word <span class="keyword">in</span> seg_list:</span><br><span class="line">        <span class="keyword">if</span> word <span class="keyword">not</span> <span class="keyword">in</span> punctuations:</span><br><span class="line">            tmp = tmp + word</span><br><span class="line">            tmp = tmp + <span class="string">","</span></span><br><span class="line">        <span class="comment">#print(tmp)</span></span><br><span class="line">       cur.execute(<span class="string">"insert into t (a, b, c, d) values (%s, %s, %s, %s)"</span>, (row[<span class="number">0</span>], row[<span class="number">1</span>], row[<span class="number">2</span>], tmp))</span><br><span class="line">       <span class="keyword">if</span> rowIndex % <span class="number">1000</span> == <span class="number">0</span>:</span><br><span class="line">         conn.commit()   </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">       conn=psycopg2.connect(database=<span class="string">""</span>, user=<span class="string">""</span>, password=<span class="string">""</span>, host=<span class="string">""</span>, port=<span class="string">""</span>)</span><br><span class="line">       </span><br><span class="line">       cur=conn.cursor()</span><br><span class="line">       cur.execute(<span class="string">"select a, b, c from t where c &gt;= 6"</span>)</span><br><span class="line">       values = cur.fetchall()</span><br><span class="line">       <span class="comment">#cur.execute("DELETE from jy.album_name_result")</span></span><br><span class="line">       jieba.enable_parallel(<span class="number">4</span>)</span><br><span class="line">       punctuations = <span class="string">'''!()-[]&#123;&#125;;:'"\,&lt;&gt;./?@#$%^&amp;*_~【】\d《》（）??_！？“”。：；'''</span></span><br><span class="line">       jieba.suggest_freq(<span class="string">'啊啊啊'</span>, <span class="keyword">True</span>)</span><br><span class="line">       test_pg()</span><br><span class="line">       conn.close()</span><br></pre></td></tr></table></figure></p>
+            <!-- 很久以前做了内容标题的用词频率分析，分析之前需要对标题做分词处理，有些基础知识记不得了，先把代码贴出来保存，有空复习一遍再填充
+```python
+#!/usr/bin/env python
+# coding:utf-8
+from __future__ import print_function, unicode_literals
+import time
+import requests
+import json
+import psycopg2
+import sys
+import csv
+import os
+#import re, string
+import threading
+import jieba
+import jieba.analyse
+from datetime import datetime,date,time,timedelta
+import sys
+try:
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
+except:
+    pass
+import codecs
+from textrank4zh import TextRank4Keyword
+def test_pg():
+       not_finish=True
+       while(not_finish):
+          i = 0
+          for x in values:
+             # print("++ %s ++" % x)
+             # cutword(''.join(list(x)))
+             i = i + 1
+             cutword(i, x)
+          not_finish=False
+       conn.commit()
+def cutword(rowIndex, row):
+       seg_list = list(jieba.cut(row[1], cut_all=False))
+      # print("Divided: " + ",".join(seg_list)) 
+       tmp =  ""
+       for word in seg_list:
+        if word not in punctuations:
+            tmp = tmp + word
+            tmp = tmp + ","
+        #print(tmp)
+       cur.execute("insert into t (a, b, c, d) values (%s, %s, %s, %s)", (row[0], row[1], row[2], tmp))
+       if rowIndex % 1000 == 0:
+         conn.commit()   
+if __name__ == "__main__":
+       conn=psycopg2.connect(database="", user="", password="", host="", port="")
+
+       cur=conn.cursor()
+       cur.execute("select a, b, c from t where c >= 6")
+       values = cur.fetchall()
+       #cur.execute("DELETE from jy.album_name_result")
+       jieba.enable_parallel(4)
+       punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~【】\d《》（）??_！？“”。：；'''
+       jieba.suggest_freq('啊啊啊', True)
+       test_pg()
+       conn.close()
+``` -->
 
           
         

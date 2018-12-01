@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="导入库1import sqlite3 建表与连接数据库12345create table test(a VARCHAR(20),b VARCHAR(20),c INTEGAR,d INTEGAR);# 创建连接con =sqlite3.connect(&apos;:memory:&apos;) 执行12con.execute(query)con.commit() 数据写入与查询12345678910111213# 数">
+<meta name="description" content="导入库1import sqlite3 建表与连接数据库123456query = &apos;&apos;&apos;create table test(a VARCHAR(20),b VARCHAR(20),c INTEGAR,d INTEGAR);&apos;&apos;&apos;# 创建连接con =sqlite3.connect(&apos;:memory:&apos;) 执行12con.execute(query)con.commit() 数据写入与查询12345">
 <meta name="keywords" content="-sqlite3 -db">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python数据库操作">
 <meta property="og:url" content="http://yoursite.com/2018/11/22/python数据库操作/index.html">
 <meta property="og:site_name" content="数据分析笔记">
-<meta property="og:description" content="导入库1import sqlite3 建表与连接数据库12345create table test(a VARCHAR(20),b VARCHAR(20),c INTEGAR,d INTEGAR);# 创建连接con =sqlite3.connect(&apos;:memory:&apos;) 执行12con.execute(query)con.commit() 数据写入与查询12345678910111213# 数">
+<meta property="og:description" content="导入库1import sqlite3 建表与连接数据库123456query = &apos;&apos;&apos;create table test(a VARCHAR(20),b VARCHAR(20),c INTEGAR,d INTEGAR);&apos;&apos;&apos;# 创建连接con =sqlite3.connect(&apos;:memory:&apos;) 执行12con.execute(query)con.commit() 数据写入与查询12345">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-26T16:28:02.853Z">
+<meta property="og:updated_time" content="2018-12-01T08:55:58.803Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python数据库操作">
-<meta name="twitter:description" content="导入库1import sqlite3 建表与连接数据库12345create table test(a VARCHAR(20),b VARCHAR(20),c INTEGAR,d INTEGAR);# 创建连接con =sqlite3.connect(&apos;:memory:&apos;) 执行12con.execute(query)con.commit() 数据写入与查询12345678910111213# 数">
+<meta name="twitter:description" content="导入库1import sqlite3 建表与连接数据库123456query = &apos;&apos;&apos;create table test(a VARCHAR(20),b VARCHAR(20),c INTEGAR,d INTEGAR);&apos;&apos;&apos;# 创建连接con =sqlite3.connect(&apos;:memory:&apos;) 执行12con.execute(query)con.commit() 数据写入与查询12345">
 
 
 
@@ -323,7 +323,7 @@
 
       
         <h2 id="导入库"><a href="#导入库" class="headerlink" title="导入库"></a>导入库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import sqlite3</span><br></pre></td></tr></table></figure>
-<h2 id="建表与连接数据库"><a href="#建表与连接数据库" class="headerlink" title="建表与连接数据库"></a>建表与连接数据库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create table test</span><br><span class="line">(a VARCHAR(<span class="number">20</span>),b VARCHAR(<span class="number">20</span>),</span><br><span class="line">c INTEGAR,d INTEGAR);</span><br><span class="line"><span class="comment"># 创建连接</span></span><br><span class="line">con =sqlite3.connect(<span class="string">':memory:'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="建表与连接数据库"><a href="#建表与连接数据库" class="headerlink" title="建表与连接数据库"></a>建表与连接数据库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">query = <span class="string">'''</span></span><br><span class="line"><span class="string">create table test</span></span><br><span class="line"><span class="string">(a VARCHAR(20),b VARCHAR(20),</span></span><br><span class="line"><span class="string">c INTEGAR,d INTEGAR);'''</span></span><br><span class="line"><span class="comment"># 创建连接</span></span><br><span class="line">con =sqlite3.connect(<span class="string">':memory:'</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">con.execute(query)</span><br><span class="line">con.commit()</span><br></pre></td></tr></table></figure>
 <h2 id="数据写入与查询"><a href="#数据写入与查询" class="headerlink" title="数据写入与查询"></a>数据写入与查询</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 数据输入</span></span><br><span class="line">data = [(<span class="string">'a'</span>,<span class="string">'a'</span>,<span class="number">1</span>,<span class="number">1</span>),</span><br><span class="line">       (<span class="string">'b'</span>,<span class="string">'b'</span>,<span class="number">2</span>,<span class="number">2</span>)]</span><br><span class="line">stmt = <span class="string">"Insert into test values(?,?,?,?)"</span></span><br><span class="line">con.executemany(stmt,data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据查询</span></span><br><span class="line">cursor = con.execute(<span class="string">'select * from test'</span>)</span><br><span class="line">rows = cursor.fetchall()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将数据库取数结果传给DataFrame</span></span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> DataFrame,Series</span><br><span class="line">DataFrame(rows,columns = zip(*cursor.description)[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
       

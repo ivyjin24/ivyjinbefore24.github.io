@@ -229,156 +229,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/tableau简单操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IvyJin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="数据分析笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/24/tableau简单操作/" itemprop="url">tableau小技巧</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T23:34:20+08:00">
-                2018-06-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tableau/" itemprop="url" rel="index">
-                    <span itemprop="name">tableau</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="用tableau做报表的时候会遇到一些需求点，在具体操作时可能会不太好找，特地记录下来"><a href="#用tableau做报表的时候会遇到一些需求点，在具体操作时可能会不太好找，特地记录下来" class="headerlink" title="用tableau做报表的时候会遇到一些需求点，在具体操作时可能会不太好找，特地记录下来"></a>用tableau做报表的时候会遇到一些需求点，在具体操作时可能会不太好找，特地记录下来</h1><h2 id="展示维度过多的问题"><a href="#展示维度过多的问题" class="headerlink" title="展示维度过多的问题"></a>展示维度过多的问题</h2><p>tableau做报表时，经常会遇到需要展示很多维度的列表，但是tableau默认只能展示六列，下面是解决维度过多导致排列拥挤的操作：</p>
-<div style="text-align: left;"><br>    <video controls="controls" src="/videos/overdim.mp4" style="width: 800px; height: 300px;"><br>    </video><br></div>
-
-<h2 id="维度值-筛选条件排序的问题-以上例，因为比较关注aa8-所以筛选条件中需要将aa8放在第一位"><a href="#维度值-筛选条件排序的问题-以上例，因为比较关注aa8-所以筛选条件中需要将aa8放在第一位" class="headerlink" title="维度值/筛选条件排序的问题,以上例，因为比较关注aa8,所以筛选条件中需要将aa8放在第一位"></a>维度值/筛选条件排序的问题,以上例，因为比较关注aa8,所以筛选条件中需要将aa8放在第一位</h2><div style="text-align: left;"><br>    <video controls="controls" src="/videos/filter_rank.mp4" style="width: 800px; height: 300px;"><br>    </video><br></div>
-
-
-<h2 id="实现筛选条件的联动"><a href="#实现筛选条件的联动" class="headerlink" title="实现筛选条件的联动"></a>实现筛选条件的联动</h2><p>应用场景：如需要有省市这种层级关系时，可以控制“市”为只展示相关值，即可实现先选特定省，然后在省份下面选择特定的市/地区<br>操作方法：将下级筛选条件选择仅显示相关值</p>
-<div style="text-align: left;"><br>    <video controls="controls" src="/videos/filter_control.mp4" style="width: 800px; height: 300px;"><br>    </video><br></div>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/09/Tensorflow安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -483,6 +333,305 @@
 <h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>可能会提示端口被占用，是因为挂载需要在CONTAINER创建时挂载；<br>这时候需要先执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></p>
 <p>查看所有CONTAINER，然后删除所有CONTAINER<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm (跟上面查到的容器ID）</span><br></pre></td></tr></table></figure></p>
 <h2 id="jupyter执行终端命令"><a href="#jupyter执行终端命令" class="headerlink" title="jupyter执行终端命令"></a>jupyter执行终端命令</h2><p>在命令前加!即可，如!ls</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/02/tableau表函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IvyJin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="数据分析笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/02/tableau表函数/" itemprop="url">Tableau表函数LOD</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-02T00:45:00+08:00">
+                2018-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tableau/" itemprop="url" rel="index">
+                    <span itemprop="name">tableau</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/20/tableau简单操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IvyJin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="数据分析笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/20/tableau简单操作/" itemprop="url">tableau小技巧</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-20T23:34:20+08:00">
+                2018-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tableau/" itemprop="url" rel="index">
+                    <span itemprop="name">tableau</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>用tableau做报表的时候，有学习到一些比较实用的功能/操作，特地整理记录下来</p>
+</blockquote>
+<h1 id="展示维度过多，字段自动合并的问题"><a href="#展示维度过多，字段自动合并的问题" class="headerlink" title="展示维度过多，字段自动合并的问题"></a>展示维度过多，字段自动合并的问题</h1><p>tableau做报表时，经常会遇到需要展示很多维度的列表，但是tableau默认只能展示六列，下面是解决维度过多导致排列拥挤的操作：</p>
+<div style="text-align: left;"><br>    <video controls="controls" src="/videos/overdim.mp4" style="width: 800px; height: 300px;"><br>    </video><br></div>
+
+<h1 id="维度值-筛选条件排序的问题-以上例，因为比较关注aa8-所以筛选条件中需要将aa8放在第一位"><a href="#维度值-筛选条件排序的问题-以上例，因为比较关注aa8-所以筛选条件中需要将aa8放在第一位" class="headerlink" title="维度值/筛选条件排序的问题,以上例，因为比较关注aa8,所以筛选条件中需要将aa8放在第一位"></a>维度值/筛选条件排序的问题,以上例，因为比较关注aa8,所以筛选条件中需要将aa8放在第一位</h1><div style="text-align: left;"><br>    <video controls="controls" src="/videos/filter_rank.mp4" style="width: 800px; height: 300px;"><br>    </video><br></div>
+
+
+<h1 id="实现筛选条件的联动"><a href="#实现筛选条件的联动" class="headerlink" title="实现筛选条件的联动"></a>实现筛选条件的联动</h1><p>应用场景：如需要有省市这种层级关系时，可以控制“市”为只展示相关值，即可实现先选特定省，然后在省份下面选择特定的市/地区<br>操作方法：将下级筛选条件选择仅显示相关值</p>
+<div style="text-align: left;"><br>    <video controls="controls" src="/videos/filter_control.mp4" style="width: 800px; height: 300px;"><br>    </video><br></div>
+
+<p>#在看板中插入链接<br>在tableau中插入链接，有2种打开链接的方式：<br>在仪表板中不插入网页时，会在一个新的标签中打开网页<br>在仪表板中插入网页时，会仪表板中打开网页</p>
+<h2 id="插入一个固定链接"><a href="#插入一个固定链接" class="headerlink" title="插入一个固定链接"></a>插入一个固定链接</h2><p>操作路径：工作表 -&gt; 操作 -&gt; 添加操作 -&gt; 转到url -&gt; 运行操作点击<strong>选择</strong>按钮,URL中输入固定链接 -&gt; 确定</p>
+<h2 id="根据某个字段-ID插入自定义链接"><a href="#根据某个字段-ID插入自定义链接" class="headerlink" title="根据某个字段/ID插入自定义链接"></a>根据某个字段/ID插入自定义链接</h2><p>操作路径：工作表 -&gt; 操作 -&gt; 添加操作 -&gt; 转到url -&gt; 运行操作点击<strong>选择</strong>按钮,URL中输入自定义链接 -&gt; 确定<br>自定义链接可以是一个完成的链接字段，例如url是链接，即填写<url>；<br>也可以是一段固定的url+自定义ID字段，例如喜马拉雅主播m站主页，即为<a href="http://www.ximalaya.com/zhubo/" target="_blank" rel="noopener">www.ximalaya.com/zhubo/</a>&lt;anchor_id&gt; = 固定链接<a href="http://www.ximalaya.com/zhubo/" target="_blank" rel="noopener">www.ximalaya.com/zhubo/</a> + 自定义ID&lt;anchor_id&gt;</url></p>
+<h2 id="嵌入其他看板的链接"><a href="#嵌入其他看板的链接" class="headerlink" title="嵌入其他看板的链接"></a>嵌入其他看板的链接</h2><p>应用场景：<br>1.某一个看板数据源较多，需要拆分到多个看板提高加载速度时<br>2.某个看板有不同需求，需要放到多个路径下时<br>在网页端点击右上角分享，复制url，然后在本地仪表板中插入网页，把url粘贴进去即可</p>
+<h2 id="共用Tableau-Server数据源"><a href="#共用Tableau-Server数据源" class="headerlink" title="共用Tableau Server数据源"></a>共用Tableau Server数据源</h2><p>优点：数据源可能会被多个看板同时使用，使用Tableau Server可以减少数据源load的次数，减少服务器压力、<br>缺点：每次更新需要下载Tableau Server数据源修改，操作比较繁琐<br>操作：<br>1.上传数据源：需要共用的数据源在本地加载并处理好后，点击 服务器 -&gt; 发布数据源<br>2.使用数据源：在数据源部分，选择Tableau Server，使用第1步上传的数据源</p>
 
           
         
@@ -882,7 +1031,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -904,7 +1053,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

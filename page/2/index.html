@@ -1787,11 +1787,11 @@
       
         
           
-            <h2 id="1-效果预览"><a href="#1-效果预览" class="headerlink" title="1.效果预览"></a>1.效果预览</h2><p><a href="/images/result_2.png">横向展示</a><br><a href="/images/result_1.png">纵向展示</a><br><!-- <div style="text-align: left;">
+            <h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p><a href="/images/result_2.png">横向展示</a><br><a href="/images/result_1.png">纵向展示</a><br><!-- <div style="text-align: left;">
     <img controls="controls" src="/images/demo.jpg" style="width: 800px; height: 300px;">
     </img>
 </div> --></p>
-<h2 id="2-数据准备"><a href="#2-数据准备" class="headerlink" title="2.数据准备"></a>2.数据准备</h2><p>文件1：层级关系表t1</p>
+<h2 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h2><p>文件1：层级关系表t1</p>
 <table>
 <thead>
 <tr>
@@ -2055,16 +2055,57 @@
 </tr>
 </tbody>
 </table>
-<h2 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h2><p>position1_label:case level when 3 then level2 when 2 then level1 when 1 then ‘start’ end<br>position2_label:case level when 3 then level3 when 2 then level2 when 1 then level1 end<br>category：position1_label-position2_label</p>
+<h2 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h2><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>计算公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>position1_label</td>
+<td>case level when 3 then level2 when 2 then level1 when 1 then ‘start’ end</td>
+</tr>
+<tr>
+<td>position2_label</td>
+<td>case level when 3 then level3 when 2 then level2 when 1 then level1 end</td>
+</tr>
+<tr>
+<td>category</td>
+<td>position1_label-position2_label</td>
+</tr>
+</tbody>
+</table>
 <h3 id="分阶段计算出level3的position2-position1，以及level2的position1"><a href="#分阶段计算出level3的position2-position1，以及level2的position1" class="headerlink" title="分阶段计算出level3的position2,position1，以及level2的position1"></a>分阶段计算出level3的position2,position1，以及level2的position1</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- step1:计算level3的position2,作为表step1</span></span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">    <span class="keyword">level</span>,</span><br><span class="line">    level1,</span><br><span class="line">    level2,</span><br><span class="line">    level3,</span><br><span class="line">    row_number() <span class="keyword">over</span>(<span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">concat</span>(level1,<span class="keyword">coalesce</span>(level2,level1),<span class="keyword">coalesce</span>(level3,level2,level1))) <span class="keyword">as</span> position2</span><br><span class="line"><span class="keyword">from</span> t1</span><br><span class="line"></span><br><span class="line"><span class="comment">-- step2:计算level3的position1,作为表step2</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    level1,</span><br><span class="line">    level2,</span><br><span class="line">    <span class="keyword">floor</span>(<span class="keyword">avg</span>(position2)) <span class="keyword">as</span> position1</span><br><span class="line"><span class="keyword">from</span> step1</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">level</span> = <span class="number">3</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    level1,</span><br><span class="line">    level2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- step3:计算level2的position1,作为表step3</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    level1,</span><br><span class="line">    <span class="keyword">floor</span>(<span class="keyword">avg</span>(position1)) <span class="keyword">as</span> position1</span><br><span class="line"><span class="keyword">from</span> step3</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    level1</span><br></pre></td></tr></table></figure>
 <h3 id="计算出各个节点的position1-position2"><a href="#计算出各个节点的position1-position2" class="headerlink" title="计算出各个节点的position1,position2"></a>计算出各个节点的position1,position2</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    t1.level,</span><br><span class="line">    t1.level1,</span><br><span class="line">    t1.level2,</span><br><span class="line">    t1.level3,</span><br><span class="line">    t2.position1,</span><br><span class="line">    t1.position2,</span><br><span class="line">    t1.level2 <span class="keyword">as</span> position1_label,</span><br><span class="line">    t1.level3 <span class="keyword">as</span> position2_label</span><br><span class="line"><span class="keyword">from</span> step1 t1 </span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> step2 t2 </span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">    t1.level1 = t2.level1 </span><br><span class="line">    <span class="keyword">and</span> t1.level2 = t2.level2</span><br><span class="line"><span class="keyword">where</span> t1.level=<span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">union</span> all</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">    <span class="number">2</span> <span class="keyword">as</span> <span class="keyword">level</span>,</span><br><span class="line">    t1.level1,</span><br><span class="line">    t1.level2,</span><br><span class="line">    <span class="string">''</span> level3,</span><br><span class="line">    t2.position1 <span class="keyword">as</span> position1,</span><br><span class="line">    t1.position1 <span class="keyword">as</span> position2,</span><br><span class="line">    t1.level1 <span class="keyword">as</span> position1_label,</span><br><span class="line">    t1.level2 <span class="keyword">as</span> position2_label</span><br><span class="line"><span class="keyword">from</span> step2 t1 </span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> step3 t2 </span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">    t1.level1 = t2.level1</span><br><span class="line"></span><br><span class="line"><span class="keyword">union</span> all </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="number">1</span> <span class="keyword">as</span> <span class="keyword">level</span>,</span><br><span class="line">    t1.level1,</span><br><span class="line">    <span class="string">''</span> <span class="keyword">as</span> level2,</span><br><span class="line">    <span class="string">''</span> <span class="keyword">as</span> level3,</span><br><span class="line">    t2.position1,</span><br><span class="line">    t1.position1 <span class="keyword">as</span> position2,</span><br><span class="line">    <span class="string">'start'</span> <span class="keyword">as</span> position1_label,</span><br><span class="line">    t1.level1 <span class="keyword">as</span> position2_label</span><br><span class="line"><span class="keyword">from</span> step3 t1 </span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> </span><br><span class="line">(<span class="keyword">select</span></span><br><span class="line">    <span class="keyword">floor</span>(<span class="keyword">avg</span>(position1)) <span class="keyword">as</span> position1</span><br><span class="line"><span class="keyword">from</span> step3) t2 </span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">    <span class="number">1</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure>
 <h3 id="数据预览"><a href="#数据预览" class="headerlink" title="数据预览"></a>数据预览</h3><p>数据结果为level1的position2 = level2对应的position1,level2的position2为level3对应的position1<br><a href="/images/sankey.png">本例数据预览</a></p>
-<h2 id="tableau中操作"><a href="#tableau中操作" class="headerlink" title="tableau中操作"></a>tableau中操作</h2><h3 id="数据处理-1"><a href="#数据处理-1" class="headerlink" title="数据处理"></a>数据处理</h3><p><strong>sigmoid</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1/(1+EXP(1)^-[T1])</span><br></pre></td></tr></table></figure></p>
-<p><strong>curve</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[position1] + (([position2]-[position1])*[sigmoid])</span><br></pre></td></tr></table></figure></p>
-<p><strong>points</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if  last()=0 then sum([T2]) <span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>color</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if sum([T2])= -6 then 'gray' </span><br><span class="line">elseif sum([T2])= 6 then 'orange' </span><br><span class="line">elseif sum([T2])= 18 then 'blue' </span><br><span class="line">elseif sum([T2])= 30 then 'green' </span><br><span class="line">elseif sum([T2])= 42 then 'pink' </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="tableau中操作"><a href="#tableau中操作" class="headerlink" title="tableau中操作"></a>tableau中操作</h2><h3 id="数据处理-1"><a href="#数据处理-1" class="headerlink" title="数据处理"></a>数据处理</h3><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>计算公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>sigmoid</strong></td>
+<td>1/(1+EXP(1)^-[t])</td>
+</tr>
+<tr>
+<td><strong>curve</strong></td>
+<td>[position1] + (([position2]-[position1])*[sigmoid])</td>
+</tr>
+<tr>
+<td><strong>points</strong></td>
+<td>if  last()=0 then sum([t1]) end</td>
+</tr>
+</tbody>
+</table>
+<p><strong>color</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if sum([t1])= -6 then 'gray' </span><br><span class="line">elseif sum([t1])= 6 then 'orange'</span><br><span class="line">elseif sum([t1])= 18 then 'blue'</span><br><span class="line">elseif sum([t1])= 30 then 'green' </span><br><span class="line">elseif sum([t1])= 42 then 'pink' </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="看板操作"><a href="#看板操作" class="headerlink" title="看板操作"></a>看板操作</h3><p>step1:t1、points作为列，curve作为行<br>step2:将t、points、level、level1、level2、level3、position1_label、position2_label放到详细信息中<br>step3:将详细信息中的t调整为维度<br><a href="/images/t_dimension.png">step3图示</a><br>step4:points编辑表计算,计算依据为特定维度-t<br><a href="/images/point_step1.png">编辑表计算</a><br><a href="/images/point_step2.png">调整计算依据</a><br>step5:合并轴-&gt;同步轴，并将color拖到points的颜色中<br><a href="/images/result.png">最终结果如图</a></p>
-<h3 id="最后调整格式就行啦"><a href="#最后调整格式就行啦" class="headerlink" title="最后调整格式就行啦~"></a>最后调整格式就行啦~</h3><h2 id="纵向展示"><a href="#纵向展示" class="headerlink" title="纵向展示"></a>纵向展示</h2><p>step1:切换行列<br>step2:编辑轴：curve-倒序,t1倒序<br>step3：修改颜色调调格式就好啦~</p>
+<p><strong>最后调整格式就行啦~</strong></p>
+<h2 id="纵向展示"><a href="#纵向展示" class="headerlink" title="纵向展示"></a>纵向展示</h2><p>step1:切换行列<br>step2:编辑轴：curve-倒序,t1倒序<br>step3：修改颜色调调格式就好啦~</p>
 
           
         

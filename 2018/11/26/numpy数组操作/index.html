@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="数据分析笔记">
 <meta property="og:description" content="numpy是高性能科学计算和数据分析的基础包，是很多工具的基础，在用python做数据分析的时候，也是非常重要哒。同样也是用了很多次，但是每次用的时候常会需要重复处理一些问题。 基础准备数据类型   名称 描述     bool_ 布尔型数据类型（True 或者 False）   int_ 默认的整数类型（类似于 C 语言中的 long，int32 或 int64）   intc 与 C 的 in">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-29T14:34:36.958Z">
+<meta property="og:updated_time" content="2018-12-04T15:56:51.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="numpy数组操作">
 <meta name="twitter:description" content="numpy是高性能科学计算和数据分析的基础包，是很多工具的基础，在用python做数据分析的时候，也是非常重要哒。同样也是用了很多次，但是每次用的时候常会需要重复处理一些问题。 基础准备数据类型   名称 描述     bool_ 布尔型数据类型（True 或者 False）   int_ 默认的整数类型（类似于 C 语言中的 long，int32 或 int64）   intc 与 C 的 in">
@@ -100,7 +100,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":0,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -187,6 +187,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-table"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -458,7 +468,29 @@
 <h1 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h1><h2 id="新建数组"><a href="#新建数组" class="headerlink" title="新建数组"></a>新建数组</h2><p>shape用类似(5，3),[5,3]的方法表示即可<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建基本的数组</span></span><br><span class="line">np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建空数组</span></span><br><span class="line">numpy.empty(shape, dtype = float, order = <span class="string">'C'</span>) </span><br><span class="line"><span class="comment">#order有"C"和"F"两个选项,分别代表，行优先和列优先，在计算机内存中的存储元素的顺序。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建零数组</span></span><br><span class="line">numpy.zeros(shape, dtype = float, order = <span class="string">'C'</span>)</span><br><span class="line"><span class="comment"># order:'C' 用于 C 的行数组，或者 'F' 用于 FORTRAN 的列数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建指定形状的数组，数组元素以 1 来填充：</span></span><br><span class="line">numpy.ones(shape, dtype = <span class="keyword">None</span>, order = <span class="string">'C'</span>)</span><br></pre></td></tr></table></figure></p>
 <h2 id="创建随机数组"><a href="#创建随机数组" class="headerlink" title="创建随机数组"></a>创建随机数组</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建 randn(size) 服从 X~N(0,1) 的正态分布随机数组</span></span><br><span class="line">random.randn(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 利用 randint([low,high],size) 创建一个整数型指定范围在 [low.high] 之间的数组</span></span><br><span class="line">a=random.randint(low,high,shape)</span><br></pre></td></tr></table></figure>
 <h2 id="从已有的数组创建"><a href="#从已有的数组创建" class="headerlink" title="从已有的数组创建"></a>从已有的数组创建</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">numpy.asarray(a, dtype = <span class="keyword">None</span>, order = <span class="keyword">None</span>)</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">x =  [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] </span><br><span class="line">a = np.asarray(x)  </span><br><span class="line"><span class="keyword">print</span> (a)</span><br></pre></td></tr></table></figure>
-<p>说明：<br>| 参数 | 描述 |<br>| — | — |<br>| a | 任意形式的输入参数，可以是，列表, 列表的元组, 元组, 元组的元组, 元组的列表，多维数组|<br>| dtype | 数据类型，可选 |<br>| order | 可选，有”C”和”F”两个选项,分别代表，行优先和列优先，在计算机内存中的存储元素的顺序。|</p>
+<p>说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>任意形式的输入参数，可以是，列表, 列表的元组, 元组, 元组的元组, 元组的列表，多维数组</td>
+</tr>
+<tr>
+<td>dtype</td>
+<td>数据类型，可选</td>
+</tr>
+<tr>
+<td>order</td>
+<td>可选，有”C”和”F”两个选项,分别代表，行优先和列优先，在计算机内存中的存储元素的顺序。</td>
+</tr>
+</tbody>
+</table>
 <h2 id="从数值范围创建数组"><a href="#从数值范围创建数组" class="headerlink" title="从数值范围创建数组"></a>从数值范围创建数组</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># numpy 包中的使用 arange 函数创建数值范围并返回 ndarray 对象，函数格式：</span></span><br><span class="line">numpy.arange(start, stop, step, dtype) </span><br><span class="line"><span class="comment"># 参数分别表示起始值（默认为0）、终止值（不包含），步长（默认为1），数据类型</span></span><br><span class="line"><span class="comment"># 使用案例:</span></span><br><span class="line">np.arange(<span class="number">15</span>) <span class="comment">#0-14的1行15列数组</span></span><br><span class="line">np.arange(<span class="number">15</span>).rehsape(<span class="number">5</span>,<span class="number">3</span>) <span class="comment">#取值为0-14的5*3的数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用linspace创建等差数列数组</span></span><br><span class="line">np.linspace(start, stop, num=<span class="number">50</span>, endpoint=<span class="keyword">True</span>, retstep=<span class="keyword">False</span>, dtype=<span class="keyword">None</span>) </span><br><span class="line"><span class="comment">#num表示生成等步长样本数量，默认为50；endpoint为true表示包含stop值；retstep如果为 True 时，生成的数组中会显示间距</span></span><br><span class="line"><span class="comment"># 使用案例</span></span><br><span class="line">np.linspace(<span class="number">1</span>,<span class="number">10</span>,<span class="number">10</span>) <span class="comment">#1-10均为分为10段</span></span><br><span class="line">np.linspace(<span class="number">1</span>,<span class="number">10</span>,<span class="number">10</span>).reshape(<span class="number">5</span>,<span class="number">2</span>) <span class="comment">#转化为5*2的数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># numpy.logspace 函数用于创建一个于等比数列</span></span><br><span class="line">np.logspace(start, stop, num=<span class="number">50</span>, endpoint=<span class="keyword">True</span>, base=<span class="number">10.0</span>, dtype=<span class="keyword">None</span>) </span><br><span class="line"><span class="comment"># base表示对数log的底数；start序列的起始值为[base ** start] ;stop序列的起始值为[base ** stop],**表示平方</span></span><br></pre></td></tr></table></figure>
 <h1 id="切片和索引"><a href="#切片和索引" class="headerlink" title="切片和索引"></a>切片和索引</h1><p>ndarray 数组可以基于 0 - n 的下标进行索引，切片对象可以通过内置的 slice 函数，并设置 start, stop 及 step 参数进行，从原数组中切割出一个新数组。<br>使用案例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">s = slice(<span class="number">2</span>,<span class="number">7</span>,<span class="number">2</span>)   <span class="comment"># 从索引 2 开始到索引 7 停止，间隔为2</span></span><br><span class="line"><span class="keyword">print</span> (a[s])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者通过:来分隔切片参数</span></span><br><span class="line">a = np.arange(<span class="number">10</span>)  </span><br><span class="line">b = a[<span class="number">2</span>:<span class="number">7</span>:<span class="number">2</span>]   <span class="comment"># 从索引 2 开始到索引 7 停止，间隔为 2</span></span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure></p>
 <p>冒号 : 的解释：<br>    如果只放置一个参数，如 [2]，将返回与该索引相对应的单个元素。<br>    如果为 [2:]，表示从该索引开始以后的所有项都将被提取。<br>    如果使用了两个参数，如 [2:7]，那么则提取两个索引(不包括停止索引)之间的项。</p>
@@ -524,7 +556,32 @@
 <blockquote>
 <p>以 F 风格顺序调用 ravel 函数之后：<br>[0 4 1 5 2 6 3 7]</p>
 </blockquote>
-<h2 id="连接数组"><a href="#连接数组" class="headerlink" title="连接数组"></a>连接数组</h2><p>| 函数 | 描述 |<br>| concatenate | 连接沿现有轴的数组序列 |<br>| stack | 沿着新的轴加入一系列数组。 |<br>| hstack | 水平堆叠序列中的数组（列方向）<br>| vstack | 竖直堆叠序列中的数组（行方向）</p>
+<h2 id="连接数组"><a href="#连接数组" class="headerlink" title="连接数组"></a>连接数组</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>concatenate</td>
+<td>连接沿现有轴的数组序列</td>
+</tr>
+<tr>
+<td>stack</td>
+<td>沿着新的轴加入一系列数组。</td>
+</tr>
+<tr>
+<td>hstack</td>
+<td>水平堆叠序列中的数组（列方向）</td>
+</tr>
+<tr>
+<td>vstack</td>
+<td>竖直堆叠序列中的数组（行方向）</td>
+</tr>
+</tbody>
+</table>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
 <p><a href="http://www.runoob.com/numpy/numpy-tutorial.html" target="_blank" rel="noopener">Numpy教程</a></p>
 </blockquote>
@@ -653,7 +710,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -917,6 +974,9 @@
   
 
   
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
 
   
 

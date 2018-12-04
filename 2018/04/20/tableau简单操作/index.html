@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="数据分析笔记">
 <meta property="og:description" content="用tableau做报表的时候，有学习到一些比较实用的功能/操作，特地整理记录下来  展示维度过多，字段自动合并的问题tableau做报表时，经常会遇到需要展示很多维度的列表，但是tableau默认只能展示六列，下面是解决维度过多导致排列拥挤的操作：           维度值/筛选条件排序的问题,以上例，因为比较关注aa8,所以筛选条件中需要将aa8放在第一位           实现筛选条件的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-01T16:46:41.036Z">
+<meta property="og:updated_time" content="2018-12-04T05:39:59.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tableau小技巧">
 <meta name="twitter:description" content="用tableau做报表的时候，有学习到一些比较实用的功能/操作，特地整理记录下来  展示维度过多，字段自动合并的问题tableau做报表时，经常会遇到需要展示很多维度的列表，但是tableau默认只能展示六列，下面是解决维度过多导致排列拥挤的操作：           维度值/筛选条件排序的问题,以上例，因为比较关注aa8,所以筛选条件中需要将aa8放在第一位           实现筛选条件的">
@@ -238,7 +238,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IvyJin">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -334,7 +334,7 @@
 <h1 id="实现筛选条件的联动"><a href="#实现筛选条件的联动" class="headerlink" title="实现筛选条件的联动"></a>实现筛选条件的联动</h1><p>应用场景：如需要有省市这种层级关系时，可以控制“市”为只展示相关值，即可实现先选特定省，然后在省份下面选择特定的市/地区<br>操作方法：将下级筛选条件选择仅显示相关值</p>
 <div style="text-align: left;"><br>    <video controls="controls" src="/videos/filter_control.mp4" style="width: 800px; height: 300px;"><br>    </video><br></div>
 
-<p>#在看板中插入链接<br>在tableau中插入链接，有2种打开链接的方式：<br>在仪表板中不插入网页时，会在一个新的标签中打开网页<br>在仪表板中插入网页时，会仪表板中打开网页</p>
+<h1 id="在看板中插入链接"><a href="#在看板中插入链接" class="headerlink" title="在看板中插入链接"></a>在看板中插入链接</h1><p>在tableau中插入链接，有2种打开链接的方式：<br>在仪表板中不插入网页时，会在一个新的标签中打开网页<br>在仪表板中插入网页时，会仪表板中打开网页</p>
 <h2 id="插入一个固定链接"><a href="#插入一个固定链接" class="headerlink" title="插入一个固定链接"></a>插入一个固定链接</h2><p>操作路径：工作表 -&gt; 操作 -&gt; 添加操作 -&gt; 转到url -&gt; 运行操作点击<strong>选择</strong>按钮,URL中输入固定链接 -&gt; 确定</p>
 <h2 id="根据某个字段-ID插入自定义链接"><a href="#根据某个字段-ID插入自定义链接" class="headerlink" title="根据某个字段/ID插入自定义链接"></a>根据某个字段/ID插入自定义链接</h2><p>操作路径：工作表 -&gt; 操作 -&gt; 添加操作 -&gt; 转到url -&gt; 运行操作点击<strong>选择</strong>按钮,URL中输入自定义链接 -&gt; 确定<br>自定义链接可以是一个完成的链接字段，例如url是链接，即填写<url>；<br>也可以是一段固定的url+自定义ID字段，例如喜马拉雅主播m站主页，即为<a href="http://www.ximalaya.com/zhubo/" target="_blank" rel="noopener">www.ximalaya.com/zhubo/</a>&lt;anchor_id&gt; = 固定链接<a href="http://www.ximalaya.com/zhubo/" target="_blank" rel="noopener">www.ximalaya.com/zhubo/</a> + 自定义ID&lt;anchor_id&gt;</url></p>
 <h2 id="嵌入其他看板的链接"><a href="#嵌入其他看板的链接" class="headerlink" title="嵌入其他看板的链接"></a>嵌入其他看板的链接</h2><p>应用场景：<br>1.某一个看板数据源较多，需要拆分到多个看板提高加载速度时<br>2.某个看板有不同需求，需要放到多个路径下时<br>在网页端点击右上角分享，复制url，然后在本地仪表板中插入网页，把url粘贴进去即可</p>
@@ -451,6 +451,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="IvyJin" />
+            
               <p class="site-author-name" itemprop="name">IvyJin</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
@@ -462,7 +466,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -517,7 +521,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#展示维度过多，字段自动合并的问题"><span class="nav-number">1.</span> <span class="nav-text">展示维度过多，字段自动合并的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#维度值-筛选条件排序的问题-以上例，因为比较关注aa8-所以筛选条件中需要将aa8放在第一位"><span class="nav-number">2.</span> <span class="nav-text">维度值/筛选条件排序的问题,以上例，因为比较关注aa8,所以筛选条件中需要将aa8放在第一位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现筛选条件的联动"><span class="nav-number">3.</span> <span class="nav-text">实现筛选条件的联动</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入一个固定链接"><span class="nav-number">3.1.</span> <span class="nav-text">插入一个固定链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据某个字段-ID插入自定义链接"><span class="nav-number">3.2.</span> <span class="nav-text">根据某个字段/ID插入自定义链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌入其他看板的链接"><span class="nav-number">3.3.</span> <span class="nav-text">嵌入其他看板的链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#共用Tableau-Server数据源"><span class="nav-number">3.4.</span> <span class="nav-text">共用Tableau Server数据源</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#展示维度过多，字段自动合并的问题"><span class="nav-number">1.</span> <span class="nav-text">展示维度过多，字段自动合并的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#维度值-筛选条件排序的问题-以上例，因为比较关注aa8-所以筛选条件中需要将aa8放在第一位"><span class="nav-number">2.</span> <span class="nav-text">维度值/筛选条件排序的问题,以上例，因为比较关注aa8,所以筛选条件中需要将aa8放在第一位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现筛选条件的联动"><span class="nav-number">3.</span> <span class="nav-text">实现筛选条件的联动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在看板中插入链接"><span class="nav-number">4.</span> <span class="nav-text">在看板中插入链接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入一个固定链接"><span class="nav-number">4.1.</span> <span class="nav-text">插入一个固定链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据某个字段-ID插入自定义链接"><span class="nav-number">4.2.</span> <span class="nav-text">根据某个字段/ID插入自定义链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌入其他看板的链接"><span class="nav-number">4.3.</span> <span class="nav-text">嵌入其他看板的链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#共用Tableau-Server数据源"><span class="nav-number">4.4.</span> <span class="nav-text">共用Tableau Server数据源</span></a></li></ol></li></ol></div>
             
 
           </div>

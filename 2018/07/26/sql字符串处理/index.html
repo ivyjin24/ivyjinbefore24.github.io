@@ -79,15 +79,18 @@
 
 
 
+<meta name="description" content="函数名 语法     字符串长度函数 length(string A)   字符串反转函数 reverse(string A)   字符串连接函数 concat(string A, string B…)   带分隔符字符串连接函数 concat_ws(string SEP, string A, string B…)   字符串截取函数 substr(string A, int start)">
 <meta name="keywords" content="-字符串">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql字符串处理">
 <meta property="og:url" content="http://yoursite.com/2018/07/26/sql字符串处理/index.html">
 <meta property="og:site_name" content="数据分析笔记">
+<meta property="og:description" content="函数名 语法     字符串长度函数 length(string A)   字符串反转函数 reverse(string A)   字符串连接函数 concat(string A, string B…)   带分隔符字符串连接函数 concat_ws(string SEP, string A, string B…)   字符串截取函数 substr(string A, int start)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-29T06:25:23.125Z">
+<meta property="og:updated_time" content="2018-12-04T05:45:26.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sql字符串处理">
+<meta name="twitter:description" content="函数名 语法     字符串长度函数 length(string A)   字符串反转函数 reverse(string A)   字符串连接函数 concat(string A, string B…)   带分隔符字符串连接函数 concat_ws(string SEP, string A, string B…)   字符串截取函数 substr(string A, int start)">
 
 
 
@@ -235,7 +238,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IvyJin">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -329,6 +332,97 @@
 | 从url中取部分字段 | parse_url | parse_url(props['page_url'],'QUERY', 'id') |
 | ip转地址 | ip2code | substr(ip2code(props['x-clientIp'],0),3,4) |
 | 分号转义符 | \073 | split(info,"\073")[2] | -->
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>语法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字符串长度函数</td>
+<td>length(string A)</td>
+</tr>
+<tr>
+<td>字符串反转函数</td>
+<td>reverse(string A)</td>
+</tr>
+<tr>
+<td>字符串连接函数</td>
+<td>concat(string A, string B…)</td>
+</tr>
+<tr>
+<td>带分隔符字符串连接函数</td>
+<td>concat_ws(string SEP, string A, string B…)</td>
+</tr>
+<tr>
+<td>字符串截取函数</td>
+<td>substr(string A, int start),substring(string A, int start)</td>
+</tr>
+<tr>
+<td>字符串截取函数</td>
+<td>substr(string A, int start, int len),substring(string A, intstart, int len)</td>
+</tr>
+<tr>
+<td>字符串转大写函数</td>
+<td>upper(string A) ,ucase(string A)</td>
+</tr>
+<tr>
+<td>字符串转小写函数</td>
+<td>lower(string A), lcase(string A)    </td>
+</tr>
+<tr>
+<td>去空格函数</td>
+<td>trim(string A)</td>
+</tr>
+<tr>
+<td>左边/右边去空格函数</td>
+<td>ltrim(string A)/rtrim(string A)</td>
+</tr>
+<tr>
+<td>URL解析函数</td>
+<td>parse_url(string urlString, string partToExtract [, stringkeyToExtract])</td>
+</tr>
+<tr>
+<td>json解析函数</td>
+<td>get_json_object(string json_string, string path)</td>
+</tr>
+<tr>
+<td>空格字符串函数</td>
+<td>space(int n)</td>
+</tr>
+<tr>
+<td>重复字符串函数</td>
+<td>repeat(string str, int n)</td>
+</tr>
+<tr>
+<td>首字符ascii函数</td>
+<td>ascii(string str)</td>
+</tr>
+<tr>
+<td>左/右补足函数</td>
+<td>lpad(string str, int len, string pad), rpad(string str, int len, string pad)</td>
+</tr>
+<tr>
+<td>分割字符串函数</td>
+<td>split(string str, stringpat)</td>
+</tr>
+<tr>
+<td>集合查找函数</td>
+<td>find_in_set(string str, string strList)</td>
+</tr>
+<tr>
+<td>类型转换函数</td>
+<td>cast(expr as <type>)</type></td>
+</tr>
+<tr>
+<td>正则表达式解析函数</td>
+<td>regexp_extract(string subject, string pattern, int index)</td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
     
@@ -368,8 +462,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/12/sql行列转化/" rel="prev" title="sql行列转化">
-                sql行列转化 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/16/sql留存写法/" rel="prev" title="sql留存写法">
+                sql留存写法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -427,6 +521,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="IvyJin" />
+            
               <p class="site-author-name" itemprop="name">IvyJin</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
@@ -438,7 +536,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

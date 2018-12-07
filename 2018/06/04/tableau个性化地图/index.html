@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="个性化地图,数据可视化," />
 
 
 
@@ -79,14 +79,24 @@
 
 
 
+<meta name="description" content="个性化地图是指可以用自定义图片为背景，在图片上指定位置处标记数据。比如迪士尼APP里面的地图，就是个性化地图，在互联网公司可以用在标注产品各个位置的访问，可以非常直观的查看不同位置的点击，并据此调整产品、运营策略。  数据准备需要准备的数据包括2个：a.点标注的数据值表t1    button number     推荐 77   VIP 22   小说 66   直播 99   儿童 11">
+<meta name="keywords" content="个性化地图,数据可视化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tableau个性化地图">
 <meta property="og:url" content="http://yoursite.com/2018/06/04/tableau个性化地图/index.html">
 <meta property="og:site_name" content="数据分析笔记">
+<meta property="og:description" content="个性化地图是指可以用自定义图片为背景，在图片上指定位置处标记数据。比如迪士尼APP里面的地图，就是个性化地图，在互联网公司可以用在标注产品各个位置的访问，可以非常直观的查看不同位置的点击，并据此调整产品、运营策略。  数据准备需要准备的数据包括2个：a.点标注的数据值表t1    button number     推荐 77   VIP 22   小说 66   直播 99   儿童 11">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-04T05:08:30.776Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/04/tableau个性化地图/pages.jpeg">
+<meta property="og:image" content="http://yoursite.com/2018/06/04/tableau个性化地图/shape.jpeg">
+<meta property="og:image" content="http://yoursite.com/2018/06/04/tableau个性化地图/result.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/04/tableau个性化地图/backgroud.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/04/tableau个性化地图/zuobiao.png">
+<meta property="og:updated_time" content="2018-12-07T15:36:33.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tableau个性化地图">
+<meta name="twitter:description" content="个性化地图是指可以用自定义图片为背景，在图片上指定位置处标记数据。比如迪士尼APP里面的地图，就是个性化地图，在互联网公司可以用在标注产品各个位置的访问，可以非常直观的查看不同位置的点击，并据此调整产品、运营策略。  数据准备需要准备的数据包括2个：a.点标注的数据值表t1    button number     推荐 77   VIP 22   小说 66   直播 99   儿童 11">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/04/tableau个性化地图/pages.jpeg">
 
 
 
@@ -328,7 +338,255 @@
       
 
       
-        
+        <blockquote>
+<p>个性化地图是指可以用自定义图片为背景，在图片上指定位置处标记数据。比如迪士尼APP里面的地图，就是个性化地图，在互联网公司可以用在标注产品各个位置的访问，可以非常直观的查看不同位置的点击，并据此调整产品、运营策略。</p>
+</blockquote>
+<h1 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h1><p>需要准备的数据包括2个：<br>a.点标注的数据值表t1</p>
+<table>
+<thead>
+<tr>
+<th>button</th>
+<th>number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>推荐</td>
+<td>77</td>
+</tr>
+<tr>
+<td>VIP</td>
+<td>22</td>
+</tr>
+<tr>
+<td>小说</td>
+<td>66</td>
+</tr>
+<tr>
+<td>直播</td>
+<td>99</td>
+</tr>
+<tr>
+<td>儿童</td>
+<td>11</td>
+</tr>
+<tr>
+<td>广播</td>
+<td>22</td>
+</tr>
+<tr>
+<td>焦点图</td>
+<td>99</td>
+</tr>
+<tr>
+<td>经典必听</td>
+<td>77</td>
+</tr>
+<tr>
+<td>每日必听</td>
+<td>33</td>
+</tr>
+<tr>
+<td>一键听</td>
+<td>22</td>
+</tr>
+<tr>
+<td>付费精品</td>
+<td>11</td>
+</tr>
+<tr>
+<td>听台州</td>
+<td>11</td>
+</tr>
+<tr>
+<td>猜你喜欢_更多</td>
+<td>55</td>
+</tr>
+<tr>
+<td>猜你喜欢_1</td>
+<td>88</td>
+</tr>
+<tr>
+<td>猜你喜欢_2</td>
+<td>77</td>
+</tr>
+<tr>
+<td>猜你喜欢_3</td>
+<td>66</td>
+</tr>
+<tr>
+<td>猜你喜欢_4</td>
+<td>55</td>
+</tr>
+<tr>
+<td>猜你喜欢_5</td>
+<td>44</td>
+</tr>
+<tr>
+<td>猜你喜欢_6</td>
+<td>33</td>
+</tr>
+<tr>
+<td>猜你喜欢_换一批</td>
+<td>44</td>
+</tr>
+<tr>
+<td>首页</td>
+<td>44</td>
+</tr>
+<tr>
+<td>我听</td>
+<td>88</td>
+</tr>
+<tr>
+<td>发现</td>
+<td>22</td>
+</tr>
+<tr>
+<td>我的</td>
+<td>33</td>
+</tr>
+</tbody>
+</table>
+<p>b.点的坐标位置表t2</p>
+<table>
+<thead>
+<tr>
+<th>button</th>
+<th>x</th>
+<th>y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>推荐</td>
+<td>0.34</td>
+<td>7.3</td>
+</tr>
+<tr>
+<td>VIP</td>
+<td>0.9595</td>
+<td>7.3</td>
+</tr>
+<tr>
+<td>小说</td>
+<td>1.579</td>
+<td>7.3</td>
+</tr>
+<tr>
+<td>直播</td>
+<td>2.129</td>
+<td>7.3</td>
+</tr>
+<tr>
+<td>儿童</td>
+<td>2.692</td>
+<td>7.3</td>
+</tr>
+<tr>
+<td>广播</td>
+<td>3.3</td>
+<td>7.3</td>
+</tr>
+<tr>
+<td>焦点图</td>
+<td>0.894</td>
+<td>6.18</td>
+</tr>
+<tr>
+<td>经典必听</td>
+<td>0.379</td>
+<td>5.068</td>
+</tr>
+<tr>
+<td>每日必听</td>
+<td>1.196</td>
+<td>5.068</td>
+</tr>
+<tr>
+<td>一键听</td>
+<td>1.993</td>
+<td>5.068</td>
+</tr>
+<tr>
+<td>付费精品</td>
+<td>2.799</td>
+<td>5.068</td>
+</tr>
+<tr>
+<td>听台州</td>
+<td>3.596</td>
+<td>5.068</td>
+</tr>
+<tr>
+<td>猜你喜欢_更多</td>
+<td>3.559</td>
+<td>4.6</td>
+</tr>
+<tr>
+<td>猜你喜欢_1</td>
+<td>0.555</td>
+<td>3.765</td>
+</tr>
+<tr>
+<td>猜你喜欢_2</td>
+<td>1.851</td>
+<td>3.765</td>
+</tr>
+<tr>
+<td>猜你喜欢_3</td>
+<td>3.103</td>
+<td>3.765</td>
+</tr>
+<tr>
+<td>猜你喜欢_4</td>
+<td>0.555</td>
+<td>2.251</td>
+</tr>
+<tr>
+<td>猜你喜欢_5</td>
+<td>1.851</td>
+<td>2.251</td>
+</tr>
+<tr>
+<td>猜你喜欢_6</td>
+<td>3.103</td>
+<td>2.251</td>
+</tr>
+<tr>
+<td>猜你喜欢_换一批</td>
+<td>2.033</td>
+<td>1.228</td>
+</tr>
+<tr>
+<td>首页</td>
+<td>0.384</td>
+<td>0.495</td>
+</tr>
+<tr>
+<td>我听</td>
+<td>1.196</td>
+<td>0.495</td>
+</tr>
+<tr>
+<td>发现</td>
+<td>2.804</td>
+<td>0.495</td>
+</tr>
+<tr>
+<td>我的</td>
+<td>3.601</td>
+<td>0.495</td>
+</tr>
+</tbody>
+</table>
+<p>同时需要背景图文件，案例的背景图在附录中可以查看</p>
+<h1 id="看板操作"><a href="#看板操作" class="headerlink" title="看板操作"></a>看板操作</h1><p>step1:连接数据源，以t1为主表，左连接t2<br>step2:把y拉行，x拉到列，度量值调为 「平均 」<br>step3:插入背景图片<br><img src="/2018/06/04/tableau个性化地图/pages.jpeg" alt="插入背景图片"><br>step4:插入形状，调整形状大小以及标签的对齐方式<br><img src="/2018/06/04/tableau个性化地图/shape.jpeg" alt="形状"></p>
+<p>PS.tableau里面是可以自定义形状的，可以把自定义形状放在tableau默认形状的路径下，在选择形状的时候点击 「重载形状」，就可以用刚刚放进去的形状了</p>
+<h1 id="最终效果图"><a href="#最终效果图" class="headerlink" title="最终效果图"></a>最终效果图</h1><p>按照上述操作后就可以获取得到个性化地图啦~<br><img src="/2018/06/04/tableau个性化地图/result.png" alt="最终效果图"></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="背景图"><a href="#背景图" class="headerlink" title="背景图"></a>背景图</h2><p><img src="/2018/06/04/tableau个性化地图/backgroud.png" alt="图示"></p>
+<h2 id="获取坐标的方法"><a href="#获取坐标的方法" class="headerlink" title="获取坐标的方法"></a>获取坐标的方法</h2><p>导入背景图后，点击右键 -&gt; 添加注释 -&gt; 点，可通过移动点的位置获取各个待标注点的坐标<br><img src="/2018/06/04/tableau个性化地图/zuobiao.png" alt="坐标获取"></p>
+
       
     </div>
     
@@ -342,6 +600,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/个性化地图/" rel="tag"># 个性化地图</a>
+          
+            <a href="/tags/数据可视化/" rel="tag"># 数据可视化</a>
+          
+        </div>
       
 
       
@@ -416,8 +682,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -458,7 +733,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -481,6 +756,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据准备"><span class="nav-number">1.</span> <span class="nav-text">数据准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#看板操作"><span class="nav-number">2.</span> <span class="nav-text">看板操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最终效果图"><span class="nav-number">3.</span> <span class="nav-text">最终效果图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录"><span class="nav-number">4.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景图"><span class="nav-number">4.1.</span> <span class="nav-text">背景图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取坐标的方法"><span class="nav-number">4.2.</span> <span class="nav-text">获取坐标的方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/08/python词云/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/16/python词云/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IvyJin">
@@ -258,7 +258,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/08/python词云/" itemprop="url">python词云</a></h1>
+                <a class="post-title-link" href="/2018/12/16/python词云/" itemprop="url">python词云</a></h1>
         
 
         <div class="post-meta">
@@ -270,8 +270,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-08T15:48:13+08:00">
-                2018-12-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-16T15:48:13+08:00">
+                2018-12-16
               </time>
             
 
@@ -333,8 +333,35 @@
         
           
             <blockquote>
-<p>啦啦啦，上周重温了jieba分词，这周就想试试怎么用python做词云图了~<br>先学习一个比较简单的</p>
+<p>啦啦啦，上周重温了jieba分词，这周就想试试怎么用python做词云图了~<br>在学习的时候发现python词云可以做得非常漂亮，甚至可以生成指定图片的形状，但是发现一次学习压力有点大，就先实现个最基础、简单的，高阶应用等后续慢慢学习咯^.^</p>
 </blockquote>
+<h1 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h1><p>随意造了几条数据，表结构是词+词频两列、没有表头，如下</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>words</td>
+<td>123</td>
+</tr>
+<tr>
+<td>aaaaa</td>
+<td>747300</td>
+</tr>
+<tr>
+<td>mary</td>
+<td>16959</td>
+</tr>
+</tbody>
+</table>
+<h1 id="开始整代码"><a href="#开始整代码" class="headerlink" title="开始整代码"></a>开始整代码</h1><h2 id="导入包"><a href="#导入包" class="headerlink" title="导入包"></a>导入包</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> wordcloud <span class="keyword">import</span> WordCloud</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+<h2 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = open(<span class="string">u'word_list.txt'</span>,<span class="string">'r'</span>).read()</span><br></pre></td></tr></table></figure>
+<h2 id="WordCloud词云大法"><a href="#WordCloud词云大法" class="headerlink" title="WordCloud词云大法"></a>WordCloud词云大法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wordcloud = WordCloud(background_color=<span class="string">"white"</span>,width=<span class="number">1000</span>, height=<span class="number">860</span>, margin=<span class="number">2</span>).generate(data)</span><br><span class="line">plt.imshow(wordcloud)</span><br><span class="line">plt.axis(<span class="string">"off"</span>)</span><br></pre></td></tr></table></figure>
+<p>结果如下图所示<br><img src="/2018/12/16/python词云/word_1.png" alt="word_1"></p>
 
           
         
@@ -842,7 +869,7 @@
 <h3 id="预测结果"><a href="#预测结果" class="headerlink" title="预测结果"></a>预测结果</h3><blockquote>
 <p>(array([35408.68736862, 35465.68377014, 35518.15893015, 35570.75203915,<br>       35623.34207112]), array([2381.65577403, 3324.52622994, 4054.65005489, 4672.01275504,<br>       5216.8212946 ]), array([[30740.72782795, 40076.64690929],<br>       [28949.73209379, 41981.63544649],<br>       [27571.19085266, 43465.12700765],<br>       [26413.77530396, 44727.72877433],<br>       [25398.56021992, 45848.12392231]]))</p>
 </blockquote>
-<p>参考资料：<br><a href="https://www.analyticsvidhya.com/blog/2016/02/time-series-forecasting-codes-python/" target="_blank" rel="noopener">创建一个时间序列预测模型</a></p>
+<p>s<br>参考资料：<br><a href="https://www.analyticsvidhya.com/blog/2016/02/time-series-forecasting-codes-python/" target="_blank" rel="noopener">创建一个时间序列预测模型</a></p>
 
           
         

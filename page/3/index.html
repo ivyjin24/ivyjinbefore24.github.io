@@ -239,6 +239,176 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/16/sql留存写法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IvyJin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="数据分析笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/16/sql留存写法/" itemprop="url">sql留存写法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-16T17:09:27+08:00">
+                2018-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/sql/" itemprop="url" rel="index">
+                    <span itemprop="name">sql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>用户在某段时间内开始使用应用，经过一段时间后，仍然继续使用该应用的用户，被认作是留存用户。<br>留存率=新增用户中登录用户数/新增用户数 * 100%（一般统计周期为天）</p>
+</blockquote>
+<p>假设某APP的用户活跃表为t，结构如下</p>
+<table>
+<thead>
+<tr>
+<th>dt</th>
+<th>deviceid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20181128</td>
+<td>aaa</td>
+</tr>
+<tr>
+<td>20181127</td>
+<td>aaa</td>
+</tr>
+<tr>
+<td>20181125</td>
+<td>bbb</td>
+</tr>
+</tbody>
+</table>
+<p>那么次日留存写法（假设已经按日去重）为：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">with a as</span><br><span class="line">(<span class="keyword">select</span></span><br><span class="line">	deviceid，</span><br><span class="line">	<span class="keyword">min</span>(<span class="keyword">concat</span>(<span class="keyword">substr</span>(dt,<span class="number">1</span>,<span class="number">4</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(dt,<span class="number">5</span>,<span class="number">2</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(dt,<span class="number">7</span>,<span class="number">2</span>))) <span class="keyword">as</span> <span class="built_in">date</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	t </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">	deviceid，</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">	a.date,</span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">distinct</span> a.deviceid) <span class="keyword">as</span> increase_num,</span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">distinct</span> b.deviceid) <span class="keyword">as</span> retained_num,</span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">distinct</span> b.deviceid)/<span class="keyword">count</span>(<span class="keyword">distinct</span> a.deviceid) <span class="keyword">as</span> retained_rate</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	a </span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> </span><br><span class="line">	t </span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">	a.deviceid = t.deviceid</span><br><span class="line">	<span class="keyword">and</span> t.dt = regexp_replace(<span class="keyword">date_add</span>(a.date,<span class="number">1</span>),<span class="string">"-"</span>,<span class="string">""</span>)</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">	a.date </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">	<span class="built_in">date</span> <span class="keyword">desc</span></span><br></pre></td></tr></table></figure></p>
+<p>取20天内每天的留存<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">with a as</span><br><span class="line">(<span class="keyword">select</span></span><br><span class="line">	deviceid，</span><br><span class="line">	<span class="keyword">min</span>(<span class="keyword">concat</span>(<span class="keyword">substr</span>(dt,<span class="number">1</span>,<span class="number">4</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(dt,<span class="number">5</span>,<span class="number">2</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(dt,<span class="number">7</span>,<span class="number">2</span>))) <span class="keyword">as</span> <span class="built_in">date</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	t </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">	deviceid，</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">	a.date,</span><br><span class="line">	<span class="keyword">datediff</span>(<span class="keyword">concat</span>(<span class="keyword">substr</span>(t.dt,<span class="number">1</span>,<span class="number">4</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(t.dt,<span class="number">5</span>,<span class="number">2</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(t.dt,<span class="number">7</span>,<span class="number">2</span>)),a.date) <span class="keyword">as</span> dim,</span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">distinct</span> a.deviceid) <span class="keyword">as</span> increase_num,</span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">distinct</span> b.deviceid) <span class="keyword">as</span> retained_num,</span><br><span class="line">	<span class="keyword">count</span>(<span class="keyword">distinct</span> b.deviceid)/<span class="keyword">count</span>(<span class="keyword">distinct</span> a.deviceid) <span class="keyword">as</span> retained_rate</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	a </span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> </span><br><span class="line">	t </span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">	a.deviceid = t.deviceid</span><br><span class="line">	<span class="keyword">and</span> t.dt &lt;= regexp_replace(<span class="keyword">date_add</span>(a.date,<span class="number">20</span>),<span class="string">"-"</span>,<span class="string">""</span>)</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">	a.date,</span><br><span class="line">	<span class="keyword">datediff</span>(<span class="keyword">concat</span>(<span class="keyword">substr</span>(t.dt,<span class="number">1</span>,<span class="number">4</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(t.dt,<span class="number">5</span>,<span class="number">2</span>),<span class="string">"-"</span>,<span class="keyword">substr</span>(t.dt,<span class="number">7</span>,<span class="number">2</span>)),a.date)</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">	<span class="built_in">date</span> <span class="keyword">desc</span></span><br></pre></td></tr></table></figure></p>
+<p>次周、次月留存写法可依此类推</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/sql字符串处理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2357,149 +2527,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/SPSS连接spark/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IvyJin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="数据分析笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/26/SPSS连接spark/" itemprop="url">SPSS Modeler连接spark</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T11:57:18+08:00">
-                2018-03-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SPSS/" itemprop="url" rel="index">
-                    <span itemprop="name">SPSS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-连接ODBC数据源"><a href="#1-连接ODBC数据源" class="headerlink" title="1.连接ODBC数据源"></a>1.连接ODBC数据源</h2><p>下载ODBC manager<br>打开后在系统DSN添加Simba Spark ODBC Driver<br>点击配置，增加HOST、PORT和DATABASE<br>其中HOST,DATABASE是字符串型，直接配置可能连不上,需要在 /Library/ODBC 的odbc.ini输入</p>
-<h2 id="2-在SPSS-Modeler中配置"><a href="#2-在SPSS-Modeler中配置" class="headerlink" title="2.在SPSS Modeler中配置"></a>2.在SPSS Modeler中配置</h2><p>双击SQL -&gt; SQL查询 -&gt; 数据源（添加新数据库连接） -&gt; 选择前面添加的数据源，录入用户名和密码 -&gt; 连接</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2554,7 +2581,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2576,7 +2603,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="列转行方法1：函数：concat_ws(“,”,collect_set())假设有表格t，表示学生迟到信息   date name     20181012 张三   20181013 张三   20181014 李四   20181012 李四    用列转行在1行查看学生的所有迟到信息123456select    t1.name,    concat_ws(&quot;,&quot;,collect_set(d">
+<meta name="description" content="列转行:函数max结合case when假设有表t，表示学生各科的成绩表   name course score     张三 语文 80   张三 数学 90   张三 英语 70   张三 历史 78    一行展示学生信息12345678910select 	name,	max(case when course=&apos;语文&apos; then score else 0 end) as score_yw,">
 <meta name="keywords" content="-行转列 -列转行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql行列转化">
 <meta property="og:url" content="http://yoursite.com/2018/09/12/sql行列转化/index.html">
 <meta property="og:site_name" content="数据分析笔记">
-<meta property="og:description" content="列转行方法1：函数：concat_ws(“,”,collect_set())假设有表格t，表示学生迟到信息   date name     20181012 张三   20181013 张三   20181014 李四   20181012 李四    用列转行在1行查看学生的所有迟到信息123456select    t1.name,    concat_ws(&quot;,&quot;,collect_set(d">
+<meta property="og:description" content="列转行:函数max结合case when假设有表t，表示学生各科的成绩表   name course score     张三 语文 80   张三 数学 90   张三 英语 70   张三 历史 78    一行展示学生信息12345678910select 	name,	max(case when course=&apos;语文&apos; then score else 0 end) as score_yw,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-29T06:25:04.135Z">
+<meta property="og:updated_time" content="2018-12-25T05:13:59.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sql行列转化">
-<meta name="twitter:description" content="列转行方法1：函数：concat_ws(“,”,collect_set())假设有表格t，表示学生迟到信息   date name     20181012 张三   20181013 张三   20181014 李四   20181012 李四    用列转行在1行查看学生的所有迟到信息123456select    t1.name,    concat_ws(&quot;,&quot;,collect_set(d">
+<meta name="twitter:description" content="列转行:函数max结合case when假设有表t，表示学生各科的成绩表   name course score     张三 语文 80   张三 数学 90   张三 英语 70   张三 历史 78    一行展示学生信息12345678910select 	name,	max(case when course=&apos;语文&apos; then score else 0 end) as score_yw,">
 
 
 
@@ -332,52 +332,7 @@
       
 
       
-        <h1 id="列转行"><a href="#列转行" class="headerlink" title="列转行"></a>列转行</h1><h2 id="方法1：函数：concat-ws-“-”-collect-set"><a href="#方法1：函数：concat-ws-“-”-collect-set" class="headerlink" title="方法1：函数：concat_ws(“,”,collect_set())"></a>方法1：函数：concat_ws(“,”,collect_set())</h2><h3 id="假设有表格t，表示学生迟到信息"><a href="#假设有表格t，表示学生迟到信息" class="headerlink" title="假设有表格t，表示学生迟到信息"></a>假设有表格t，表示学生迟到信息</h3><table>
-<thead>
-<tr>
-<th>date</th>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>20181012</td>
-<td>张三</td>
-</tr>
-<tr>
-<td>20181013</td>
-<td>张三</td>
-</tr>
-<tr>
-<td>20181014</td>
-<td>李四</td>
-</tr>
-<tr>
-<td>20181012</td>
-<td>李四</td>
-</tr>
-</tbody>
-</table>
-<h3 id="用列转行在1行查看学生的所有迟到信息"><a href="#用列转行在1行查看学生的所有迟到信息" class="headerlink" title="用列转行在1行查看学生的所有迟到信息"></a>用列转行在1行查看学生的所有迟到信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    t1.name,</span><br><span class="line">    <span class="keyword">concat_ws</span>(<span class="string">","</span>,collect_set(<span class="built_in">date</span>)) <span class="keyword">as</span> date_detail</span><br><span class="line"><span class="keyword">from</span> t </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    t1.name</span><br></pre></td></tr></table></figure>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><table>
-<thead>
-<tr>
-<th>name</th>
-<th>date_detail</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>张三</td>
-<td>20181012,20181013</td>
-</tr>
-<tr>
-<td>李四</td>
-<td>20181012,20181014</td>
-</tr>
-</tbody>
-</table>
-<h2 id="方法2：函数max结合case-when"><a href="#方法2：函数max结合case-when" class="headerlink" title="方法2：函数max结合case when"></a>方法2：函数max结合case when</h2><h3 id="假设有表t，表示学生各科的成绩表"><a href="#假设有表t，表示学生各科的成绩表" class="headerlink" title="假设有表t，表示学生各科的成绩表"></a>假设有表t，表示学生各科的成绩表</h3><table>
+        <h1 id="列转行-函数max结合case-when"><a href="#列转行-函数max结合case-when" class="headerlink" title="列转行:函数max结合case when"></a>列转行:函数max结合case when</h1><h2 id="假设有表t，表示学生各科的成绩表"><a href="#假设有表t，表示学生各科的成绩表" class="headerlink" title="假设有表t，表示学生各科的成绩表"></a>假设有表t，表示学生各科的成绩表</h2><table>
 <thead>
 <tr>
 <th>name</th>
@@ -408,26 +363,29 @@
 </tr>
 </tbody>
 </table>
-<h3 id="一行展示学生信息"><a href="#一行展示学生信息" class="headerlink" title="一行展示学生信息"></a>一行展示学生信息</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	<span class="keyword">name</span>,</span><br><span class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> course=<span class="string">'语文'</span> <span class="keyword">then</span> score <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> score_yw,</span><br><span class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> course=<span class="string">'数学'</span> <span class="keyword">then</span> score <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> score_sx,</span><br><span class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> course=<span class="string">'英语'</span> <span class="keyword">then</span> score <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> score_eng,</span><br><span class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> course=<span class="string">'历史'</span> <span class="keyword">then</span> score <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> score_ls</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	t </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">	<span class="keyword">name</span></span><br></pre></td></tr></table></figure>
-<h1 id="行转列"><a href="#行转列" class="headerlink" title="行转列"></a>行转列</h1><h2 id="函数：LATERAL-VIEW-explode"><a href="#函数：LATERAL-VIEW-explode" class="headerlink" title="函数：LATERAL VIEW explode"></a>函数：LATERAL VIEW explode</h2><h2 id="假设有表t，每行表示学生迟到的日期明细"><a href="#假设有表t，每行表示学生迟到的日期明细" class="headerlink" title="假设有表t，每行表示学生迟到的日期明细"></a>假设有表t，每行表示学生迟到的日期明细</h2><table>
+<h2 id="一行展示学生信息"><a href="#一行展示学生信息" class="headerlink" title="一行展示学生信息"></a>一行展示学生信息</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	<span class="keyword">name</span>,</span><br><span class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> course=<span class="string">'语文'</span> <span class="keyword">then</span> score <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> score_yw,</span><br><span class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> course=<span class="string">'数学'</span> <span class="keyword">then</span> score <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> score_sx,</span><br><span class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> course=<span class="string">'英语'</span> <span class="keyword">then</span> score <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> score_eng,</span><br><span class="line">	<span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> course=<span class="string">'历史'</span> <span class="keyword">then</span> score <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> score_ls</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	t </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">	<span class="keyword">name</span></span><br></pre></td></tr></table></figure>
+<p>输出结果为</p>
+<table>
 <thead>
 <tr>
 <th>name</th>
-<th>date_detail</th>
+<th>score_yw</th>
+<th>score_sx</th>
+<th>score_eng</th>
+<th>score_ls</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>张三</td>
-<td>20181012,20181013</td>
-</tr>
-<tr>
-<td>李四</td>
-<td>20181012,20181014</td>
+<td>80</td>
+<td>90</td>
+<td>70</td>
+<td>78</td>
 </tr>
 </tbody>
 </table>
-<h2 id="现在需要统计每天迟到的学生数，需要先拆分多行"><a href="#现在需要统计每天迟到的学生数，需要先拆分多行" class="headerlink" title="现在需要统计每天迟到的学生数，需要先拆分多行"></a>现在需要统计每天迟到的学生数，需要先拆分多行</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	<span class="keyword">name</span>,</span><br><span class="line">	date_detail,</span><br><span class="line">	<span class="built_in">date</span></span><br><span class="line"><span class="keyword">from</span> t  </span><br><span class="line"><span class="keyword">where</span> LATERAL <span class="keyword">VIEW</span> explode(<span class="keyword">split</span>(date_detail,<span class="string">","</span>)) <span class="keyword">result</span> <span class="keyword">as</span> <span class="built_in">date</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">name</span>,date_detail,<span class="built_in">date</span></span><br></pre></td></tr></table></figure>
+<h1 id="用union将上述输出结果还原"><a href="#用union将上述输出结果还原" class="headerlink" title="用union将上述输出结果还原"></a>用union将上述输出结果还原</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	<span class="keyword">name</span>,</span><br><span class="line">	<span class="string">'语文'</span> <span class="keyword">as</span> corse,</span><br><span class="line">	score_yw <span class="keyword">as</span> score</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	t </span><br><span class="line"><span class="keyword">union</span> all</span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">	<span class="keyword">name</span>,</span><br><span class="line">	<span class="string">'数学'</span> <span class="keyword">as</span> corse,</span><br><span class="line">	score_sx <span class="keyword">as</span> score</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	t </span><br><span class="line"><span class="keyword">union</span> all</span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">	<span class="keyword">name</span>,</span><br><span class="line">	<span class="string">'英语'</span> <span class="keyword">as</span> corse,</span><br><span class="line">	score_eng <span class="keyword">as</span> score</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	t </span><br><span class="line"><span class="keyword">union</span> all </span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">	<span class="keyword">name</span>,</span><br><span class="line">	<span class="string">'历史'</span> <span class="keyword">as</span> corse,</span><br><span class="line">	score_ls d <span class="keyword">as</span> score</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	t</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -551,7 +509,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -573,7 +531,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -606,7 +564,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#列转行"><span class="nav-number">1.</span> <span class="nav-text">列转行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法1：函数：concat-ws-“-”-collect-set"><span class="nav-number">1.1.</span> <span class="nav-text">方法1：函数：concat_ws(“,”,collect_set())</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#假设有表格t，表示学生迟到信息"><span class="nav-number">1.1.1.</span> <span class="nav-text">假设有表格t，表示学生迟到信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用列转行在1行查看学生的所有迟到信息"><span class="nav-number">1.1.2.</span> <span class="nav-text">用列转行在1行查看学生的所有迟到信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果"><span class="nav-number">1.1.3.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法2：函数max结合case-when"><span class="nav-number">1.2.</span> <span class="nav-text">方法2：函数max结合case when</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#假设有表t，表示学生各科的成绩表"><span class="nav-number">1.2.1.</span> <span class="nav-text">假设有表t，表示学生各科的成绩表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一行展示学生信息"><span class="nav-number">1.2.2.</span> <span class="nav-text">一行展示学生信息</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#行转列"><span class="nav-number">2.</span> <span class="nav-text">行转列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数：LATERAL-VIEW-explode"><span class="nav-number">2.1.</span> <span class="nav-text">函数：LATERAL VIEW explode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#假设有表t，每行表示学生迟到的日期明细"><span class="nav-number">2.2.</span> <span class="nav-text">假设有表t，每行表示学生迟到的日期明细</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#现在需要统计每天迟到的学生数，需要先拆分多行"><span class="nav-number">2.3.</span> <span class="nav-text">现在需要统计每天迟到的学生数，需要先拆分多行</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#列转行-函数max结合case-when"><span class="nav-number">1.</span> <span class="nav-text">列转行:函数max结合case when</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#假设有表t，表示学生各科的成绩表"><span class="nav-number">1.1.</span> <span class="nav-text">假设有表t，表示学生各科的成绩表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一行展示学生信息"><span class="nav-number">1.2.</span> <span class="nav-text">一行展示学生信息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用union将上述输出结果还原"><span class="nav-number">2.</span> <span class="nav-text">用union将上述输出结果还原</span></a></li></ol></div>
             
 
           </div>

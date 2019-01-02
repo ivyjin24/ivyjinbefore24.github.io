@@ -239,247 +239,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/matplotlib数据可视化/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IvyJin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="数据分析笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/27/matplotlib数据可视化/" itemprop="url">matplotlib数据可视化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T19:09:07+08:00">
-                2018-11-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>作为一个转专业的分析师，入行之前做图表基本都是Excel搞定，所以在学习用python实现可视化的时候，总还是习惯对标到Excel来理解。在Excel里面插入图表，第一步是选择图表类型；然后添加表元素，表元素包含了图表标题、坐标轴标题、坐标轴、数据标签、网格线和图例；同时可以对修改颜色、移动表的位置等等……对于matplotlib来说，基本也是具备这些功能的，目前也计划根据这个逻辑逐步梳理出来，方便之后的查询和代码复用。</p>
-</blockquote>
-<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment"># 解决中文乱码问题</span></span><br><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>]=[<span class="string">'SimHei'</span>]</span><br><span class="line"><span class="comment"># 解决负号显示不正常问题</span></span><br><span class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>]=<span class="keyword">False</span></span><br></pre></td></tr></table></figure>
-<h1 id="选择图表类型"><a href="#选择图表类型" class="headerlink" title="选择图表类型"></a>选择图表类型</h1><table>
-<thead>
-<tr>
-<th>图表类型</th>
-<th>调用方式</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>折线图</td>
-<td>plt.plot</td>
-<td></td>
-</tr>
-<tr>
-<td>直方图</td>
-<td>plt.hist</td>
-<td></td>
-</tr>
-<tr>
-<td>散点图</td>
-<td>plt.scatter</td>
-<td></td>
-</tr>
-<tr>
-<td>饼状图</td>
-<td>plt.pie</td>
-<td></td>
-</tr>
-<tr>
-<td>堆积条形图</td>
-<td>plt.bar</td>
-<td>依次列举需要展示的y，其中y的bottom为上一个条形图的y值</td>
-</tr>
-</tbody>
-</table>
-<h1 id="图表元素参数"><a href="#图表元素参数" class="headerlink" title="图表元素参数"></a>图表元素参数</h1><h2 id="情况1：直接用plt-plot"><a href="#情况1：直接用plt-plot" class="headerlink" title="情况1：直接用plt.plot"></a>情况1：直接用plt.plot</h2><table>
-<thead>
-<tr>
-<th>图表元素</th>
-<th>参数</th>
-<th>案例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>位置</td>
-<td>axes</td>
-<td>plt.axes([0.2,0.2,0.5,0.5])</td>
-</tr>
-<tr>
-<td>颜色</td>
-<td>color</td>
-<td>plt.plot(x,y,color=’red’)</td>
-</tr>
-<tr>
-<td>图例名称</td>
-<td>label</td>
-<td>plt.plot(x,y,label=’x’)</td>
-</tr>
-<tr>
-<td>透明度</td>
-<td>alpha</td>
-<td>plt.hist(x,color=’red’,alpha=0.7)</td>
-</tr>
-<tr>
-<td>坐标轴名称</td>
-<td>plt.xlabel/ylabel</td>
-<td>plt.xlabel(‘日期’)</td>
-</tr>
-<tr>
-<td>坐标轴范围</td>
-<td>plt.xlim/ylim</td>
-<td>plt.xlim(1,4)</td>
-</tr>
-<tr>
-<td>图例</td>
-<td>plt.legend(loc=’best’)</td>
-<td>plt.legend(loc=’best’),其中loc是调整图例位置的</td>
-</tr>
-<tr>
-<td>数据标签</td>
-<td>plt.text(x, y, s, fontdict=None, withdash=False, **kwargs),其中x,y是坐标，s是数据标签</td>
-</tr>
-</tbody>
-</table>
-<p>修改坐标轴间隔<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">start, end = ax.get_xlim() <span class="comment">#取出坐标轴起止值</span></span><br><span class="line">ax.xaxis.set_ticks(np.arange(start, end, <span class="number">7</span>)) <span class="comment">#x轴刻度从起始到终止，步长为7</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="情况2：引入画布"><a href="#情况2：引入画布" class="headerlink" title="情况2：引入画布"></a>情况2：引入画布</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建画布</span></span><br><span class="line">plt.figure(figsize=(<span class="number">15</span>,<span class="number">10</span>)) <span class="comment">#大小为15*10的画布</span></span><br><span class="line"><span class="comment"># 创建子图</span></span><br><span class="line">ax = plt.subplot(<span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span>) <span class="comment">#把画布切割为3*4的画布，这里表示占用第1个位置</span></span><br><span class="line">ax = plt.subplot(<span class="number">3</span>,<span class="number">4</span>,<span class="number">8</span>)  <span class="comment">#这里表示占用第8个位置</span></span><br><span class="line">ax = plt.subplot(<span class="number">3</span>,<span class="number">4</span>,<span class="number">12</span>)  <span class="comment">#这里表示占用第12个位置</span></span><br><span class="line"><span class="comment"># 设置子图的标题</span></span><br><span class="line">ax.set_title(<span class="string">'图1'</span>)</span><br><span class="line"><span class="comment"># 设置取值范围</span></span><br><span class="line">ax.set_xlim(<span class="number">1</span>,<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 如果是直方图，可以直接指定每一段的取值范围，且可实现不均等分</span></span><br><span class="line">ax.hist(data[<span class="string">'x'</span>],  [<span class="number">-0.5</span>, <span class="number">-0.45</span>,<span class="number">-0.4</span>,<span class="number">-0.35</span>, <span class="number">-0.3</span>,<span class="number">-0.25</span>,<span class="number">-0.2</span>,<span class="number">-0.15</span>,<span class="number">-0.1</span>,<span class="number">-0.05</span>,<span class="number">0</span>,<span class="number">0.05</span>,<span class="number">0.1</span>,<span class="number">0.15</span>,<span class="number">0.2</span>,<span class="number">0.25</span>,<span class="number">0.3</span>,<span class="number">0.35</span>,<span class="number">0.4</span>,<span class="number">0.45</span>,<span class="number">0.5</span>],histtype=<span class="string">'bar'</span>,alpha=<span class="number">0.75</span>,rwidth=<span class="number">0.8</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h1><h2 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fig,ax=plt.subplots(figsize=(<span class="number">6</span>,<span class="number">6</span>))</span><br><span class="line">ax.plot(df[<span class="string">'petal length'</span>],color=<span class="string">'blue'</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">'Specimen Number'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'petal length'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_title(<span class="string">'Petal length plot'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
-<h2 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单个直方图</span></span><br><span class="line">fig,ax = plt.subplots(figsize=(<span class="number">6</span>,<span class="number">4</span>))</span><br><span class="line">ax.hist(df[<span class="string">'petal width'</span>],color = <span class="string">'black'</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'Count'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">'Width'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">plt.title(<span class="string">'Iris Petal Width'</span>,fontsize=<span class="number">14</span>,y=<span class="number">1.01</span>)</span><br><span class="line">show()</span><br><span class="line"></span><br><span class="line"><span class="comment">#  对每列生成直方图</span></span><br><span class="line">fig,ax = plt.subplots(<span class="number">2</span>,<span class="number">2</span>,figsize=(<span class="number">6</span>,<span class="number">4</span>))</span><br><span class="line">ax[<span class="number">0</span>][<span class="number">0</span>].hist(df[<span class="string">'petal width'</span>],color=<span class="string">'black'</span>)</span><br><span class="line">ax[<span class="number">0</span>][<span class="number">1</span>].hist(df[<span class="string">'petal length'</span>],color=<span class="string">'black'</span>)</span><br><span class="line">ax[<span class="number">1</span>][<span class="number">0</span>].hist(df[<span class="string">'sepal width'</span>],color=<span class="string">'black'</span>)</span><br><span class="line">ax[<span class="number">1</span>][<span class="number">1</span>].hist(df[<span class="string">'sepal length'</span>],color=<span class="string">'black'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
-<h2 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fig,ax=plt.subplots(figsize=(<span class="number">6</span>,<span class="number">6</span>))</span><br><span class="line">ax.scatter(df[<span class="string">'petal width'</span>],df[<span class="string">'petal length'</span>],color=<span class="string">'blue'</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">'Width'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'length'</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_title(<span class="string">'Petal Scatterplot'</span>)</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
-<h1 id="堆积条形图"><a href="#堆积条形图" class="headerlink" title="堆积条形图"></a>堆积条形图</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">fig,ax=plt.subplots(figsize=(<span class="number">6</span>,<span class="number">6</span>))</span><br><span class="line">bar_width = <span class="number">.8</span></span><br><span class="line">labels = [x <span class="keyword">for</span> x <span class="keyword">in</span> df.columns <span class="keyword">if</span> <span class="string">'length'</span> <span class="keyword">in</span> x <span class="keyword">or</span> <span class="string">'width'</span> <span class="keyword">in</span> x]</span><br><span class="line">print(df[<span class="string">'class'</span>].unique())</span><br><span class="line">ver_y = [df[df[<span class="string">'class'</span>]==<span class="string">'Iris-versicolor'</span>][x].mean() <span class="keyword">for</span> x <span class="keyword">in</span> labels]</span><br><span class="line">vir_y = [df[df[<span class="string">'class'</span>]==<span class="string">'Iris-virginica'</span>][x].mean() <span class="keyword">for</span> x <span class="keyword">in</span> labels]</span><br><span class="line">set_y = [df[df[<span class="string">'class'</span>]==<span class="string">'Iris-setosa'</span>][x].mean() <span class="keyword">for</span> x <span class="keyword">in</span> labels]</span><br><span class="line">x = np.arange(len(labels))</span><br><span class="line">ax.bar(x,vir_y,bar_width,bottom=set_y,color=<span class="string">'darkgrey'</span>)</span><br><span class="line">ax.bar(x,set_y,bar_width,bottom=ver_y,color=<span class="string">'blue'</span>)</span><br><span class="line">ax.bar(x,ver_y,bar_width,color=<span class="string">'red'</span>)</span><br><span class="line">ax.set_xticks(x + (bar_width/<span class="number">2</span>))</span><br><span class="line">ax.set_xticklabels(labels,rotation = <span class="number">-70</span>,fontsize=<span class="number">12</span>)</span><br><span class="line">ax.set_title(<span class="string">'Mean Feature Meausurement By Class'</span>,y=<span class="number">1.01</span>)</span><br><span class="line">ax.legend([<span class="string">'Iris-virginica'</span>,<span class="string">'Iris-setosa'</span>,<span class="string">'Iris-versicolor'</span>])</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
-<h1 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">y = <span class="number">11</span>-x</span><br><span class="line">plt.bar(x, y)</span><br><span class="line"><span class="comment"># 循环，为每个柱形添加文本标注</span></span><br><span class="line">print(x,y)</span><br><span class="line"><span class="comment"># 居中对齐</span></span><br><span class="line"><span class="keyword">for</span> xx, yy <span class="keyword">in</span> zip(x,y):</span><br><span class="line">    plt.text(xx, yy+<span class="number">0.1</span>, str(round(yy,<span class="number">2</span>)), ha=<span class="string">'center'</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p><a href="http://www.runoob.com/w3cnote/matplotlib-tutorial.html" target="_blank" rel="noopener">Matplotlib教程</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/26/numpy数组操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2390,6 +2149,147 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/09/sklearn算法封装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IvyJin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="数据分析笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/09/sklearn算法封装/" itemprop="url">sklearn算法封装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-09T23:47:53+08:00">
+                2018-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-sklearn中KNN算法封装"><a href="#1-sklearn中KNN算法封装" class="headerlink" title="1.sklearn中KNN算法封装"></a>1.sklearn中KNN算法封装</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> math <span class="keyword">as</span> sqrt</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">kNNClassifier</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,k)</span>:</span></span><br><span class="line">        <span class="keyword">assert</span> k&gt;=<span class="number">1</span>,<span class="string">"k must be valid"</span></span><br><span class="line">        self.k = k</span><br><span class="line">        self._X_train = <span class="keyword">None</span></span><br><span class="line">        self._y_train = <span class="keyword">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self,X_train,y_train)</span>:</span></span><br><span class="line">        <span class="keyword">assert</span> X_train.shape[<span class="number">0</span>] == y_train.shape[<span class="number">0</span>],\</span><br><span class="line">            <span class="string">"the size of X_train must be equal to the size or y_train"</span></span><br><span class="line">        <span class="keyword">assert</span> self.k &lt;= X_train.shape[<span class="number">0</span>],\</span><br><span class="line">            <span class="string">"the size of X_train must be at least k"</span></span><br><span class="line">        self._X_train = X_train</span><br><span class="line">        self._y_train = y_train</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self,X_predict)</span>:</span></span><br><span class="line">        <span class="keyword">assert</span> self._X_train <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span> <span class="keyword">and</span> self._y_train <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>,\</span><br><span class="line">            <span class="string">"must fit before predict!"</span></span><br><span class="line">        <span class="keyword">assert</span> X_predict.shape[<span class="number">1</span>] == self._X_train.shape[<span class="number">1</span>],\</span><br><span class="line">            <span class="string">"the feature number of X_predict must be equal to X_train"</span></span><br><span class="line">        y_predict = [self._predict(x) <span class="keyword">for</span> x <span class="keyword">in</span> X_predict]</span><br><span class="line">        <span class="keyword">return</span> np.array(y_predict)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_predict</span><span class="params">(self,x)</span>:</span></span><br><span class="line">        <span class="keyword">assert</span> x.shape[<span class="number">0</span>] == self._X_train.shape[<span class="number">1</span>],\</span><br><span class="line">            <span class="string">"the feature number of x must be equal to X_train"</span></span><br><span class="line">        distances = [sqrt(np.sum((x_train -x ) ** <span class="number">2</span>))</span><br><span class="line">                     <span class="keyword">for</span> x_train <span class="keyword">in</span> self._X_train]</span><br><span class="line">        nearest = np.argsort(distances)</span><br><span class="line">        </span><br><span class="line">        topK_Y = [self._y_train[i] <span class="keyword">for</span> i <span class="keyword">in</span> nearest[:self.k]]</span><br><span class="line">        votes = Counter(topK_y)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> votes.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"KNN(k=%d)"</span> % self.k</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2466,7 +2366,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -2510,7 +2410,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

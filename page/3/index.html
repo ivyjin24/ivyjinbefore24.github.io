@@ -2226,6 +2226,296 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/03/Excel中Vlookup函数的应用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IvyJin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="数据分析笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/03/Excel中Vlookup函数的应用/" itemprop="url">Excel中Vlookup函数的应用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T22:00:11+08:00">
+                2018-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Excel/" itemprop="url" rel="index">
+                    <span itemprop="name">Excel</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="函数说明"><a href="#函数说明" class="headerlink" title="函数说明"></a>函数说明</h1><p>VLOOKUP(查询依据,查询范围,返回内容,匹配方式)</p>
+<p>举一个栗子，假设需要在几个会议室找到一个同事，而你只知道同事的姓名（假设没有重名情况），那么上述参数对应的内容便是</p>
+<blockquote>
+<p>查询依据，是指用于匹配的内容，这里是同事的姓名<br>查询范围，指在什么范围内查找，这里是所有办公室<br>返回内容，是指匹配完成后需要返回的列，为相对位置，这里返回这个同事所在的办公室<br>匹配方式，0为精确匹配，1为模糊匹配</p>
+</blockquote>
+<h1 id="基本应用举例"><a href="#基本应用举例" class="headerlink" title="基本应用举例"></a>基本应用举例</h1><p>假设sheet1中有学生名单</p>
+<table>
+<thead>
+<tr>
+<th>学号</th>
+<th>名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1201</td>
+<td>张三</td>
+</tr>
+<tr>
+<td>1202</td>
+<td>李四</td>
+</tr>
+<tr>
+<td>1203</td>
+<td>王五</td>
+</tr>
+<tr>
+<td>1204</td>
+<td>赵六</td>
+</tr>
+</tbody>
+</table>
+<p>sheet2中有学生成绩</p>
+<table>
+<thead>
+<tr>
+<th>学号</th>
+<th>成绩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1201</td>
+<td>60</td>
+</tr>
+<tr>
+<td>1202</td>
+<td>70</td>
+</tr>
+<tr>
+<td>1203</td>
+<td>80</td>
+</tr>
+<tr>
+<td>1204</td>
+<td>90</td>
+</tr>
+</tbody>
+</table>
+<p>在sheet1中输入下面的内容就可以得到想要的结果<br>=VLOOKUP(K2,Sheet2!A:B,2,0)</p>
+<h1 id="模糊匹配和精确匹配"><a href="#模糊匹配和精确匹配" class="headerlink" title="模糊匹配和精确匹配"></a>模糊匹配和精确匹配</h1><p>精确匹配会返回完全匹配的结果<br>模糊匹配返回小于 lookup_value 的最大数值<br>这里用一个相亲的案例来说：</p>
+<p>男生名单在sheet1</p>
+<table>
+<thead>
+<tr>
+<th>年龄</th>
+<th>姓名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20</td>
+<td>张三</td>
+</tr>
+<tr>
+<td>25</td>
+<td>李四</td>
+</tr>
+<tr>
+<td>30</td>
+<td>王五</td>
+</tr>
+<tr>
+<td>38</td>
+<td>赵六</td>
+</tr>
+</tbody>
+</table>
+<p>女生名单在sheet2</p>
+<table>
+<thead>
+<tr>
+<th>年龄</th>
+<th>姓名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20</td>
+<td>翠花</td>
+</tr>
+<tr>
+<td>27</td>
+<td>小红</td>
+</tr>
+<tr>
+<td>30</td>
+<td>小李</td>
+</tr>
+</tbody>
+</table>
+<p>用精确匹配和模糊匹配得到的结果分别如下：</p>
+<table>
+<thead>
+<tr>
+<th>年龄</th>
+<th>姓名</th>
+<th>精确匹配</th>
+<th>模糊匹配</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20</td>
+<td>张三</td>
+<td>翠花</td>
+<td>翠花</td>
+</tr>
+<tr>
+<td>25</td>
+<td>李四</td>
+<td>#N/A</td>
+<td>翠花</td>
+</tr>
+<tr>
+<td>30</td>
+<td>王五</td>
+<td>小李</td>
+<td>小李</td>
+</tr>
+<tr>
+<td>38</td>
+<td>赵六</td>
+<td>#N/A</td>
+<td>小李</td>
+</tr>
+</tbody>
+</table>
+<p>需要注意的是，如果查询的表按照顺序排列，返回的是小于 lookup_value 的最大数值，如果没有的话，结果就有点不可描述了~~</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/02/tableau表函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2378,150 +2668,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/25/Excel中偷懒的技术/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IvyJin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="数据分析笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/25/Excel中偷懒的技术/" itemprop="url">Excel中偷懒的技术</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T15:48:14+08:00">
-                2018-04-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Excel/" itemprop="url" rel="index">
-                    <span itemprop="name">Excel</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="将多单元格内容合并到一个单元格"><a href="#将多单元格内容合并到一个单元格" class="headerlink" title="将多单元格内容合并到一个单元格"></a>将多单元格内容合并到一个单元格</h1><h2 id="PHONETIC函数"><a href="#PHONETIC函数" class="headerlink" title="PHONETIC函数"></a>PHONETIC函数</h2><p>用法：在单元格输入=PHONETIC(合并范围即可)，例如<br><img src="/2018/04/25/Excel中偷懒的技术/PHONETIC.png" alt="图示"></p>
-<h2 id="连字符-amp"><a href="#连字符-amp" class="headerlink" title="连字符&amp;"></a>连字符&amp;</h2><p>用法：通过连字符依次链接需要组合的单元格，例如<br><img src="/2018/04/25/Excel中偷懒的技术/连字符.png" alt="连字符"></p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://zhuanlan.zhihu.com/p/28195028" target="_blank" rel="noopener">单元格合并-知乎</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2576,7 +2722,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2598,7 +2744,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

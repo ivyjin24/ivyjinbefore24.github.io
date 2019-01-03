@@ -1406,7 +1406,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/python时间序列/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/时间序列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IvyJin">
@@ -1425,7 +1425,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/29/python时间序列/" itemprop="url">python时间序列</a></h1>
+                <a class="post-title-link" href="/2018/11/29/时间序列/" itemprop="url">时间序列</a></h1>
         
 
         <div class="post-meta">
@@ -1460,8 +1460,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -1540,23 +1540,23 @@
 <h2 id="MA模型"><a href="#MA模型" class="headerlink" title="MA模型"></a>MA模型</h2><p>自相关系数ACF具有q阶截尾性<br>偏自相关系数PACF具有拖尾性</p>
 <h2 id="ARMA模型"><a href="#ARMA模型" class="headerlink" title="ARMA模型"></a>ARMA模型</h2><p>自相关系数ACF具有拖尾性<br>偏自相关系数PACF具有拖尾性</p>
 <h2 id="ARIMA"><a href="#ARIMA" class="headerlink" title="ARIMA"></a>ARIMA</h2><p>ARIMA(p,d,q):d表示使非平稳时间序列，成为平稳序列所做的<strong>差分次数</strong>（阶数）</p>
-<h1 id="python主要时序模式算法"><a href="#python主要时序模式算法" class="headerlink" title="python主要时序模式算法"></a>python主要时序模式算法</h1><p><img src="/2018/11/29/python时间序列/model.png" alt="model"></p>
+<h1 id="python主要时序模式算法"><a href="#python主要时序模式算法" class="headerlink" title="python主要时序模式算法"></a>python主要时序模式算法</h1><p><img src="/2018/11/29/时间序列/model.png" alt="model"></p>
 <h1 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h1><h2 id="step1：数据准备"><a href="#step1：数据准备" class="headerlink" title="step1：数据准备"></a>step1：数据准备</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 库导入</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> DataFrame,Series</span><br><span class="line"><span class="comment"># 数据读取</span></span><br><span class="line">data = pd.read_csv(<span class="string">'data.csv'</span>,index_col=<span class="string">u'date'</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="step2：时序图"><a href="#step2：时序图" class="headerlink" title="step2：时序图"></a>step2：时序图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment"># 解决中文乱码问题</span></span><br><span class="line">plt.rcParams[<span class="string">'font.family'</span>]=[<span class="string">'DejaVu Sans'</span>]</span><br><span class="line"><span class="comment"># 解决负号显示不正常问题</span></span><br><span class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>]=<span class="keyword">False</span></span><br><span class="line">data.plot()</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/11/29/python时间序列/step2.png" alt="step2"></p>
+<p><img src="/2018/11/29/时间序列/step2.png" alt="step2"></p>
 <h2 id="step3：自相关图"><a href="#step3：自相关图" class="headerlink" title="step3：自相关图"></a>step3：自相关图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> statsmodels.graphics.tsaplots <span class="keyword">import</span> plot_acf</span><br><span class="line">plot_acf(data).show()</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/11/29/python时间序列/step3.png" alt="step3"></p>
+<p><img src="/2018/11/29/时间序列/step3.png" alt="step3"></p>
 <h2 id="step4：平稳性检测"><a href="#step4：平稳性检测" class="headerlink" title="step4：平稳性检测"></a>step4：平稳性检测</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> statsmodels.tsa.stattools <span class="keyword">import</span> adfuller <span class="keyword">as</span> ADF</span><br><span class="line">print(ADF(data[<span class="string">'numbers'</span>]))</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>(-0.36238843167758167, 0.9161917029835999, 15, 547, {‘1%’: -3.4423614311926514, ‘5%’: -2.866838307535097, ‘10%’: -2.56959181953083}, 9882.374666014583)</p>
 </blockquote>
 <h2 id="step5：差分"><a href="#step5：差分" class="headerlink" title="step5：差分"></a>step5：差分</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一阶差分</span></span><br><span class="line">D_data = data.diff().dropna()</span><br><span class="line">D_data.plot()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自相关图</span></span><br><span class="line">plot_acf(D_data).show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 偏自相关图</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.graphics.tsaplots <span class="keyword">import</span> plot_pacf</span><br><span class="line">plot_pacf(D_data).show()</span><br></pre></td></tr></table></figure>
-<h3 id="一阶差分后数据稳定"><a href="#一阶差分后数据稳定" class="headerlink" title="一阶差分后数据稳定"></a>一阶差分后数据稳定</h3><p><img src="/2018/11/29/python时间序列/step5-1.png" alt="step5-1"></p>
-<h3 id="自相关图：p-1后呈拖尾性"><a href="#自相关图：p-1后呈拖尾性" class="headerlink" title="自相关图：p=1后呈拖尾性"></a>自相关图：p=1后呈拖尾性</h3><p><img src="/2018/11/29/python时间序列/step5-2.png" alt="step5-2"></p>
-<h3 id="偏自相关图：q-0呈截尾性"><a href="#偏自相关图：q-0呈截尾性" class="headerlink" title="偏自相关图：q=0呈截尾性"></a>偏自相关图：q=0呈截尾性</h3><p><img src="/2018/11/29/python时间序列/step5-3.png" alt="step5-3"></p>
+<h3 id="一阶差分后数据稳定"><a href="#一阶差分后数据稳定" class="headerlink" title="一阶差分后数据稳定"></a>一阶差分后数据稳定</h3><p><img src="/2018/11/29/时间序列/step5-1.png" alt="step5-1"></p>
+<h3 id="自相关图：p-1后呈拖尾性"><a href="#自相关图：p-1后呈拖尾性" class="headerlink" title="自相关图：p=1后呈拖尾性"></a>自相关图：p=1后呈拖尾性</h3><p><img src="/2018/11/29/时间序列/step5-2.png" alt="step5-2"></p>
+<h3 id="偏自相关图：q-0呈截尾性"><a href="#偏自相关图：q-0呈截尾性" class="headerlink" title="偏自相关图：q=0呈截尾性"></a>偏自相关图：q=0呈截尾性</h3><p><img src="/2018/11/29/时间序列/step5-3.png" alt="step5-3"></p>
 <h2 id="step6：白噪声检验"><a href="#step6：白噪声检验" class="headerlink" title="step6：白噪声检验"></a>step6：白噪声检验</h2><p>白噪声检验现在还看不太懂，先记一下计算方法<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> statsmodels.stats.diagnostic <span class="keyword">import</span> acorr_ljungbox</span><br><span class="line">print(<span class="string">'差分序列ADF检验结果为:'</span>,acorr_ljungbox(D_data,lags=<span class="number">1</span>))</span><br></pre></td></tr></table></figure></p>
 <h2 id="step6：建模"><a href="#step6：建模" class="headerlink" title="step6：建模"></a>step6：建模</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> statsmodels.tsa.arima_model <span class="keyword">import</span>  ARIMA</span><br><span class="line">model = ARIMA(data,(<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>)).fit()</span><br><span class="line"><span class="comment"># 模型输出</span></span><br><span class="line">model.summary2()</span><br><span class="line"><span class="comment"># 预测未来5天的结果</span></span><br><span class="line">print(model.forecast(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
-<h3 id="模型结果"><a href="#模型结果" class="headerlink" title="模型结果"></a>模型结果</h3><p><img src="/2018/11/29/python时间序列/step6.png" alt="step6"></p>
+<h3 id="模型结果"><a href="#模型结果" class="headerlink" title="模型结果"></a>模型结果</h3><p><img src="/2018/11/29/时间序列/step6.png" alt="step6"></p>
 <h3 id="预测结果"><a href="#预测结果" class="headerlink" title="预测结果"></a>预测结果</h3><blockquote>
 <p>(array([35408.68736862, 35465.68377014, 35518.15893015, 35570.75203915,<br>       35623.34207112]), array([2381.65577403, 3324.52622994, 4054.65005489, 4672.01275504,<br>       5216.8212946 ]), array([[30740.72782795, 40076.64690929],<br>       [28949.73209379, 41981.63544649],<br>       [27571.19085266, 43465.12700765],<br>       [26413.77530396, 44727.72877433],<br>       [25398.56021992, 45848.12392231]]))</p>
 </blockquote>

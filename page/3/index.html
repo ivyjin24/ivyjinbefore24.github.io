@@ -239,6 +239,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/09/KNN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IvyJin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="数据分析笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/09/KNN/" itemprop="url">KNN</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-09T23:47:53+08:00">
+                2018-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="K近邻算法"><a href="#K近邻算法" class="headerlink" title="K近邻算法"></a>K近邻算法</h1><h2 id="KNN思路"><a href="#KNN思路" class="headerlink" title="KNN思路"></a>KNN思路</h2><p>如果一个样本在特征空间中的k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别，则该样本也属于这个类别。<br>假设raw_data_X是根据肿瘤的长和宽<br>raw_data_y是肿瘤的分类，其中0是良性，1是恶性<br>模拟数据<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">raw_data_X =[[<span class="number">3.3935</span>,<span class="number">2.3312</span>],</span><br><span class="line">            [<span class="number">3.1101</span>,<span class="number">1.7815</span>],</span><br><span class="line">            [<span class="number">1.3438</span>,<span class="number">3.3684</span>],</span><br><span class="line">            [<span class="number">3.5823</span>,<span class="number">4.6792</span>],</span><br><span class="line">            [<span class="number">2.2804</span>,<span class="number">2.8670</span>],</span><br><span class="line">            [<span class="number">7.4234</span>,<span class="number">4.6965</span>],</span><br><span class="line">            [<span class="number">5.7450</span>,<span class="number">3.5340</span>],</span><br><span class="line">            [<span class="number">9.1722</span>,<span class="number">2.5111</span>],</span><br><span class="line">            [<span class="number">7.7928</span>,<span class="number">3.4241</span>],</span><br><span class="line">            [<span class="number">7.9398</span>,<span class="number">0.7916</span>]]</span><br><span class="line">raw_data_y = [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">X_train = np.array(raw_data_X)</span><br><span class="line">y_train = np.array(raw_data_y)</span><br></pre></td></tr></table></figure></p>
+<p>查看训练数据的分布情况<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(X_train[y_train==<span class="number">0</span>,<span class="number">0</span>],X_train[y_train==<span class="number">0</span>,<span class="number">1</span>],color=<span class="string">'g'</span>)</span><br><span class="line">plt.scatter(X_train[y_train==<span class="number">1</span>,<span class="number">0</span>],X_train[y_train==<span class="number">1</span>,<span class="number">1</span>],color=<span class="string">'r'</span>)</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/10/09/KNN/demo_1.png" alt="demo_1"></p>
+<p>现在增加了一个点，查看在样本数据中的分布情况<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(X_train[y_train==<span class="number">0</span>,<span class="number">0</span>],X_train[y_train==<span class="number">0</span>,<span class="number">1</span>],color=<span class="string">'g'</span>)</span><br><span class="line">plt.scatter(X_train[y_train==<span class="number">1</span>,<span class="number">0</span>],X_train[y_train==<span class="number">1</span>,<span class="number">1</span>],color=<span class="string">'r'</span>)</span><br><span class="line">plt.scatter(x[<span class="number">0</span>],x[<span class="number">1</span>],color=<span class="string">'b'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>可以看到，周围点的分类都为1，则这个样例的分类也为1<br><img src="/2018/10/09/KNN/demo_2.png" alt="demo_2"></p>
+<h2 id="KNN过程"><a href="#KNN过程" class="headerlink" title="KNN过程"></a>KNN过程</h2><p>计算两个点的距离：欧拉距离<br>平面距离 = sqrt((X<sup>(a)</sup> - X<sup>(b)</sup>)<sup>2</sup> + (y<sup>(a)</sup> - y<sup>(b)</sup>)<sup>2</sup>)<br>立体距离 = sqrt((X<sup>(a)</sup> - X<sup>(b)</sup>)<sup>2</sup> + (y<sup>(a)</sup> - y<sup>(b)</sup>)<sup>2</sup> + (z<sup>(a)</sup> - z<sup>(b)</sup>)<sup>2</sup>)<br>特征向量 = sqrt((X<sub>1</sub><sup>(a)</sup> - X<sub>2</sub><sup>(b)</sup>)<sup>2</sup> + (X<sub>2</sub><sup>(a)</sup> - X<sub>2</sub><sup>(b)</sup>)<sup>2</sup> + …… + (X<sub>3</sub><sup>(a)</sup> - X<sub>3</sub><sup>(b)</sup>)<sup>2</sup>)</p>
+<p>python代码为<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line"><span class="comment"># 方法1：for循环</span></span><br><span class="line">distances = []</span><br><span class="line"><span class="keyword">for</span> x_train <span class="keyword">in</span> X_train:</span><br><span class="line">    d = sqrt(np.sum(x_train-x)**<span class="number">2</span>)</span><br><span class="line">    distances.append(d)</span><br><span class="line"><span class="comment"># 方法2：</span></span><br><span class="line">distances = [sqrt(np.sum((x_train-x)**<span class="number">2</span>)) <span class="keyword">for</span> x_train <span class="keyword">in</span> X_train]</span><br></pre></td></tr></table></figure></p>
+<p>找出距离最近点的分类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nearest = np.argsort(distances)</span><br><span class="line">k = <span class="number">6</span> </span><br><span class="line">topK_y = [y_train[i] <span class="keyword">for</span> i <span class="keyword">in</span> nearest[:k]]</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">votes = Counter(topK_y)</span><br><span class="line"><span class="comment"># 输出数量最多的分类</span></span><br><span class="line">votes.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<h1 id="sklearn中的应用"><a href="#sklearn中的应用" class="headerlink" title="sklearn中的应用"></a>sklearn中的应用</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"><span class="comment"># 传入n_neighbors参数</span></span><br><span class="line">KNN_classifier = KNeighborsClassifier(n_neighbors=<span class="number">6</span>)</span><br><span class="line"><span class="comment"># 模型训练</span></span><br><span class="line">KNN_classifier.fit(X_train,y_train)</span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">X_predict = x.reshape(<span class="number">1</span>,<span class="number">-1</span>)</span><br><span class="line">KNN_classifier.predict(X_predict)</span><br></pre></td></tr></table></figure>
+<h1 id="sklearn中KNN算法封装"><a href="#sklearn中KNN算法封装" class="headerlink" title="sklearn中KNN算法封装"></a>sklearn中KNN算法封装</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> math <span class="keyword">as</span> sqrt</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">kNNClassifier</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,k)</span>:</span></span><br><span class="line">        <span class="keyword">assert</span> k&gt;=<span class="number">1</span>,<span class="string">"k must be valid"</span></span><br><span class="line">        self.k = k</span><br><span class="line">        self._X_train = <span class="keyword">None</span></span><br><span class="line">        self._y_train = <span class="keyword">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self,X_train,y_train)</span>:</span></span><br><span class="line">        <span class="keyword">assert</span> X_train.shape[<span class="number">0</span>] == y_train.shape[<span class="number">0</span>],\</span><br><span class="line">            <span class="string">"the size of X_train must be equal to the size or y_train"</span></span><br><span class="line">        <span class="keyword">assert</span> self.k &lt;= X_train.shape[<span class="number">0</span>],\</span><br><span class="line">            <span class="string">"the size of X_train must be at least k"</span></span><br><span class="line">        self._X_train = X_train</span><br><span class="line">        self._y_train = y_train</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self,X_predict)</span>:</span></span><br><span class="line">        <span class="keyword">assert</span> self._X_train <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span> <span class="keyword">and</span> self._y_train <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>,\</span><br><span class="line">            <span class="string">"must fit before predict!"</span></span><br><span class="line">        <span class="keyword">assert</span> X_predict.shape[<span class="number">1</span>] == self._X_train.shape[<span class="number">1</span>],\</span><br><span class="line">            <span class="string">"the feature number of X_predict must be equal to X_train"</span></span><br><span class="line">        y_predict = [self._predict(x) <span class="keyword">for</span> x <span class="keyword">in</span> X_predict]</span><br><span class="line">        <span class="keyword">return</span> np.array(y_predict)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_predict</span><span class="params">(self,x)</span>:</span></span><br><span class="line">        <span class="keyword">assert</span> x.shape[<span class="number">0</span>] == self._X_train.shape[<span class="number">1</span>],\</span><br><span class="line">            <span class="string">"the feature number of x must be equal to X_train"</span></span><br><span class="line">        distances = [sqrt(np.sum((x_train -x ) ** <span class="number">2</span>))</span><br><span class="line">                     <span class="keyword">for</span> x_train <span class="keyword">in</span> self._X_train]</span><br><span class="line">        nearest = np.argsort(distances)</span><br><span class="line">        </span><br><span class="line">        topK_Y = [self._y_train[i] <span class="keyword">for</span> i <span class="keyword">in</span> nearest[:self.k]]</span><br><span class="line">        votes = Counter(topK_y)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> votes.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"KNN(k=%d)"</span> % self.k</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/12/sql行列转化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2503,171 +2655,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/02/tableau表函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IvyJin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="数据分析笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/02/tableau表函数/" itemprop="url">Tableau表函数LOD</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-02T00:45:00+08:00">
-                2018-05-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tableau/" itemprop="url" rel="index">
-                    <span itemprop="name">tableau</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h1><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>用法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>FIXED</td>
-<td>此表达式使用指定的维度计算值，而不引用视图中的任何其他维度</td>
-</tr>
-<tr>
-<td>INCLUDE</td>
-<td>此级别的详细信息表达式使用指定的维度以及视图中的任何维度来计算值</td>
-</tr>
-<tr>
-<td>EXCLUDE</td>
-<td>这些级别的细节表达式从视图细节级别中减去维度</td>
-</tr>
-</tbody>
-</table>
-<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><p>Q:筛选条件对fixed无效<br>A:点击筛选条件，选择应用于工作表就好啦~</p>
-<p>[参考资料]（<a href="https://www.w3cschool.cn/Tableau/tableau_lod_expressions.html）" target="_blank" rel="noopener">https://www.w3cschool.cn/Tableau/tableau_lod_expressions.html）</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2722,7 +2709,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2733,7 +2720,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2744,7 +2731,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
